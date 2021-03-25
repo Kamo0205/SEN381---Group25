@@ -1,0 +1,7 @@
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\bin\Debug\SEN381 P3.exe.config
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\bin\Debug\SEN381 P3.exe
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\bin\Debug\SEN381 P3.pdb
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\obj\Debug\SEN381 P3.csprojResolveAssemblyReference.cache
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\obj\Debug\SEN381 P3.csproj.CoreCompileInputs.cache
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\obj\Debug\SEN381 P3.exe
+C:\Users\Riaan\Desktop\SEN381\My work\SEN381 P3\SEN381 P3\SEN381 P3\obj\Debug\SEN381 P3.pdb
