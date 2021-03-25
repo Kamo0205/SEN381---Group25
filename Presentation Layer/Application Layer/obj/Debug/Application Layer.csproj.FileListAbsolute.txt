@@ -1,0 +1,6 @@
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\bin\Debug\Application Layer.dll
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\bin\Debug\Application Layer.pdb
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\obj\Debug\Application Layer.csprojAssemblyReference.cache
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\obj\Debug\Application Layer.csproj.CoreCompileInputs.cache
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\obj\Debug\Application Layer.dll
+C:\Users\Kamo\Documents\SEN381_2\Presentation Layer\Application Layer\obj\Debug\Application Layer.pdb
