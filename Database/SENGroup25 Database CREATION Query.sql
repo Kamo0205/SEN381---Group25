@@ -31,6 +31,7 @@ GO
 CREATE Table tblEmployee
 (
 EmpID INT IDENTITY PRIMARY KEY,
+ContractID INT FOREIGN KEY REFERENCES tblContract(ContractID),
 EmpName VARCHAR(30) NOT NULL,
 EmpSurname VARCHAR(30) NOT NULL, 
 VatIDNumber VARCHAR(10) NOT NULL,
@@ -45,7 +46,7 @@ ClientID INT FOREIGN KEY REFERENCES tblClient(ClientID),
 EmpID INT FOREIGN KEY REFERENCES tblEmployee(EmpID),
 JobDescription VARCHAR(100) NOT NULL,
 JobType VARCHAR(10) NOT NULL,
-JobStatus VARCHAR(10) NOT NULL 
+JobStatus VARCHAR(10) NOT NULL
 )
 GO
 CREATE Table tblSkills
@@ -57,7 +58,24 @@ SkillType VARCHAR(10) NOT NULL
 GO
 CREATE Table tblEmployeeSkills
 (
-EmployeeSkillID INT IDENTITY PRIMARY KEY,
 EmpID INT FOREIGN KEY REFERENCES tblEmployee(EmpID),
 SkillID INT FOREIGN KEY REFERENCES tblSkills(SkillID)
+)
+GO 
+CREATE Table tblContract
+(
+ContractID INT IDENTITY PRIMARY KEY,
+ServiceLevel VARCHAR(20),
+ExperationDate DATE
+)
+GO
+CREATE Table tblEquipment
+(
+EquipmentID INT IDENTITY PRIMARY KEY,
+)
+GO 
+CREATE Table tblJobEquipment
+(
+EquipmentID INT FOREIGN KEY REFERENCES tblEquipment(EquipmentID),
+JobID INT FOREIGN KEY REFERENCES tblJob(JobID)
 )
