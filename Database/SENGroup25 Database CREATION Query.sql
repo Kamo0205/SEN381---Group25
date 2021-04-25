@@ -17,21 +17,28 @@ MAXSIZE= 10GB
 )
 GO
 USE SENGroup25DB
+GO 
+CREATE Table tblContract
+(
+ContractID VARCHAR(30) PRIMARY KEY NOT NULL,
+ServiceLevel VARCHAR(20),
+ExperationDate DATE
+)
 GO
 CREATE Table tblClient
 (
 ClientID VARCHAR(30) PRIMARY KEY NOT NULL,
-ClientName VARCHAR(30)NOT NULL,
-ClientSurname VARCHAR(30)NOT NULL,
+ContractID VARCHAR(30) FOREIGN KEY REFERENCES tblContract(ContractID),
+ClientName VARCHAR(30) NOT NULL,
+ClientSurname VARCHAR(30) NOT NULL,
 ClientAddress VARCHAR(100) NOT NULL, 
-Email VARCHAR(50),
+Email VARCHAR(50) NOT NULL,
 ContactNumber VARCHAR(12)
 )
 GO 
 CREATE Table tblEmployee
 (
 EmpID VARCHAR(30) PRIMARY KEY NOT NULL,
-ContractID INT FOREIGN KEY REFERENCES tblContract(ContractID),
 EmpName VARCHAR(30) NOT NULL,
 EmpSurname VARCHAR(30) NOT NULL, 
 VatIDNumber VARCHAR(10) NOT NULL,
@@ -42,8 +49,8 @@ GO
 CREATE Table tblJob
 (
 JobID VARCHAR(30) PRIMARY KEY NOT NULL,
-ClientID INT FOREIGN KEY REFERENCES tblClient(ClientID),
-EmpID INT FOREIGN KEY REFERENCES tblEmployee(EmpID),
+ClientID VARCHAR(30) FOREIGN KEY REFERENCES tblClient(ClientID),
+EmpID VARCHAR(30) FOREIGN KEY REFERENCES tblEmployee(EmpID),
 JobDescription VARCHAR(100) NOT NULL,
 JobType VARCHAR(10) NOT NULL,
 JobStatus VARCHAR(10) NOT NULL
@@ -61,17 +68,11 @@ CREATE Table tblEmployeeSkills
 EmpID VARCHAR(30) FOREIGN KEY REFERENCES tblEmployee(EmpID) NOT NULL,
 SkillID VARCHAR(30) FOREIGN KEY REFERENCES tblSkills(SkillID)  NOT NULL
 )
-GO 
-CREATE Table tblContract
-(
-ContractID VARCHAR(30) PRIMARY KEY NOT NULL,
-ServiceLevel VARCHAR(20),
-ExperationDate DATE
-)
 GO
 CREATE Table tblEquipment
 (
 EquipmentID VARCHAR(30) PRIMARY KEY NOT NULL,
+EquipmentDescription VARCHAR(80) NOT NULL
 )
 GO 
 CREATE Table tblJobEquipment

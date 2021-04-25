@@ -5,12 +5,12 @@ GO
 /* Employee data retrieval stored procedures */
 
 CREATE PROCEDURE spGetEmpByID
-@empID INT
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblEmployee
-WHERE EmpID = @empID
+WHERE EmpID = @id
 END
 
 GO
@@ -86,12 +86,12 @@ GO
 /* Client data retrieval stored procedures */
 
 CREATE PROCEDURE spGetClientByID
-@clientID INT
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblClient
-WHERE ClientID = @clientID
+WHERE ClientID = @id
 END
 
 GO
@@ -127,6 +127,17 @@ FROM tblClient
 WHERE ContactNumber = @number
 END
 
+GO
+
+CREATE PROCEDURE spGetClientByContractID
+@id VARCHAR(30)
+AS
+BEGIN
+SELECT * 
+FROM tblClient
+WHERE ContractID = @id
+END
+
 
 /* Client-ID data retrieval stored procedures */
 
@@ -157,34 +168,34 @@ GO
 /* Job data retrieval stored procedures */
 
 CREATE PROCEDURE spGetJobByID
-@jobID INT
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblJob
-WHERE JobID = @jobID
+WHERE JobID = @id
 END
 
 GO
 
 CREATE PROCEDURE spListJobsByClientID
-@clientID int
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblJob
-WHERE ClientID = @clientID
+WHERE ClientID = @id
 END
 
 GO
 
 CREATE PROCEDURE spListJobsByEmpID
-@empID int
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblJob
-WHERE EmpID = @empID
+WHERE EmpID = @id
 END
 
 GO
@@ -225,23 +236,23 @@ GO
 /* Skill data retrieval stored procedures */
 
 CREATE PROCEDURE spGetSkillByID
-@skillID INT
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblSkills
-WHERE SkillID = @skillID
+WHERE SkillID = @id
 END
 
 GO
 
 CREATE PROCEDURE spGetSkillByEmpID
-@empID int
+@id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblSkills
-WHERE (SELECT SkillID FROM tblEmployeeSkills WHERE EmpID = @empID) = SkillID
+WHERE (SELECT SkillID FROM tblEmployeeSkills WHERE EmpID = @id) = SkillID
 END
 
 GO
@@ -265,3 +276,84 @@ SELECT *
 FROM tblSkills
 WHERE SkillType = @type
 END 
+
+GO
+
+/* Equipment */
+
+CREATE PROCEDURE spGetEquipmentByID
+@id VARCHAR(30)
+AS 
+BEGIN
+SELECT *
+FROM tblEquipment
+WHERE EquipmentID = @id
+END
+
+GO
+
+CREATE PROCEDURE spGetEquipmentByDescription
+@description VARCHAR(80)
+AS
+BEGIN
+SELECT *
+FROM tblEquipment
+WHERE EquipmentDescription = @description
+END
+
+GO
+
+CREATE PROCEDURE spListEquipmentByJob
+@jobID VARCHAR(30)
+AS
+BEGIN
+SELECT *
+FROM tblEquipment
+WHERE (SELECT EquipmentID FROM tblJobEquipment WHERE JobID = @jobID) = EquipmentID
+END
+
+GO
+
+/* Contract */
+
+CREATE PROCEDURE spGetContractByID
+@id VARCHAR(30)
+AS
+BEGIN
+SELECT *
+FROM tblContract
+WHERE ContractID = @id
+END
+
+GO 
+
+CREATE PROCEDURE spListContractsByServiceLevel
+@serviceLevel VARCHAR(20)
+AS
+BEGIN
+SELECT *
+FROM tblContract
+WHERE ServiceLevel = @serviceLevel
+END
+
+GO 
+
+CREATE PROCEDURE spGetContractByExperationDate
+@date DATE
+AS
+BEGIN
+SELECT *
+FROM tblContract
+WHERE ExperationDate = @date
+END
+
+GO
+
+CREATE PROCEDURE spListClientContracts
+@id VARCHAR(30)
+AS
+BEGIN
+SELECT ContractID
+FROM tblClient
+WHERE ContractID = @id
+END

@@ -4,21 +4,21 @@ GO
 
 CREATE PROCEDURE spDeleteClient
 (
-@clientID INT
+@id VARCHAR(30)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblJob WHERE ClientID = @clientID)
+			IF EXISTS(SELECT * FROM tblJob WHERE ClientID = @id)
 			BEGIN
 			DELETE FROM tblJob
-			WHERE ClientID = @clientID 
+			WHERE ClientID = @id 
 			END
 
 			DELETE FROM tblClient 
-			WHERE ClientID=@clientID
+			WHERE ClientID=@id
 
 		COMMIT
 		PRINT 'spDeleteClient Transaction Successful'
@@ -33,28 +33,28 @@ GO
 
 CREATE PROCEDURE spDeleteEmployee
 (
-@empID INT 
+@id VARCHAR(30)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE EmpID = @empID)
+			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE EmpID = @id)
 			BEGIN
 			DELETE FROM tblEmployeeSkills
-			WHERE EmpID = @empID
+			WHERE EmpID = @id
 			END
 
-			IF EXISTS(SELECT * FROM tblJob WHERE EmpID = @empID)
+			IF EXISTS(SELECT * FROM tblJob WHERE EmpID = @id)
 			BEGIN
 			UPDATE tblJob
 			SET JobStatus = 'UNASSIGNED', EmpID = NULL
-			WHERE EmpID = @empID
+			WHERE EmpID = @id
 			END
 
 			DELETE FROM tblEmployee 
-			WHERE EmpID=@empID
+			WHERE EmpID=@id
 
 		COMMIT
 		PRINT 'spDeleteEmployee Transaction Successful'
@@ -69,15 +69,21 @@ GO
 
 CREATE PROCEDURE spDeleteJob
 (
-@jobID INT
+@id VARCHAR(30)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
+			IF EXISTS(SELECT * FROM tblJobEquipment WHERE JobID = @id)
+			BEGIN
+			DELETE FROM tblJobEquipment
+			WHERE JobID = @id
+			END
+
 			DELETE FROM tblJob
-			WHERE JobID = @jobID
+			WHERE JobID = @id
 
 		COMMIT
 		PRINT 'spDeleteJob Transaction Successful'
@@ -92,21 +98,21 @@ GO
 
 CREATE PROCEDURE spDeleteSkill
 (
-@skillID INT
+@id VARCHAR(30)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE SkillID = @skillID)
+			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE SkillID = @id)
 			BEGIN
 			DELETE FROM tblEmployeeSkills
-			WHERE SkillID = @skillID
+			WHERE SkillID = @id
 			END
 
 			DELETE FROM tblSkills 
-			WHERE SkillID = @skillID
+			WHERE SkillID = @id
 
 		COMMIT
 		PRINT 'spDeleteSkill Transaction Successful'
@@ -114,5 +120,34 @@ BEGIN
 	BEGIN CATCH
 		ROLLBACK
 		PRINT 'spDeleteSkill Transaction UNSUCCSESSFUL'
+	END CATCH
+END
+
+GO
+
+CREATE PROCEDURE spDeleteEquipment
+(
+@id VARCHAR(30)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			IF EXISTS(SELECT * FROM tblJobEquipment WHERE EquipmentID = @id)
+			BEGIN
+			DELETE FROM tblJobEquipment
+			WHERE EquipmentID = @id
+			END
+
+			DELETE FROM tblEquipment 
+			WHERE EquipmentID = @id
+
+		COMMIT
+		PRINT 'spDeleteEquipment Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spDeleteEquipment Transaction UNSUCCSESSFUL'
 	END CATCH
 END 
