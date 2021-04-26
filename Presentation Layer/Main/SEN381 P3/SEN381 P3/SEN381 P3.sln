@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEN381 P3", "SEN381 P3\SEN381 P3.csproj", "{EE337423-9EF3-46B1-AB56-FB492D9BC119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{16D30429-C01C-4DAB-85FA-666439872C11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EE337423-9EF3-46B1-AB56-FB492D9BC119}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE337423-9EF3-46B1-AB56-FB492D9BC119}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE337423-9EF3-46B1-AB56-FB492D9BC119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D30429-C01C-4DAB-85FA-666439872C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D30429-C01C-4DAB-85FA-666439872C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D30429-C01C-4DAB-85FA-666439872C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D30429-C01C-4DAB-85FA-666439872C11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
