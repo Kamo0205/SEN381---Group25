@@ -114,17 +114,16 @@ GO
 
 CREATE PROCEDURE spInsertEmployeeSkill
 (
-@id VARCHAR(30),
-@empID INT,
-@skillID INT
+@empID VARCHAR(30),
+@skillID VARCHAR(30)
 )
 AS 
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblEmployeeSkills(EmpID,EmpID,SkillID)
-			VALUES(@empID,@empID,@skillID)
+			INSERT INTO tblEmployeeSkills(EmpID,SkillID)
+			VALUES(@empID,@skillID)
 
 		COMMIT
 		PRINT 'spInsertEmployeeSkill Transaction Successful'
