@@ -97,7 +97,7 @@ namespace Data_Access_Layer.Datahandler
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("spCreateEmployeeSkill", conn);
+                SqlCommand cmd = new SqlCommand("spInsertEmployeeSkill", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@empID", empID);
                 cmd.Parameters.AddWithValue("@skillID", skillID);
