@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEN381 P3", "SEN381 P3\SEN381 P3.csproj", "{EE337423-9EF3-46B1-AB56-FB492D9BC119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{16D30429-C01C-4DAB-85FA-666439872C11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Access_Layer", "DataAccessLayer\Data_Access_Layer.csproj", "{16D30429-C01C-4DAB-85FA-666439872C11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
