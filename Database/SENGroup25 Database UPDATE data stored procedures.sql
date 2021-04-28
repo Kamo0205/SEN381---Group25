@@ -39,7 +39,7 @@ END
 
 GO
 
-CREATE PROCEDURE spUpdateClientName
+/*CREATE PROCEDURE spUpdateClientName
 (
 @id VARCHAR(30),
 @name VARCHAR(30)
@@ -62,8 +62,6 @@ BEGIN
 		PRINT 'spUpdateClientName Transaction UNSUCCESSFUL'
 	END CATCH
 END
-
-GO
 
 GO
 
@@ -193,9 +191,9 @@ BEGIN
 		ROLLBACK
 		PRINT 'spUpdateClientContractID Transaction UNSUCCESSFUL'
 	END CATCH
-END 
+END
 
-GO
+GO */
 
 /* Employee */
 
@@ -233,7 +231,7 @@ END
 
 GO
 
-CREATE PROCEDURE spUpdateEmpName
+/*CREATE PROCEDURE spUpdateEmpName
 (
 @id VARCHAR(30),
 @name VARCHAR(30)
@@ -361,7 +359,7 @@ BEGIN
 	END CATCH
 END
 
-GO
+GO*/
 
 /* Job */
 
@@ -395,7 +393,7 @@ END
 
 GO
 
-CREATE PROCEDURE spUpdateJobClient
+/*CREATE PROCEDURE spUpdateJobClient
 (
 @id VARCHAR(30),
 @clientID INT
@@ -471,7 +469,7 @@ BEGIN
 	END CATCH
 END
 
-GO
+GO */
 
 /* Skill */
 
@@ -486,7 +484,7 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			UPDATE tblSkills 
+			UPDATE tblSkill
 			SET 
 			SkillDescription = @description,
 			SkillType = @type
@@ -503,7 +501,7 @@ END
 
 GO
 
-CREATE PROCEDURE spUpdateSkillDescription
+/*CREATE PROCEDURE spUpdateSkillDescription
 (
 @id VARCHAR(30),
 @description VARCHAR(100)
@@ -553,7 +551,7 @@ BEGIN
 	END CATCH
 END
 
-GO
+GO*/
 
 /* Contract */
 
@@ -585,7 +583,7 @@ END
 
 GO
 
-CREATE PROCEDURE spUpdateContractServiceLevel
+/*CREATE PROCEDURE spUpdateContractServiceLevel
 (
 @id VARCHAR(30),
 @serviceLevel VARCHAR(80)
@@ -636,7 +634,7 @@ BEGIN
 END
 
 
-GO
+GO*/
 
 /* Equipment */
 
@@ -678,7 +676,7 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			UPDATE tblEmployeeSkills 
+			UPDATE tblEmployeeSkill
 			SET 
 			EmpID = @empID
 			WHERE SkillID = @skillID

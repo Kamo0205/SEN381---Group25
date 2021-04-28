@@ -98,7 +98,7 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblSkills(SkillID,SkillDescription,SkillType)
+			INSERT INTO tblSkill(SkillID,SkillDescription,SkillType)
 			VALUES(@id,@description,@type)
 
 		COMMIT
@@ -122,7 +122,7 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblEmployeeSkills(EmpID,SkillID)
+			INSERT INTO tblEmployeeSkill(EmpID,SkillID)
 			VALUES(@empID,@skillID)
 
 		COMMIT
@@ -156,30 +156,6 @@ BEGIN
 	BEGIN CATCH
 		ROLLBACK
 		PRINT 'spInsertContract Transaction UNSUCCESSFUL'
-	END CATCH
-END
-
-GO
-
-CREATE PROCEDURE spInsertEmployeeSkills
-(
-@employeeID VARCHAR(30),
-@skillID VARCHAR(30)
-)
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRANSACTION
-			
-			INSERT INTO tblEmployeeSkills(EmpID,SkillID)
-			VALUES(@employeeID,@skillID)
-
-		COMMIT
-		PRINT 'spInsertEmployeeSkills Transaction Successful'
-	END TRY
-	BEGIN CATCH
-		ROLLBACK
-		PRINT 'spInsertEmployeeSkills Transaction UNSUCCESSFUL'
 	END CATCH
 END
 

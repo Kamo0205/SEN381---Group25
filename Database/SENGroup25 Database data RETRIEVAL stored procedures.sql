@@ -54,7 +54,7 @@ AS
 BEGIN
 SELECT *
 FROM tblEmployee 
-WHERE (SELECT EmpID FROM tblEmployeeSkills WHERE (SELECT SkillID FROM tblSkills WHERE SkillType = @jobType)=SkillID) = EmpID
+WHERE (SELECT EmpID FROM tblEmployeeSkill WHERE (SELECT SkillID FROM tblSkill WHERE SkillType = @jobType)=SkillID) = EmpID
 END 
 
 /* Employee-ID data retrieval stored procedures */
@@ -85,7 +85,7 @@ GO
 
 /* Client data retrieval stored procedures */
 
-CREATE PROCEDURE spGetClientByID
+/*CREATE PROCEDURE spGetClientByID
 @id VARCHAR(30)
 AS
 BEGIN
@@ -94,7 +94,7 @@ FROM tblClient
 WHERE ClientID = @id
 END
 
-GO
+GO*/
 
 CREATE PROCEDURE spGetClientByEmail
 @email VARCHAR(50)
@@ -107,7 +107,7 @@ END
 
 GO
 
-CREATE PROCEDURE spGetClientByAddress
+/*CREATE PROCEDURE spGetClientByAddress
 @address VARCHAR(100)
 AS
 BEGIN
@@ -116,7 +116,7 @@ FROM tblClient
 WHERE ClientAddress = @address
 END
 
-GO
+GO*/
 
 CREATE PROCEDURE spGetClientByContactNumber
 @number VARCHAR(12)
@@ -211,7 +211,7 @@ END
 
 GO
 
-CREATE PROCEDURE spListJobsByDescription
+/*CREATE PROCEDURE spListJobsByDescription
 @description VARCHAR(100)
 AS
 BEGIN
@@ -231,7 +231,7 @@ FROM tblJob
 WHERE JobType = @type
 END
 
-GO
+GO*/
 
 /* Skill data retrieval stored procedures */
 
@@ -240,24 +240,24 @@ CREATE PROCEDURE spGetSkillByID
 AS
 BEGIN
 SELECT *
-FROM tblSkills
+FROM tblSkill
 WHERE SkillID = @id
 END
 
 GO
 
-CREATE PROCEDURE spGetSkillByEmpID
+CREATE PROCEDURE spListSkillsByEmpID
 @id VARCHAR(30)
 AS
 BEGIN
 SELECT *
-FROM tblSkills
-WHERE (SELECT SkillID FROM tblEmployeeSkills WHERE EmpID = @id) = SkillID
+FROM tblSkill
+WHERE (SELECT SkillID FROM tblEmployeeSkill WHERE EmpID = @id) = SkillID
 END
 
 GO
 
-CREATE PROCEDURE spGetSkillByDescription
+/*CREATE PROCEDURE spGetSkillByDescription
 @description VARCHAR(80)
 AS
 BEGIN
@@ -266,14 +266,14 @@ FROM tblSkills
 WHERE SkillDescription = @description
 END
 
-GO
+GO*/
 
 CREATE PROCEDURE spGetSkillByType
 @type VARCHAR(10)
 AS
 BEGIN
 SELECT *
-FROM tblSkills
+FROM tblSkill
 WHERE SkillType = @type
 END 
 
@@ -292,7 +292,7 @@ END
 
 GO
 
-CREATE PROCEDURE spGetEquipmentByDescription
+/*CREATE PROCEDURE spGetEquipmentByDescription
 @description VARCHAR(80)
 AS
 BEGIN
@@ -301,7 +301,7 @@ FROM tblEquipment
 WHERE EquipmentDescription = @description
 END
 
-GO
+GO*/
 
 CREATE PROCEDURE spListEquipmentByJob
 @jobID VARCHAR(30)
@@ -316,7 +316,7 @@ GO
 
 /* Contract */
 
-CREATE PROCEDURE spGetContractByID
+CREATE PROCEDURE spGetContractByClientID
 @id VARCHAR(30)
 AS
 BEGIN
@@ -325,9 +325,9 @@ FROM tblContract
 WHERE ContractID = @id
 END
 
-GO 
+GO
 
-CREATE PROCEDURE spListContractsByServiceLevel
+/*CREATE PROCEDURE spListContractsByServiceLevel
 @serviceLevel VARCHAR(20)
 AS
 BEGIN
@@ -355,5 +355,5 @@ AS
 BEGIN
 SELECT ContractID
 FROM tblClient
-WHERE ContractID = @id
-END
+WHERE ClientID = @id
+END*/

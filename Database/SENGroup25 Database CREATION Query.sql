@@ -56,17 +56,17 @@ JobType VARCHAR(10) NOT NULL,
 JobStatus VARCHAR(10) NOT NULL
 )
 GO
-CREATE Table tblSkills
+CREATE Table tblSkill
 (
 SkillID VARCHAR(30) PRIMARY KEY NOT NULL,
 SkillDescription VARCHAR(80) NOT NULL,
 SkillType VARCHAR(10) NOT NULL
 )
 GO
-CREATE Table tblEmployeeSkills
+CREATE Table tblEmployeeSkill
 (
 EmpID VARCHAR(30) FOREIGN KEY REFERENCES tblEmployee(EmpID) NOT NULL,
-SkillID VARCHAR(30) FOREIGN KEY REFERENCES tblSkills(SkillID)  NOT NULL
+SkillID VARCHAR(30) FOREIGN KEY REFERENCES tblSkill(SkillID)  NOT NULL
 )
 GO
 CREATE Table tblEquipment

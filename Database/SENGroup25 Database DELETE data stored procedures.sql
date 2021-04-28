@@ -40,9 +40,9 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE EmpID = @id)
+			IF EXISTS(SELECT * FROM tblEmployeeSkill WHERE EmpID = @id)
 			BEGIN
-			DELETE FROM tblEmployeeSkills
+			DELETE FROM tblEmployeeSkill
 			WHERE EmpID = @id
 			END
 
@@ -105,13 +105,13 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblEmployeeSkills WHERE SkillID = @id)
+			IF EXISTS(SELECT * FROM tblEmployeeSkill WHERE SkillID = @id)
 			BEGIN
-			DELETE FROM tblEmployeeSkills
+			DELETE FROM tblEmployeeSkill
 			WHERE SkillID = @id
 			END
 
-			DELETE FROM tblSkills 
+			DELETE FROM tblSkill
 			WHERE SkillID = @id
 
 		COMMIT
