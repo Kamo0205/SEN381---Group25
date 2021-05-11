@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace Data_Access_Layer.Datahandler
 {
-    class deleteHandler
+    class DeleteHandler
     {
         private SqlConnection conn;
 
-        public deleteHandler(string connection)
+        public DeleteHandler(string connection)
         {
             this.conn = new SqlConnection(connection);
         }

@@ -12,23 +12,13 @@ namespace PresentationLayer
 {
     public partial class FrmServiceDepartment : Form
     {
+        BindingSource jobBind = new BindingSource();
+        BindingSource employeeBind = new BindingSource();
+
         public FrmServiceDepartment()
         {
             InitializeComponent();
             setContext();
-            setData();
-        }
-
-        public void setData()
-        {
-            Dictionary<string, string> details = new Dictionary<string, string>();
-            if (details.Count > 0)
-            {
-                txtSkill.Text = details["skill"];
-                txtClassfication.Text = details["classification"];
-                txtEmployeeName.Text = details["firstName"];
-            }
-           
         }
 
         public void setContext()
@@ -47,7 +37,6 @@ namespace PresentationLayer
 
         private void lstTechnicians_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setData();
         }
 
         private void btnLockInTechnicians_Click(object sender, EventArgs e)

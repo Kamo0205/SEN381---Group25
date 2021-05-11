@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,11 +36,41 @@ namespace Data_Access_Layer
                 this.id = id;
         }
 
-        protected Person(string firstName, string lastName, string phoneNumber)
+        public Person(string id, string firstName, string lastName, string phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.phoneNumber = phoneNumber;
+            this.email = email;
+            if (id == null)
+                this.id = this.GetHashCode().ToString();
+            else
+                this.id = id;
+        }
+
+        public Person(DataTable data, int i)
+        {
+            this.firstName = data.Rows[i]["ClientName"].ToString();
+            this.address = data.Rows[i]["ClientAddress"].ToString();
+            this.lastName = data.Rows[i]["ClientSurname"].ToString();
+            this.phoneNumber = data.Rows[i]["ContactNumber"].ToString();
+            this.email = data.Rows[i]["Email"].ToString();
+            if (id == null)
+                this.id = this.GetHashCode().ToString();
+            else
+                this.id = data.Rows[i]["ClientID"].ToString();
+        }
+
+        public Person(int i, DataTable data)
+        {
+            this.firstName = data.Rows[i]["EmpName"].ToString();
+            this.lastName = data.Rows[i]["EmpSurname"].ToString();
+            this.phoneNumber = data.Rows[i]["ContactNumber"].ToString();
+            this.email = data.Rows[i]["Email"].ToString();
+            if (id == null)
+                this.id = this.GetHashCode().ToString();
+            else
+                this.id = data.Rows[i]["EmpID"].ToString();
         }
 
         private int CharToInt(string word)

@@ -10,22 +10,22 @@ namespace Data_Access_Layer
     public class DBAccess
     {
         SqlConnectionStringBuilder connection = new SqlConnectionStringBuilder();
-        createHandler createDataHandler;
-        deleteHandler deleteDataHandler;
-        readHandler readDataHandler;
-        updateHandler updateDataHandler;
+        CreateHandler createDataHandler;
+        DeleteHandler deleteDataHandler;
+        ReadHandler readDataHandler;
+        UpdateHandler updateDataHandler;
 
 
         public DBAccess()
         {
-            connection.DataSource = @"Placholder"; //the data source of the connection
-            connection.InitialCatalog = @"Placholder"; //the inital catalog of the connection
+            connection.DataSource = @"DESKTOP-CU14BKP\Silent-Shade"; //the data source of the connection
+            connection.InitialCatalog = @"SENGroup25DB"; //the inital catalog of the connection
             connection.IntegratedSecurity = true; //the integrated security of the connection
 
-            createDataHandler = new createHandler(connection.ToString());
-            deleteDataHandler = new deleteHandler(connection.ToString());
-            readDataHandler = new readHandler(connection.ToString());
-            updateDataHandler = new updateHandler(connection.ToString());
+            createDataHandler = new CreateHandler(connection.ToString());
+            deleteDataHandler = new DeleteHandler(connection.ToString());
+            readDataHandler = new ReadHandler(connection.ToString());
+            updateDataHandler = new UpdateHandler(connection.ToString());
         }
 
         public void CreateClient(Client client)

@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace Data_Access_Layer.Datahandler
 {
-    class createHandler
+    class CreateHandler
     {
         private SqlConnection conn;
 
-        public createHandler(string connection)
+        public CreateHandler(string connection)
         {
             this.conn = new SqlConnection(connection);
         }
@@ -22,7 +22,7 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spInsertClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", client.Id);
-                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
+                cmd.Parameters.AddWithValue("@contractID", client.Contract.ID);
                 cmd.Parameters.AddWithValue("@name", client.FirstName);
                 cmd.Parameters.AddWithValue("@surname", client.LastName);
                 cmd.Parameters.AddWithValue("@address", client.Address);

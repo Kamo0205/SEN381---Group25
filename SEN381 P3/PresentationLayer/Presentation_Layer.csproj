@@ -67,6 +67,12 @@
     <Compile Include="ClientSatisfaction.Designer.cs">
       <DependentUpon>ClientSatisfaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contract_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract_Screen.Designer.cs">
+      <DependentUpon>Contract_Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditCompanyData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientSatisfaction.resx">
       <DependentUpon>ClientSatisfaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract_Screen.resx">
+      <DependentUpon>Contract_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditCompanyData.resx">
       <DependentUpon>EditCompanyData.cs</DependentUpon>

@@ -4,11 +4,11 @@ using System.Data.SqlClient;
 
 namespace Data_Access_Layer.Datahandler
 {
-    class readHandler
+    class ReadHandler
     {
         private SqlConnection conn;
 
-        public readHandler(string connection)
+        public ReadHandler(string connection)
         {
             this.conn = new SqlConnection(connection);
         }

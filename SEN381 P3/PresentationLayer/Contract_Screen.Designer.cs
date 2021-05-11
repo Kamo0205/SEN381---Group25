@@ -1,6 +1,7 @@
-﻿namespace PresentationLayer
+﻿
+namespace PresentationLayer
 {
-    partial class FrmEditCompanyData
+    partial class Contract_Screen
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +29,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbChoice = new System.Windows.Forms.ComboBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlData = new System.Windows.Forms.Panel();
             this.pnlClientData = new System.Windows.Forms.Panel();
-            this.cmbClientContractType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblContractID = new System.Windows.Forms.Label();
             this.chkClientEdit = new System.Windows.Forms.CheckBox();
             this.btnClientClear = new System.Windows.Forms.Button();
             this.txtClientLocation = new System.Windows.Forms.TextBox();
-            this.lblClientLocation = new System.Windows.Forms.Label();
+            this.lblClientAdress = new System.Windows.Forms.Label();
             this.txtClientPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblClientPhoneNumber = new System.Windows.Forms.Label();
             this.txtClientContractType = new System.Windows.Forms.TextBox();
-            this.lblClientContractType = new System.Windows.Forms.Label();
+            this.lblServiceLevel = new System.Windows.Forms.Label();
             this.txtClientLastName = new System.Windows.Forms.TextBox();
             this.lblClientLastName = new System.Windows.Forms.Label();
             this.txtClientFirstName = new System.Windows.Forms.TextBox();
             this.lblClientFirstName = new System.Windows.Forms.Label();
             this.txtClientId = new System.Windows.Forms.TextBox();
-            this.lblClientID = new System.Windows.Forms.Label();
             this.btnClientRemove = new System.Windows.Forms.Button();
             this.btnClientUpdate = new System.Windows.Forms.Button();
             this.btnClientAdd = new System.Windows.Forms.Button();
             this.lstData = new System.Windows.Forms.ListBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.lblChoice = new System.Windows.Forms.Label();
+            this.lblContracts = new System.Windows.Forms.Label();
             this.pnlEmployeeData = new System.Windows.Forms.Panel();
             this.cmbEmployeeClassificaion = new System.Windows.Forms.ComboBox();
             this.cmbEmployeeSkill = new System.Windows.Forms.ComboBox();
@@ -73,22 +75,22 @@
             this.btnEmployeeRemove = new System.Windows.Forms.Button();
             this.btnEmployeeUpdate = new System.Windows.Forms.Button();
             this.btnEmployeeAdd = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.pnlData.SuspendLayout();
             this.pnlClientData.SuspendLayout();
             this.pnlEmployeeData.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cmbChoice
+            // btnBack
             // 
-            this.cmbChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoice.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbChoice.FormattingEnabled = true;
-            this.cmbChoice.Location = new System.Drawing.Point(157, 10);
-            this.cmbChoice.Name = "cmbChoice";
-            this.cmbChoice.Size = new System.Drawing.Size(148, 25);
-            this.cmbChoice.TabIndex = 0;
-            this.cmbChoice.SelectedIndexChanged += new System.EventHandler(this.cmbChoice_SelectedIndexChanged);
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(23, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 25;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // pnlData
             // 
@@ -96,29 +98,30 @@
             this.pnlData.Controls.Add(this.lstData);
             this.pnlData.Controls.Add(this.btnNext);
             this.pnlData.Controls.Add(this.btnPrev);
-            this.pnlData.Controls.Add(this.lblChoice);
-            this.pnlData.Location = new System.Drawing.Point(13, 41);
+            this.pnlData.Controls.Add(this.lblContracts);
+            this.pnlData.Location = new System.Drawing.Point(23, 42);
             this.pnlData.Name = "pnlData";
             this.pnlData.Size = new System.Drawing.Size(755, 397);
-            this.pnlData.TabIndex = 1;
+            this.pnlData.TabIndex = 24;
             // 
             // pnlClientData
             // 
-            this.pnlClientData.Controls.Add(this.cmbClientContractType);
+            this.pnlClientData.Controls.Add(this.label1);
+            this.pnlClientData.Controls.Add(this.textBox1);
+            this.pnlClientData.Controls.Add(this.lblContractID);
             this.pnlClientData.Controls.Add(this.chkClientEdit);
             this.pnlClientData.Controls.Add(this.btnClientClear);
             this.pnlClientData.Controls.Add(this.txtClientLocation);
-            this.pnlClientData.Controls.Add(this.lblClientLocation);
+            this.pnlClientData.Controls.Add(this.lblClientAdress);
             this.pnlClientData.Controls.Add(this.txtClientPhoneNumber);
             this.pnlClientData.Controls.Add(this.lblClientPhoneNumber);
             this.pnlClientData.Controls.Add(this.txtClientContractType);
-            this.pnlClientData.Controls.Add(this.lblClientContractType);
+            this.pnlClientData.Controls.Add(this.lblServiceLevel);
             this.pnlClientData.Controls.Add(this.txtClientLastName);
             this.pnlClientData.Controls.Add(this.lblClientLastName);
             this.pnlClientData.Controls.Add(this.txtClientFirstName);
             this.pnlClientData.Controls.Add(this.lblClientFirstName);
             this.pnlClientData.Controls.Add(this.txtClientId);
-            this.pnlClientData.Controls.Add(this.lblClientID);
             this.pnlClientData.Controls.Add(this.btnClientRemove);
             this.pnlClientData.Controls.Add(this.btnClientUpdate);
             this.pnlClientData.Controls.Add(this.btnClientAdd);
@@ -127,18 +130,34 @@
             this.pnlClientData.Size = new System.Drawing.Size(287, 341);
             this.pnlClientData.TabIndex = 5;
             // 
-            // cmbClientContractType
+            // label1
             // 
-            this.cmbClientContractType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbClientContractType.FormattingEnabled = true;
-            this.cmbClientContractType.Items.AddRange(new object[] {
-            "S",
-            "A",
-            "B"});
-            this.cmbClientContractType.Location = new System.Drawing.Point(140, 178);
-            this.cmbClientContractType.Name = "cmbClientContractType";
-            this.cmbClientContractType.Size = new System.Drawing.Size(121, 21);
-            this.cmbClientContractType.TabIndex = 22;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 15);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Email:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(11, 192);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 24;
+            // 
+            // lblContractID
+            // 
+            this.lblContractID.AutoSize = true;
+            this.lblContractID.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContractID.Location = new System.Drawing.Point(11, 12);
+            this.lblContractID.Name = "lblContractID";
+            this.lblContractID.Size = new System.Drawing.Size(75, 15);
+            this.lblContractID.TabIndex = 23;
+            this.lblContractID.Text = "Contract ID:";
             // 
             // chkClientEdit
             // 
@@ -151,7 +170,6 @@
             this.chkClientEdit.TabIndex = 21;
             this.chkClientEdit.Text = "Edit";
             this.chkClientEdit.UseVisualStyleBackColor = true;
-            this.chkClientEdit.CheckStateChanged += new System.EventHandler(this.chkEdit_CheckStateChanged);
             // 
             // btnClientClear
             // 
@@ -163,7 +181,6 @@
             this.btnClientClear.TabIndex = 20;
             this.btnClientClear.Text = "Clear";
             this.btnClientClear.UseVisualStyleBackColor = true;
-            this.btnClientClear.Click += new System.EventHandler(this.btnClientClear_Click);
             // 
             // txtClientLocation
             // 
@@ -174,15 +191,15 @@
             this.txtClientLocation.Size = new System.Drawing.Size(100, 22);
             this.txtClientLocation.TabIndex = 19;
             // 
-            // lblClientLocation
+            // lblClientAdress
             // 
-            this.lblClientLocation.AutoSize = true;
-            this.lblClientLocation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientLocation.Location = new System.Drawing.Point(137, 112);
-            this.lblClientLocation.Name = "lblClientLocation";
-            this.lblClientLocation.Size = new System.Drawing.Size(58, 15);
-            this.lblClientLocation.TabIndex = 18;
-            this.lblClientLocation.Text = "Location:";
+            this.lblClientAdress.AutoSize = true;
+            this.lblClientAdress.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientAdress.Location = new System.Drawing.Point(137, 112);
+            this.lblClientAdress.Name = "lblClientAdress";
+            this.lblClientAdress.Size = new System.Drawing.Size(56, 15);
+            this.lblClientAdress.TabIndex = 18;
+            this.lblClientAdress.Text = "Address:";
             // 
             // txtClientPhoneNumber
             // 
@@ -212,15 +229,15 @@
             this.txtClientContractType.Size = new System.Drawing.Size(100, 22);
             this.txtClientContractType.TabIndex = 15;
             // 
-            // lblClientContractType
+            // lblServiceLevel
             // 
-            this.lblClientContractType.AutoSize = true;
-            this.lblClientContractType.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientContractType.Location = new System.Drawing.Point(137, 12);
-            this.lblClientContractType.Name = "lblClientContractType";
-            this.lblClientContractType.Size = new System.Drawing.Size(84, 15);
-            this.lblClientContractType.TabIndex = 14;
-            this.lblClientContractType.Text = "Contract type:";
+            this.lblServiceLevel.AutoSize = true;
+            this.lblServiceLevel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServiceLevel.Location = new System.Drawing.Point(137, 12);
+            this.lblServiceLevel.Name = "lblServiceLevel";
+            this.lblServiceLevel.Size = new System.Drawing.Size(84, 15);
+            this.lblServiceLevel.TabIndex = 14;
+            this.lblServiceLevel.Text = "Service Level:";
             // 
             // txtClientLastName
             // 
@@ -237,9 +254,9 @@
             this.lblClientLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClientLastName.Location = new System.Drawing.Point(137, 62);
             this.lblClientLastName.Name = "lblClientLastName";
-            this.lblClientLastName.Size = new System.Drawing.Size(69, 15);
+            this.lblClientLastName.Size = new System.Drawing.Size(106, 15);
             this.lblClientLastName.TabIndex = 12;
-            this.lblClientLastName.Text = "Last Name:";
+            this.lblClientLastName.Text = "Client Last Name:";
             // 
             // txtClientFirstName
             // 
@@ -256,9 +273,9 @@
             this.lblClientFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClientFirstName.Location = new System.Drawing.Point(8, 62);
             this.lblClientFirstName.Name = "lblClientFirstName";
-            this.lblClientFirstName.Size = new System.Drawing.Size(72, 15);
+            this.lblClientFirstName.Size = new System.Drawing.Size(109, 15);
             this.lblClientFirstName.TabIndex = 10;
-            this.lblClientFirstName.Text = "First Name:";
+            this.lblClientFirstName.Text = "Client First Name:";
             // 
             // txtClientId
             // 
@@ -268,16 +285,7 @@
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Size = new System.Drawing.Size(100, 22);
             this.txtClientId.TabIndex = 9;
-            // 
-            // lblClientID
-            // 
-            this.lblClientID.AutoSize = true;
-            this.lblClientID.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientID.Location = new System.Drawing.Point(8, 12);
-            this.lblClientID.Name = "lblClientID";
-            this.lblClientID.Size = new System.Drawing.Size(24, 15);
-            this.lblClientID.TabIndex = 6;
-            this.lblClientID.Text = "ID:";
+            this.txtClientId.TextChanged += new System.EventHandler(this.txtClientId_TextChanged);
             // 
             // btnClientRemove
             // 
@@ -289,7 +297,6 @@
             this.btnClientRemove.TabIndex = 8;
             this.btnClientRemove.Text = "Remove";
             this.btnClientRemove.UseVisualStyleBackColor = true;
-            this.btnClientRemove.Click += new System.EventHandler(this.btnClientRemove_Click);
             // 
             // btnClientUpdate
             // 
@@ -301,7 +308,6 @@
             this.btnClientUpdate.TabIndex = 7;
             this.btnClientUpdate.Text = "Update";
             this.btnClientUpdate.UseVisualStyleBackColor = true;
-            this.btnClientUpdate.Click += new System.EventHandler(this.btnClientUpdate_Click);
             // 
             // btnClientAdd
             // 
@@ -313,7 +319,6 @@
             this.btnClientAdd.TabIndex = 6;
             this.btnClientAdd.Text = "Add";
             this.btnClientAdd.UseVisualStyleBackColor = true;
-            this.btnClientAdd.Click += new System.EventHandler(this.btnClientAdd_Click);
             // 
             // lstData
             // 
@@ -325,7 +330,6 @@
             this.lstData.Name = "lstData";
             this.lstData.Size = new System.Drawing.Size(431, 334);
             this.lstData.TabIndex = 6;
-            this.lstData.SelectedIndexChanged += new System.EventHandler(this.lstData_SelectedIndexChanged);
             // 
             // btnNext
             // 
@@ -337,7 +341,6 @@
             this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrev
             // 
@@ -349,17 +352,16 @@
             this.btnPrev.TabIndex = 3;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // lblChoice
+            // lblContracts
             // 
-            this.lblChoice.AutoSize = true;
-            this.lblChoice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChoice.Location = new System.Drawing.Point(10, 16);
-            this.lblChoice.Name = "lblChoice";
-            this.lblChoice.Size = new System.Drawing.Size(67, 22);
-            this.lblChoice.TabIndex = 1;
-            this.lblChoice.Text = "Choice";
+            this.lblContracts.AutoSize = true;
+            this.lblContracts.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContracts.Location = new System.Drawing.Point(10, 16);
+            this.lblContracts.Name = "lblContracts";
+            this.lblContracts.Size = new System.Drawing.Size(91, 22);
+            this.lblContracts.TabIndex = 1;
+            this.lblContracts.Text = "Contracts";
             // 
             // pnlEmployeeData
             // 
@@ -382,10 +384,10 @@
             this.pnlEmployeeData.Controls.Add(this.btnEmployeeRemove);
             this.pnlEmployeeData.Controls.Add(this.btnEmployeeUpdate);
             this.pnlEmployeeData.Controls.Add(this.btnEmployeeAdd);
-            this.pnlEmployeeData.Location = new System.Drawing.Point(464, 31);
+            this.pnlEmployeeData.Location = new System.Drawing.Point(474, 32);
             this.pnlEmployeeData.Name = "pnlEmployeeData";
             this.pnlEmployeeData.Size = new System.Drawing.Size(273, 362);
-            this.pnlEmployeeData.TabIndex = 22;
+            this.pnlEmployeeData.TabIndex = 26;
             // 
             // cmbEmployeeClassificaion
             // 
@@ -416,7 +418,6 @@
             this.chkEmployeeEdit.TabIndex = 21;
             this.chkEmployeeEdit.Text = "Edit";
             this.chkEmployeeEdit.UseVisualStyleBackColor = true;
-            this.chkEmployeeEdit.CheckStateChanged += new System.EventHandler(this.chkEmployeeEdit_CheckStateChanged);
             // 
             // btnEmployeeClear
             // 
@@ -428,7 +429,6 @@
             this.btnEmployeeClear.TabIndex = 20;
             this.btnEmployeeClear.Text = "Clear";
             this.btnEmployeeClear.UseVisualStyleBackColor = true;
-            this.btnEmployeeClear.Click += new System.EventHandler(this.btnEmployeeClear_Click);
             // 
             // txtEmployeeClassificaion
             // 
@@ -554,7 +554,6 @@
             this.btnEmployeeRemove.TabIndex = 8;
             this.btnEmployeeRemove.Text = "Remove";
             this.btnEmployeeRemove.UseVisualStyleBackColor = true;
-            this.btnEmployeeRemove.Click += new System.EventHandler(this.btnEmployeeRemove_Click);
             // 
             // btnEmployeeUpdate
             // 
@@ -566,7 +565,6 @@
             this.btnEmployeeUpdate.TabIndex = 7;
             this.btnEmployeeUpdate.Text = "Update";
             this.btnEmployeeUpdate.UseVisualStyleBackColor = true;
-            this.btnEmployeeUpdate.Click += new System.EventHandler(this.btnEmployeeUpdate_Click);
             // 
             // btnEmployeeAdd
             // 
@@ -578,37 +576,18 @@
             this.btnEmployeeAdd.TabIndex = 6;
             this.btnEmployeeAdd.Text = "Add";
             this.btnEmployeeAdd.UseVisualStyleBackColor = true;
-            this.btnEmployeeAdd.Click += new System.EventHandler(this.btnEmployeeAdd_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(13, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // FrmEditCompanyData
+            // Contract_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(779, 445);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlData);
-            this.Controls.Add(this.cmbChoice);
             this.Controls.Add(this.pnlEmployeeData);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "FrmEditCompanyData";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Company Data";
+            this.Name = "Contract_Screen";
+            this.Text = "Contract_Screen";
+            this.Load += new System.EventHandler(this.Contract_Screen_Load);
             this.pnlData.ResumeLayout(false);
             this.pnlData.PerformLayout();
             this.pnlClientData.ResumeLayout(false);
@@ -621,32 +600,32 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbChoice;
-        private System.Windows.Forms.Panel pnlData;
-        private System.Windows.Forms.Label lblChoice;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Panel pnlClientData;
-        private System.Windows.Forms.Label lblClientID;
-        private System.Windows.Forms.Button btnClientRemove;
-        private System.Windows.Forms.Button btnClientUpdate;
-        private System.Windows.Forms.Button btnClientAdd;
+        private System.Windows.Forms.CheckBox chkClientEdit;
+        private System.Windows.Forms.Button btnClientClear;
+        private System.Windows.Forms.TextBox txtClientLocation;
+        private System.Windows.Forms.Label lblClientAdress;
+        private System.Windows.Forms.TextBox txtClientPhoneNumber;
+        private System.Windows.Forms.Label lblClientPhoneNumber;
+        private System.Windows.Forms.TextBox txtClientContractType;
+        private System.Windows.Forms.Label lblServiceLevel;
         private System.Windows.Forms.TextBox txtClientLastName;
         private System.Windows.Forms.Label lblClientLastName;
         private System.Windows.Forms.TextBox txtClientFirstName;
         private System.Windows.Forms.Label lblClientFirstName;
         private System.Windows.Forms.TextBox txtClientId;
-        private System.Windows.Forms.TextBox txtClientContractType;
-        private System.Windows.Forms.Label lblClientContractType;
-        private System.Windows.Forms.TextBox txtClientLocation;
-        private System.Windows.Forms.Label lblClientLocation;
-        private System.Windows.Forms.TextBox txtClientPhoneNumber;
-        private System.Windows.Forms.Label lblClientPhoneNumber;
+        private System.Windows.Forms.Button btnClientRemove;
+        private System.Windows.Forms.Button btnClientUpdate;
+        private System.Windows.Forms.Button btnClientAdd;
         private System.Windows.Forms.ListBox lstData;
-        private System.Windows.Forms.Button btnClientClear;
-        private System.Windows.Forms.CheckBox chkClientEdit;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Label lblContracts;
         private System.Windows.Forms.Panel pnlEmployeeData;
+        private System.Windows.Forms.ComboBox cmbEmployeeClassificaion;
+        private System.Windows.Forms.ComboBox cmbEmployeeSkill;
         private System.Windows.Forms.CheckBox chkEmployeeEdit;
         private System.Windows.Forms.Button btnEmployeeClear;
         private System.Windows.Forms.TextBox txtEmployeeClassificaion;
@@ -664,9 +643,8 @@
         private System.Windows.Forms.Button btnEmployeeRemove;
         private System.Windows.Forms.Button btnEmployeeUpdate;
         private System.Windows.Forms.Button btnEmployeeAdd;
-        private System.Windows.Forms.ComboBox cmbClientContractType;
-        private System.Windows.Forms.ComboBox cmbEmployeeClassificaion;
-        private System.Windows.Forms.ComboBox cmbEmployeeSkill;
+        private System.Windows.Forms.Label lblContractID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
-

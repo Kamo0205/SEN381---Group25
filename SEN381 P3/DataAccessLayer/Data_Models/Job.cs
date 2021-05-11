@@ -43,7 +43,7 @@ namespace Data_Access_Layer
             foreach (char letter in word)
                 value += (int)letter;
             return value;
-        }
+        } 
 
         public override int GetHashCode()
         {
