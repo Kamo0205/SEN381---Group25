@@ -72,30 +72,25 @@ namespace Business_Logic_Layer
 
                 if (clientData != null || clientData!.IsInitialized)
                 {
-                    if (serviceLevel.Equals(serviceLevel.bronze))
+                    for (int i = 0; i < clientData.Rows.Count; i++)
                     {
-                        for (int i = 0; i < clientData.Rows.Count; i++)
+                        switch (serviceLevel)
                         {
-                            clients.Add(new Bronze(data: clientData, i: i));
+                            case serviceLevel.bronze:
+                                clients.Add(new Bronze(data: clientData, i: i));
+                                break;
+                            case serviceLevel.silver:
+                                clients.Add(new Silver(data: clientData, i: i));
+                                break;
+                            case serviceLevel.premium:
+                                clients.Add(new Premium(data: clientData, i: i));
+                                break;
+                            default:
+                                break;
                         }
-                        return clients;
+
                     }
-                    else if (serviceLevel.Equals(serviceLevel.silver))
-                    {
-                        for (int i = 0; i < clientData.Rows.Count; i++)
-                        {
-                            clients.Add(new Silver(data: clientData, i: i));
-                        }
-                        return clients;
-                    }
-                    else
-                    {
-                        for (int i = 0; i < clientData.Rows.Count; i++)
-                        {
-                            clients.Add(new Premium(data: clientData, i: i));
-                        }
-                        return clients;
-                    }
+                    return clients;
                 }
                 return null;
             }

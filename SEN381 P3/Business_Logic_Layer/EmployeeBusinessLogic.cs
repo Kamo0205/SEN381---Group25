@@ -7,6 +7,19 @@ using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
+    enum employeeType
+    {
+        admin,
+        callCenter,
+        technician
+    }
+
+    enum employeeSearchParamaters{
+        id,
+        email,
+        phone
+    }
+
     class EmployeeBusinessLogic
     {
         DBAccess db = new DBAccess();
@@ -39,16 +52,45 @@ namespace Business_Logic_Layer
             }
         }
 
-        List<Employee> searchEmployeesByContactNumber(String contactNumber)
+        List<Employee> searchEmployeesByParamater(employeeSearchParamaters employeeSearchParamaters,employeeType employeeType,String query)
         {
             try
             {
-                DataTable employeeData = db.GetEmployeeByContactNumber(contactNumber);
+                DataTable employeeData = new DataTable();
+
+                switch (employeeSearchParamaters)
+                {
+                    case employeeSearchParamaters.id:
+                        employeeData = db.GetEmployeeByID(id: query);
+                        break;
+                    case employeeSearchParamaters.email:
+                        employeeData = db.GetEmployeeByEmail(email: query);
+                        break;
+                    case employeeSearchParamaters.phone:
+                        employeeData = db.GetEmployeeByContactNumber(number: query);
+                        break;
+                    default:
+                        break;
+                }
+
                 if(employeeData != null || employeeData!.IsInitialized)
                 {
                     for (int i = 0; i < employeeData.Rows.Count; i++)
                     {
-                        employees.Add(new TechnicalStaff(i: i, data: employeeData, pay: new Pay(title: "Title", 600)));
+                        switch (employeeType)
+                        {
+                            case employeeType.admin:
+                                employees.Add(new Admin(i: i, data: employeeData, pay: new Pay(title: "Admin", 600)));
+                                break;
+                            case employeeType.callCenter:
+                                employees.Add(new CallCenterStaff(i: i, data: employeeData, pay: new Pay(title: "Call Center Staff", 600)));
+                                break;
+                            case employeeType.technician:
+                                employees.Add(new TechnicalStaff(i: i, data: employeeData, pay: new Pay(title: "Technical Staff", 600)));
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     return employees;
                 }
@@ -56,7 +98,7 @@ namespace Business_Logic_Layer
             }
             catch (Exception e)
             {
-                MessageBox.Show("EmployeeBusinessLogic : searchEmployeesByContactNumber ERROR:" + e.Message);
+                MessageBox.Show("EmployeeBusinessLogic : searchEmployeesByParamater ERROR:" + e.Message);
                 throw;
             }
         }
