@@ -4,10 +4,16 @@ using System.Data.SqlClient;
 namespace Data_Access_Layer.Datahandler
 {
     class deleteHandler
-    {   
-        public void DeleteClient(int id, string connection)
+    {
+        private SqlConnection conn;
+
+        public deleteHandler(string connection)
         {
-            SqlConnection conn = new SqlConnection(connection);
+            this.conn = new SqlConnection(connection);
+        }
+
+        public void DeleteClient(string id)
+        {
             try
             {
                 conn.Open();
@@ -29,9 +35,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void DeleteEmployee(int id, string connection)
+        public void DeleteEmployee(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
@@ -53,9 +58,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void DeleteEquipment(int id, string connection)
+        public void DeleteEquipment(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
@@ -77,9 +81,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void DeleteJob(int id, string connection)
+        public void DeleteJob(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
@@ -101,9 +104,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void DeleteSkill(int id, string connection)
+        public void DeleteSkill(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();

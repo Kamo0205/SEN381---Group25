@@ -6,9 +6,15 @@ namespace Data_Access_Layer.Datahandler
 {
     class readHandler
     {
-        public DataTable GetClientByAddress(string connection, string address)
+        private SqlConnection conn;
+
+        public readHandler(string connection)
         {
-            SqlConnection conn = new SqlConnection(connection);
+            this.conn = new SqlConnection(connection);
+        }
+
+        public DataTable GetClientByAddress(string address)
+        {
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
@@ -35,9 +41,8 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetClientByContactNumber(string connection, string number)
+        public DataTable GetClientByContactNumber(string number)
         {
-            SqlConnection conn = new SqlConnection(connection);
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
@@ -64,9 +69,8 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetClientByContractID(string connection, string id)
+        public DataTable GetClientByContractID(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
@@ -93,9 +97,8 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetClientByEmail(string connection, string email)
+        public DataTable GetClientByEmail(string email)
         {
-            SqlConnection conn = new SqlConnection(connection);
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
@@ -122,9 +125,8 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetClientByID(string connection, string id)
+        public DataTable GetClientByID(string id)
         {
-            SqlConnection conn = new SqlConnection(connection);
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
@@ -133,6 +135,230 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spGetClientByEmail", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetContractByID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetContractByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetEmployeeByContactNumber(string number)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetEmpByContactNumber", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@number", number);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetEmployeeByEmail(string email)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetEmpByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetEmployeeByID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetEmpByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetEquipmentByID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetEquipmentByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetJobByID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetJobByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetSkillByID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetSkillByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                //TODO throw and catch exception
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable GetSkillByType(string type)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetSkillByType", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@type", type);
                 sda.SelectCommand = cmd;
                 sda.FillSchema(output, SchemaType.Source);
                 sda.Fill(output);

@@ -9,11 +9,13 @@ namespace Data_Access_Layer
     public abstract class Client : Person
     {
         private string location;
-        private Contract contract;
+        private String contractID;
 
         public string Location { get => location; set => location = value; }
-        public Contract Contract { get => contract; set => contract = value; }
+        public String ContractID { get => contractID; set => contractID = value; }
 
-        public Client(string firstName, string lastName, string phoneNumber, string location) : base(firstName, lastName, phoneNumber) => this.location = location;
+        public Client(string firstName, string lastName, string phoneNumber, string location) : base(firstName, lastName, phoneNumber) {
+            this.location = location;
+        }
     }
 }

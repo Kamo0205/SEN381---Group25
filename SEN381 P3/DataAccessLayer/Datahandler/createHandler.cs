@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Data_Access_Layer.Data_Models;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,21 +7,27 @@ namespace Data_Access_Layer.Datahandler
 {
     class createHandler
     {
-        public void CreateClient(string connection, Dictionary<string, dynamic> clientMap)
+        private SqlConnection conn;
+
+        public createHandler(string connection)
         {
-            SqlConnection conn = new SqlConnection(connection);
+            this.conn = new SqlConnection(connection);
+        }
+
+        public void CreateClient(Client client)
+        {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", clientMap["id"]);
-                cmd.Parameters.AddWithValue("@contractID", clientMap["contractID"]);
-                cmd.Parameters.AddWithValue("@name", clientMap["name"]);
-                cmd.Parameters.AddWithValue("@surname", clientMap["surname"]);
-                cmd.Parameters.AddWithValue("@address", clientMap["address"]);
-                cmd.Parameters.AddWithValue("@email", clientMap["email"]);
-                cmd.Parameters.AddWithValue("@number", clientMap["number"]);
+                cmd.Parameters.AddWithValue("@id", client.Id);
+                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
+                cmd.Parameters.AddWithValue("@name", client.FirstName);
+                cmd.Parameters.AddWithValue("@surname", client.LastName);
+                cmd.Parameters.AddWithValue("@address", client.Address);
+                cmd.Parameters.AddWithValue("@email", client.Email);
+                cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -36,20 +43,19 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateEmployee(string connection, Dictionary<string, dynamic> employeeMap)
+        public void CreateEmployee(Employee employee)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertEmployee", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", employeeMap["id"]);
-                cmd.Parameters.AddWithValue("@name", employeeMap["name"]);
-                cmd.Parameters.AddWithValue("@surname", employeeMap["surname"]);
-                cmd.Parameters.AddWithValue("@vatID", employeeMap["vatID"]);
-                cmd.Parameters.AddWithValue("@email", employeeMap["email"]);
-                cmd.Parameters.AddWithValue("@number", employeeMap["number"]);
+                cmd.Parameters.AddWithValue("@id", employee.Id);
+                cmd.Parameters.AddWithValue("@name", employee.FirstName);
+                cmd.Parameters.AddWithValue("@surname", employee.LastName);
+                cmd.Parameters.AddWithValue("@vatID", employee.VatID);
+                cmd.Parameters.AddWithValue("@email", employee.VatID);
+                cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -65,17 +71,15 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateContract(string connection, Dictionary<string, dynamic> contractMap)
+        public void CreateContract(Contract contract)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertContract", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", contractMap["id"]);
-                cmd.Parameters.AddWithValue("@serviceLevel", contractMap["serviceLevel"]);
-                cmd.Parameters.AddWithValue("@experationDate", contractMap["experationDate"]);
+                cmd.Parameters.AddWithValue("@id", contract.ID);
+                cmd.Parameters.AddWithValue("@serviceLevel", contract.ServiceLevel);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -91,9 +95,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateEmployeeSkill(string connection, string empID, string skillID)
+        public void CreateEmployeeSkill(string empID, string skillID)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
@@ -116,16 +119,15 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateEquipment(string connection, Dictionary<string, dynamic> equipmentMap)
+        public void CreateEquipment(Equipment equipment)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertEquipment", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", equipmentMap["id"]);
-                cmd.Parameters.AddWithValue("@description", equipmentMap["description"]);
+                cmd.Parameters.AddWithValue("@id", equipment.ID);
+                cmd.Parameters.AddWithValue("@description", equipment.Description);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -141,20 +143,18 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateJob(string connection, Dictionary<string, dynamic> jobMap)
+        public void CreateJob(Job job)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", jobMap["id"]);
-                cmd.Parameters.AddWithValue("@clientID", jobMap["clientID"]);
-                cmd.Parameters.AddWithValue("@empID", jobMap["empID"]);
-                cmd.Parameters.AddWithValue("@description", jobMap["description"]);
-                cmd.Parameters.AddWithValue("@type", jobMap["type"]);
-                cmd.Parameters.AddWithValue("@status", jobMap["status"]);
+                cmd.Parameters.AddWithValue("@id", job.Id);
+                cmd.Parameters.AddWithValue("@clientID", job.ClientId);
+                cmd.Parameters.AddWithValue("@description", job.Description);
+                cmd.Parameters.AddWithValue("@type", job.Type);
+                cmd.Parameters.AddWithValue("@status", job.JobStatus);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -170,9 +170,8 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateJobEquipment(string connection, string equipmentID, string jobID)
+        public void CreateJobEquipment(string equipmentID, string jobID)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
@@ -195,17 +194,16 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateSkill(string connection, Dictionary<string, dynamic> skillMap)
+        public void CreateSkill(Skills skill)
         {
-            SqlConnection conn = new SqlConnection(connection);
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertSkill", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", skillMap["id"]);
-                cmd.Parameters.AddWithValue("@description", skillMap["description"]);
-                cmd.Parameters.AddWithValue("@type", skillMap["type"]);
+                cmd.Parameters.AddWithValue("@id", skill.ID);
+                cmd.Parameters.AddWithValue("@description", skill.Description);
+                cmd.Parameters.AddWithValue("@type", skill.Type);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)

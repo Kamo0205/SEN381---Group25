@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Data_Access_Layer.Data_Models;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,21 +8,27 @@ namespace Data_Access_Layer.Datahandler
 {
     class updateHandler
     {
-        public void UpdateClient(string connection, Dictionary<string, dynamic> clientMap)
+        private SqlConnection conn;
+
+        public updateHandler(string connection)
         {
-            SqlConnection conn = new SqlConnection(connection.ToString());
+            this.conn = new SqlConnection(connection);
+        }
+
+        public void UpdateClient(Client client)
+        {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", clientMap["id"]);
-                cmd.Parameters.AddWithValue("@contractID", clientMap["contractID"]);
-                cmd.Parameters.AddWithValue("@name", clientMap["name"]);
-                cmd.Parameters.AddWithValue("@surname", clientMap["surname"]);
-                cmd.Parameters.AddWithValue("@address", clientMap["address"]);
-                cmd.Parameters.AddWithValue("@number", clientMap["number"]);
-                cmd.Parameters.AddWithValue("@email", clientMap["email"]);
+                cmd.Parameters.AddWithValue("@id", client.Id);
+                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
+                cmd.Parameters.AddWithValue("@name", client.FirstName);
+                cmd.Parameters.AddWithValue("@surname", client.LastName);
+                cmd.Parameters.AddWithValue("@address", client.Address);
+                cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
+                cmd.Parameters.AddWithValue("@email", client.Email);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -37,17 +44,15 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateContract(string connection, Dictionary<string, dynamic> contractMap)
+        public void UpdateContract(Contract contract)
         {
-            SqlConnection conn = new SqlConnection(connection.ToString());
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateContract", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", contractMap["id"]);
-                cmd.Parameters.AddWithValue("@serviceLevel", contractMap["serviceLevel"]);
-                cmd.Parameters.AddWithValue("@date", contractMap["date"]);
+                cmd.Parameters.AddWithValue("@id", contract.ID);
+                cmd.Parameters.AddWithValue("@serviceLevel", contract.ServiceLevel);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -63,20 +68,18 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateEmployee(string connection, Dictionary<string, dynamic> employeeMap)
+        public void UpdateEmployee(Employee employee)
         {
-            SqlConnection conn = new SqlConnection(connection.ToString());
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateEmployee", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", employeeMap["id"]);
-                cmd.Parameters.AddWithValue("@name", employeeMap["name"]);
-                cmd.Parameters.AddWithValue("@surname", employeeMap["surname"]);
-                cmd.Parameters.AddWithValue("@vat", employeeMap["vat"]);
-                cmd.Parameters.AddWithValue("@email", employeeMap["email"]);
-                cmd.Parameters.AddWithValue("@number", employeeMap["number"]);
+                cmd.Parameters.AddWithValue("@id", employee.Id);
+                cmd.Parameters.AddWithValue("@name", employee.FirstName);
+                cmd.Parameters.AddWithValue("@surname", employee.LastName);
+                cmd.Parameters.AddWithValue("@email", employee.Email);
+                cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -92,16 +95,15 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateEquipment(string connection, Dictionary<string, dynamic> equipmentMap)
+        public void UpdateEquipment(Equipment equipment)
         {
-            SqlConnection conn = new SqlConnection(connection.ToString());
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateEquipment", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", equipmentMap["id"]);
-                cmd.Parameters.AddWithValue("@description", equipmentMap["description"]);
+                cmd.Parameters.AddWithValue("@id", equipment.ID);
+                cmd.Parameters.AddWithValue("@description", equipment.Description);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -117,18 +119,17 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateJob(string connection, Dictionary<string, dynamic> jobMap)
-        {
-            SqlConnection conn = new SqlConnection(connection.ToString());
+        public void UpdateJob(Job job)
+        { 
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", jobMap["id"]);
-                cmd.Parameters.AddWithValue("@clientID", jobMap["clientID"]);
-                cmd.Parameters.AddWithValue("@type", jobMap["type"]);
-                cmd.Parameters.AddWithValue("@description", jobMap["description"]);
+                cmd.Parameters.AddWithValue("@id", job.Id);
+                cmd.Parameters.AddWithValue("@clientID", job.ClientId);
+                cmd.Parameters.AddWithValue("@type", job.Type);
+                cmd.Parameters.AddWithValue("@description", job.Description);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -144,17 +145,16 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateSkill(string connection, Dictionary<string, dynamic> skillMap)
+        public void UpdateSkill(Skills skill)
         {
-            SqlConnection conn = new SqlConnection(connection.ToString());
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", skillMap["id"]);
-                cmd.Parameters.AddWithValue("@description", skillMap["description"]);
-                cmd.Parameters.AddWithValue("@type", skillMap["type"]);
+                cmd.Parameters.AddWithValue("@id", skill.ID);
+                cmd.Parameters.AddWithValue("@description", skill.Description);
+                cmd.Parameters.AddWithValue("@type", skill.Type);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)

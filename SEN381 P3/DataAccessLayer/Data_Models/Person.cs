@@ -12,17 +12,23 @@ namespace Data_Access_Layer
         private string firstName;
         private string lastName;
         private string phoneNumber;
+        private string address;
+        private string email;
 
         public string Id { get => id; set => id = value; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        public string Address { get => address; set => address = value; }
+        public string Email { get => email; set => email = value; }
 
-        public Person(string id, string firstName, string lastName, string phoneNumber)
+        public Person(string id, string firstName, string lastName, string phoneNumber, string address, string email)
         {
             this.firstName = firstName;
+            this.address = address;
             this.lastName = lastName;
             this.phoneNumber = phoneNumber;
+            this.email = email;
             if (id == null)
                 this.id = this.GetHashCode().ToString();
             else

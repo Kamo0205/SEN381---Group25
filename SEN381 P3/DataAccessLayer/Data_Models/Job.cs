@@ -10,19 +10,25 @@ namespace Data_Access_Layer
     {
         private string id;
         private Employee employee;
-        private Client client;
+        private string clientId;
         private string jobStatus;
+        private string description;
+        private string type;
         private Pay pay;
 
         public string Id { get => id; set => id = value; }
+        public string Type { get => type; set => type = value; }
+        public string Description { get => description; set => description = value; }
         public Employee Employee { get => employee; set => employee = value; }
-        public Client Client { get => client; set => client = value; }
+        public string ClientId { get => clientId; set => clientId = value; }
         public string JobStatus { get => jobStatus; set => jobStatus = value; }
         public Pay Pay { get => pay; set => pay = value; }
 
-        public Job(string id, Client client, string jobStatus, Pay pay)
+        public Job(string id, string clientId, string jobStatus, Pay pay, string description, string type)
         {
-            this.client = client;
+            this.clientId = clientId;
+            this.type = type;
+            this.description = description;
             this.jobStatus = jobStatus;
             this.pay = pay;
             if (id == null)
@@ -42,7 +48,7 @@ namespace Data_Access_Layer
         public override int GetHashCode()
         {
             int hash = 1;
-            foreach (string word in new string[] { JobStatus, Client.Id, Employee.Id })
+            foreach (string word in new string[] { JobStatus, clientId, Employee.Id })
                 hash *= CharToInt(word);
             return hash;
         }
@@ -53,8 +59,8 @@ namespace Data_Access_Layer
         }
         public override string ToString()
         {
-            return string.Format("Client: {0}\nEmployee: {1}\nJob status: {2}",
-                Client.FirstName+" "+Client.LastName, Employee.FirstName+" "+Employee.LastName, JobStatus);
+            return string.Format("Employee: {1}\nJob status: {2}",
+                Employee.FirstName+" "+Employee.LastName, JobStatus);
         }
     }
 }

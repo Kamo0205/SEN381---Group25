@@ -8,14 +8,17 @@ namespace Data_Access_Layer
 {
     public class Contract
     {
+        private string id;
         private string serviceLevel;
         private string skill;
 
+        public string ID { get => id; set => id = value; }
         public string ServiceLevel { get => serviceLevel; set => serviceLevel = value; }
         public string Skill { get => skill; set => skill = value; }
 
-        public Contract(string serviceLevel, string skill)
+        public Contract(string serviceLevel, string skill, string ID)
         {
+            this.ID = ID;
             this.serviceLevel = serviceLevel;
             this.skill = skill;
         }
