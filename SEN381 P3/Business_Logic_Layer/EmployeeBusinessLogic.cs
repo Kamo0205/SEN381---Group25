@@ -26,9 +26,17 @@ namespace Business_Logic_Layer
             }
         }
 
-        void updateEmployee()
+        void updateEmployee(Employee employee)
         {
-
+            try
+            {
+                db.UpdateEmployee(employee:employee);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : updateEmployee ERROR:" + e.Message);
+                throw;
+            }
         }
 
         List<Employee> searchEmployeesByContactNumber(String contactNumber)
@@ -53,9 +61,6 @@ namespace Business_Logic_Layer
             }
         }
 
-        void getEmployeesForJob()
-        {
-
-        }
+        
     }
 }
