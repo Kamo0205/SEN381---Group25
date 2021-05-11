@@ -29,7 +29,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetClientByAddress ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -57,7 +58,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetClientByContactNumber ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -85,7 +87,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetClientByContractID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -113,7 +116,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetClientByEmail ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -141,7 +145,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetClientByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -169,7 +174,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetContractByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -197,7 +203,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetEmployeeByContactNumber ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -225,7 +232,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetEmployeeByEmail ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -253,7 +261,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetEmployeeByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -281,7 +290,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetEquipmentByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -309,7 +319,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetJobByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -337,7 +348,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetSkillByID ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -365,7 +377,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("ReadHandler : GetSkillByType ERROR:" + e.Message);
+                throw;
             }
             finally
             {

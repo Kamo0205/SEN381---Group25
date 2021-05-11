@@ -23,7 +23,7 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spUpdateClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", client.Id);
-                cmd.Parameters.AddWithValue("@contractID", client.Contract.ID);
+                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
                 cmd.Parameters.AddWithValue("@name", client.FirstName);
                 cmd.Parameters.AddWithValue("@surname", client.LastName);
                 cmd.Parameters.AddWithValue("@address", client.Address);
@@ -33,7 +33,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateClient ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -57,7 +58,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateContract ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -84,7 +86,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateEmployee ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -108,7 +111,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateEquipment ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -134,7 +138,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateJob ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -159,7 +164,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("UpdateHandler : UpdateSkill ERROR:" + e.Message);
+                throw;
             }
             finally
             {

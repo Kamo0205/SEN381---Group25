@@ -14,6 +14,15 @@ namespace Business_Logic_Layer
         premium
     }
 
+    enum clientSearchParameter
+    {
+        id,
+        email,
+        address,
+        phone,
+        contractID
+    }
+
     class ClientBusinessLogic
     {
         DBAccess db = new DBAccess();
@@ -34,11 +43,32 @@ namespace Business_Logic_Layer
             }
         }
 
-        List<Client> searchClientByEmail(string email, serviceLevel serviceLevel)
+        List<Client> searchClientByParameter(clientSearchParameter parameter,string query, serviceLevel serviceLevel)
         {
             try
             {
-                DataTable clientData = db.GetClientByEmail(email: email);
+                DataTable clientData = new DataTable();
+
+                switch (parameter)
+                {
+                    case clientSearchParameter.id:
+                        clientData = db.GetClientByID(id: query);
+                        break;
+                    case clientSearchParameter.email:
+                        clientData = db.GetClientByEmail(email: query);
+                        break;
+                    case clientSearchParameter.address:
+                        clientData = db.GetClientByAddress(address: query);
+                        break;
+                    case clientSearchParameter.phone:
+                        clientData = db.GetClientByContactNumber(number: query);
+                        break;
+                    case clientSearchParameter.contractID:
+                        clientData = db.GetClientByContractID(id: query);
+                        break;
+                    default:
+                        break;
+                }
 
                 if (clientData != null || clientData!.IsInitialized)
                 {
@@ -71,7 +101,7 @@ namespace Business_Logic_Layer
             }
             catch (Exception e)
             {
-                MessageBox.Show("ClientBusinessLogic : searchClientByEmail ERROR:" + e.Message);
+                MessageBox.Show("ClientBusinessLogic : searchClientByParameter ERROR:" + e.Message);
                 throw;
             }
         }

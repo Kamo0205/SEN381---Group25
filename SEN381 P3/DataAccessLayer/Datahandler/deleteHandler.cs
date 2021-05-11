@@ -24,7 +24,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("DeleteHandler : DeleteClient ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -47,7 +48,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("DeleteHandler : DeleteEmployee ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -70,7 +72,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("DeleteHandler : DeleteEquipment ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -93,7 +96,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("DeleteHandler : DeleteJob ERROR:" + e.Message);
+                throw;
             }
             finally
             {
@@ -116,7 +120,8 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                //TODO throw and catch exception
+                System.Console.WriteLine("DeleteHandler : DeleteSkill ERROR:" + e.Message);
+                throw;
             }
             finally
             {

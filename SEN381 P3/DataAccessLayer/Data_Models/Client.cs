@@ -11,7 +11,7 @@ namespace Data_Access_Layer
     {
         private string contractID;
 
-        public string Contract { get => contractID; set => contractID = value; }
+        public string ContractID { get => contractID; set => contractID = value; }
 
         public Client(string id, string firstName, string lastName, string phoneNumber, string address, string email, string contractID) : base(id, firstName, lastName, phoneNumber, address, email) {
             this.contractID = contractID;

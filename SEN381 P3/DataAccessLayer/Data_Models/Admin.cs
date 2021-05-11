@@ -8,7 +8,7 @@ namespace Data_Access_Layer
 {
     public class Admin : Employee
     {
-        public Admin(string firstName, string lastName, string phoneNumber, Pay pay, string vatID) : base(firstName, lastName, phoneNumber, pay, vatID)
+        public Admin(string id,string firstName, string lastName, string phoneNumber,string email,Pay pay, string vatID) : base(id,firstName, lastName, phoneNumber, email,pay, vatID)
         {
             this.Title = "Admin";
         }
