@@ -1,7 +1,9 @@
 ﻿using Data_Access_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
@@ -11,9 +13,17 @@ namespace Business_Logic_Layer
 
         List<Employee> employees = new List<Employee>();
 
-        void deleteEmployee()
+        void deleteEmployee(string id)
         {
-
+            try
+            {
+                db.DeleteEmployee(id);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : deleteEmployee ERROR:" + e.Message);
+                throw;
+            }
         }
 
         void updateEmployee()
@@ -21,14 +31,26 @@ namespace Business_Logic_Layer
 
         }
 
-        List<Employee> getEmployees(String contactNumber)
+        List<Employee> searchEmployeesByContactNumber(String contactNumber)
         {
-            for (int i = 0; i < db.GetEmployeeByContactNumber(contactNumber).Rows.Count; i++)
+            try
             {
-                employees.Add(new TechnicalStaff(firstName: db.GetEmployeeByContactNumber(contactNumber).Rows[i]["EmpName"].ToString(), lastName: db.GetEmployeeByContactNumber(contactNumber).Rows[i]["EmpSurname"].ToString(), db.GetEmployeeByContactNumber(contactNumber).Rows[i]["ContactNumber"].ToString(), new Pay("Title", 600), db.GetEmployeeByContactNumber(contactNumber).Rows[i]["VatIDNumber"].ToString()));
+                DataTable employeeData = db.GetEmployeeByContactNumber(contactNumber);
+                if(employeeData != null || employeeData!.IsInitialized)
+                {
+                    for (int i = 0; i < employeeData.Rows.Count; i++)
+                    {
+                        employees.Add(new TechnicalStaff(i: i, data: employeeData, pay: new Pay(title: "Title", 600)));
+                    }
+                    return employees;
+                }
+                return null;
             }
-
-            return employees;
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : searchEmployeesByContactNumber ERROR:" + e.Message);
+                throw;
+            }
         }
 
         void getEmployeesForJob()

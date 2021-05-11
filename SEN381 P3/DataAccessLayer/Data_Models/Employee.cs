@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,16 @@ namespace Data_Access_Layer
         public string Title { get => title; set => title = value; }
         public string VatID { get => vatID; set => vatID = value; }
 
-        public Employee(string firstName, string lastName, string phoneNumber, Pay pay, string vatID) : base(firstName, lastName, phoneNumber)
+        public Employee(string id,string firstName, string lastName, string phoneNumber,string email ,Pay pay, string vatID) : base(id,firstName, lastName, phoneNumber,email)
         {
             this.pay = pay;
             this.vatID = vatID;
+        }
+
+        public Employee(int i, DataTable data, Pay pay) : base(i, data)
+        {
+            this.vatID = data.Rows[i]["VatIDNumber"].ToString();
+            this.pay = pay;
         }
     }
 }
