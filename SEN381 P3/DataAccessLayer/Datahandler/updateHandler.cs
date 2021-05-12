@@ -131,9 +131,9 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spUpdateJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@clientID", job.ClientId);
-                cmd.Parameters.AddWithValue("@type", job.Type);
-                cmd.Parameters.AddWithValue("@description", job.Description);
+                cmd.Parameters.AddWithValue("@clientID", job.ClientID);
+                cmd.Parameters.AddWithValue("@type", job.JobType);
+                cmd.Parameters.AddWithValue("@description", job.JobDescription);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)

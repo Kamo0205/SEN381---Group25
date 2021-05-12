@@ -156,9 +156,9 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spInsertJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@clientID", job.ClientId);
-                cmd.Parameters.AddWithValue("@description", job.Description);
-                cmd.Parameters.AddWithValue("@type", job.Type);
+                cmd.Parameters.AddWithValue("@clientID", job.ClientID);
+                cmd.Parameters.AddWithValue("@description", job.JobDescription);
+                cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.Parameters.AddWithValue("@status", job.JobStatus);
                 cmd.ExecuteNonQuery();
             }
