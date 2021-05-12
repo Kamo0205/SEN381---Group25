@@ -70,7 +70,7 @@ namespace Business_Logic_Layer
                         break;
                 }
 
-                if (clientData != null || clientData!.IsInitialized)
+                if (clientData != null || clientData.IsInitialized)
                 {
                     for (int i = 0; i < clientData.Rows.Count; i++)
                     {

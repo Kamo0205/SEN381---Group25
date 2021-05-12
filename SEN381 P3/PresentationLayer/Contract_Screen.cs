@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Business_Logic_Layer;
+using System;
 using System.Windows.Forms;
-//using Business_Logic_Layer;
 
 namespace PresentationLayer
 {
     public partial class Contract_Screen : Form
     {
         BindingSource contractBind = new BindingSource();
-        //ContractBusinessLogic contractData = new ContractBusinessLogic();
+        ContractBusinessLogic contractData = new ContractBusinessLogic();
 
 
         public Contract_Screen()

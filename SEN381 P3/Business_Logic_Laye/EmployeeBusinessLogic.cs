@@ -73,7 +73,7 @@ namespace Business_Logic_Layer
                         break;
                 }
 
-                if(employeeData != null || employeeData!.IsInitialized)
+                if(employeeData != null || employeeData.IsInitialized)
                 {
                     for (int i = 0; i < employeeData.Rows.Count; i++)
                     {

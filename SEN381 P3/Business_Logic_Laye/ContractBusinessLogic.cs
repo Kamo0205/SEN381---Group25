@@ -2,12 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
-    class ContractBusinessLogic
+    public class ContractBusinessLogic
     {
         DBAccess db = new DBAccess();
 
@@ -19,7 +18,7 @@ namespace Business_Logic_Layer
             {
                 DataTable contractData = db.GetContractByID(id);
 
-                if (contractData != null || contractData!.IsInitialized)
+                if (contractData != null || contractData.IsInitialized)
                 {
                     for (int i = 0; i < contractData.Rows.Count; i++)
                     {
