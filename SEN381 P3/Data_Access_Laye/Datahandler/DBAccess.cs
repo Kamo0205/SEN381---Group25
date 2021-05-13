@@ -93,6 +93,11 @@ namespace Data_Access_Layer
             deleteDataHandler.DeleteSkill(id);
         }
 
+        public void DeleteContract(string id)
+        {
+            deleteDataHandler.DeleteContract(id);
+        }
+
         public DataTable GetClientByAddress(string address)
         {
             return readDataHandler.GetClientByAddress(address);

@@ -131,5 +131,29 @@ namespace Data_Access_Layer.Datahandler
                 }
             }
         }
+
+        public void DeleteContract(string id)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spDeleteContract", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("DeleteHandler : DeleteContract ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }

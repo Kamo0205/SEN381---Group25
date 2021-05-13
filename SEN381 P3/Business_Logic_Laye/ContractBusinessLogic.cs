@@ -34,11 +34,11 @@ namespace Business_Logic_Layer
             }
         }
 
-        void deleteContract()
+        public void deleteContract(string id)
         {
             try
             {
-                //TODO: create delete contract method?
+                db.DeleteContract(id);
             }
             catch (Exception e)
             {
@@ -47,7 +47,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        void updateContract(Contract contract)
+        public void updateContract(Contract contract)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        void createContract(Contract contract)
+        public void createContract(Contract contract)
         {
             try
             {
