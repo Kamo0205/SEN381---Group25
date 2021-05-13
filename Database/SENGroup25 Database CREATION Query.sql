@@ -1,7 +1,7 @@
 CREATE DATABASE SENGroup25DB
 ON PRIMARY
 (
-NAME= EdenFarmsDBData,
+NAME= SENGroup25DBData,
 FILENAME= 'D:\Documents\Database\SEN\SENGroup25DB.mdf',
 SIZE= 20MB,
 FILEGROWTH= 10%,
@@ -9,7 +9,7 @@ MAXSIZE= 10GB
 )
 LOG ON
 (
-NAME= EdenFarmsDBLogs,
+NAME= SENGroup25DBLogs,
 FILENAME= 'D:\Documents\Database\SEN\SENGroup25DB.ldf',
 SIZE= 20MB,
 FILEGROWTH= 10%,
