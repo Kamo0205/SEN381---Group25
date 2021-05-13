@@ -89,10 +89,10 @@ namespace Data_Access_Layer
             return hash;
         }
 
-        public override bool Equals(object obj)
+        /*public override bool Equals(object obj)
         {
             return Id.Equals(((Person) obj).Id);
-        }
+        }*/
 
         public override string ToString()
         {

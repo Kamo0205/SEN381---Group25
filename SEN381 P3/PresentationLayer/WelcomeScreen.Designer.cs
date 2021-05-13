@@ -31,7 +31,7 @@
             this.lblClientsOrEmployees = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClientSatisfaction = new System.Windows.Forms.Button();
-            this.btnServiceDepartment = new System.Windows.Forms.Button();
+            this.btnClientScreen = new System.Windows.Forms.Button();
             this.btnCallCenter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -71,17 +71,17 @@
             this.btnClientSatisfaction.UseVisualStyleBackColor = true;
             this.btnClientSatisfaction.Click += new System.EventHandler(this.btnClientSatisfaction_Click);
             // 
-            // btnServiceDepartment
+            // btnClientScreen
             // 
-            this.btnServiceDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnServiceDepartment.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnServiceDepartment.Location = new System.Drawing.Point(179, 10);
-            this.btnServiceDepartment.Name = "btnServiceDepartment";
-            this.btnServiceDepartment.Size = new System.Drawing.Size(128, 74);
-            this.btnServiceDepartment.TabIndex = 6;
-            this.btnServiceDepartment.Text = "Service Department";
-            this.btnServiceDepartment.UseVisualStyleBackColor = true;
-            this.btnServiceDepartment.Click += new System.EventHandler(this.btnServiceDepartment_Click);
+            this.btnClientScreen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClientScreen.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnClientScreen.Location = new System.Drawing.Point(179, 10);
+            this.btnClientScreen.Name = "btnClientScreen";
+            this.btnClientScreen.Size = new System.Drawing.Size(128, 74);
+            this.btnClientScreen.TabIndex = 6;
+            this.btnClientScreen.Text = "Client Details";
+            this.btnClientScreen.UseVisualStyleBackColor = true;
+            this.btnClientScreen.Click += new System.EventHandler(this.btnServiceDepartment_Click);
             // 
             // btnCallCenter
             // 
@@ -102,7 +102,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(486, 141);
             this.Controls.Add(this.btnClientSatisfaction);
-            this.Controls.Add(this.btnServiceDepartment);
+            this.Controls.Add(this.btnClientScreen);
             this.Controls.Add(this.btnCallCenter);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblClientsOrEmployees);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button lblClientsOrEmployees;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClientSatisfaction;
-        private System.Windows.Forms.Button btnServiceDepartment;
+        private System.Windows.Forms.Button btnClientScreen;
         private System.Windows.Forms.Button btnCallCenter;
     }
 }

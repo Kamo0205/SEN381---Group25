@@ -7,23 +7,22 @@ using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
-    enum serviceLevel
+    public enum serviceLevel
     {
         bronze,
         silver,
         premium
     }
 
-    enum clientSearchParameter
+    public enum clientSearchParameter
     {
-        id,
         email,
         address,
         phone,
         contractID
     }
 
-    class ClientBusinessLogic
+    public class ClientBusinessLogic
     {
         DBAccess db = new DBAccess();
 
@@ -43,7 +42,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        List<Client> searchClientByParameter(clientSearchParameter parameter,string query, serviceLevel serviceLevel)
+        public List<Client> searchClientByParameter(clientSearchParameter parameter,string query, serviceLevel serviceLevel)
         {
             try
             {
@@ -51,9 +50,6 @@ namespace Business_Logic_Layer
 
                 switch (parameter)
                 {
-                    case clientSearchParameter.id:
-                        clientData = db.GetClientByID(id: query);
-                        break;
                     case clientSearchParameter.email:
                         clientData = db.GetClientByEmail(email: query);
                         break;
@@ -101,7 +97,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        void updateClient(Client client)
+        public void updateClient(Client client)
         {
             try
             {
@@ -114,7 +110,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        void createClient(Client client)
+        public void createClient(Client client)
         {
             try
             {

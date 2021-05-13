@@ -35,7 +35,7 @@ namespace PresentationLayer
 
         private void btnServiceDepartment_Click(object sender, EventArgs e)
         {
-            Contract_Screen contractScreen = new Contract_Screen();
+            Clients_Screen contractScreen = new Clients_Screen();
             this.Hide();
             contractScreen.ShowDialog();
             this.Close();

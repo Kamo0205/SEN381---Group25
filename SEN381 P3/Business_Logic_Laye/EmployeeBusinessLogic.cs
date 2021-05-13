@@ -7,26 +7,26 @@ using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
-    enum employeeType
+    public enum employeeType
     {
         admin,
         callCenter,
         technician
     }
 
-    enum employeeSearchParamaters{
+    public enum employeeSearchParamaters{
         id,
         email,
         phone
     }
 
-    class EmployeeBusinessLogic
+    public class EmployeeBusinessLogic
     {
         DBAccess db = new DBAccess();
 
         List<Employee> employees = new List<Employee>();
 
-        void deleteEmployee(string id)
+        public void deleteEmployee(string id)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        void updateEmployee(Employee employee)
+        public void updateEmployee(Employee employee)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        List<Employee> searchEmployeesByParamater(employeeSearchParamaters employeeSearchParamaters,employeeType employeeType,String query)
+        public List<Employee> searchEmployeesByParamater(employeeSearchParamaters employeeSearchParamaters,employeeType employeeType,String query)
         {
             try
             {

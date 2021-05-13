@@ -136,7 +136,7 @@ namespace Data_Access_Layer.Datahandler
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("spGetClientByEmail", conn);
+                SqlCommand cmd = new SqlCommand("spGetClientByID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 sda.SelectCommand = cmd;
