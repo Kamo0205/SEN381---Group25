@@ -327,7 +327,7 @@ END
 
 GO
 
-/*CREATE PROCEDURE spListContractsByServiceLevel
+CREATE PROCEDURE spListContractsByServiceLevel
 @serviceLevel VARCHAR(20)
 AS
 BEGIN
@@ -349,7 +349,7 @@ END
 
 GO
 
-CREATE PROCEDURE spListClientContracts
+/*CREATE PROCEDURE spListClientContracts
 @id VARCHAR(30)
 AS
 BEGIN
