@@ -35,6 +35,7 @@ namespace PresentationLayer
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblContractID = new System.Windows.Forms.Label();
+            this.chkClientEdit = new System.Windows.Forms.CheckBox();
             this.btnClientClear = new System.Windows.Forms.Button();
             this.txtClientLocation = new System.Windows.Forms.TextBox();
             this.lblClientAdress = new System.Windows.Forms.Label();
@@ -74,7 +75,9 @@ namespace PresentationLayer
             this.btnEmployeeRemove = new System.Windows.Forms.Button();
             this.btnEmployeeUpdate = new System.Windows.Forms.Button();
             this.btnEmployeeAdd = new System.Windows.Forms.Button();
-            this.chkClientEdit = new System.Windows.Forms.CheckBox();
+            this.txtSearchParamater = new System.Windows.Forms.TextBox();
+            this.cmbSearchBy = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlData.SuspendLayout();
             this.pnlClientData.SuspendLayout();
             this.pnlEmployeeData.SuspendLayout();
@@ -94,6 +97,9 @@ namespace PresentationLayer
             // 
             // pnlData
             // 
+            this.pnlData.Controls.Add(this.label2);
+            this.pnlData.Controls.Add(this.cmbSearchBy);
+            this.pnlData.Controls.Add(this.txtSearchParamater);
             this.pnlData.Controls.Add(this.pnlClientData);
             this.pnlData.Controls.Add(this.lstData);
             this.pnlData.Controls.Add(this.btnNext);
@@ -157,6 +163,18 @@ namespace PresentationLayer
             this.lblContractID.Size = new System.Drawing.Size(75, 15);
             this.lblContractID.TabIndex = 23;
             this.lblContractID.Text = "Contract ID:";
+            // 
+            // chkClientEdit
+            // 
+            this.chkClientEdit.AutoSize = true;
+            this.chkClientEdit.Checked = true;
+            this.chkClientEdit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkClientEdit.Location = new System.Drawing.Point(3, 276);
+            this.chkClientEdit.Name = "chkClientEdit";
+            this.chkClientEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkClientEdit.TabIndex = 21;
+            this.chkClientEdit.Text = "Edit";
+            this.chkClientEdit.UseVisualStyleBackColor = true;
             // 
             // btnClientClear
             // 
@@ -558,17 +576,30 @@ namespace PresentationLayer
             this.btnEmployeeAdd.Text = "Add";
             this.btnEmployeeAdd.UseVisualStyleBackColor = true;
             // 
-            // chkClientEdit
+            // txtSearchParamater
             // 
-            this.chkClientEdit.AutoSize = true;
-            this.chkClientEdit.Checked = true;
-            this.chkClientEdit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkClientEdit.Location = new System.Drawing.Point(3, 276);
-            this.chkClientEdit.Name = "chkClientEdit";
-            this.chkClientEdit.Size = new System.Drawing.Size(44, 17);
-            this.chkClientEdit.TabIndex = 21;
-            this.chkClientEdit.Text = "Edit";
-            this.chkClientEdit.UseVisualStyleBackColor = true;
+            this.txtSearchParamater.Location = new System.Drawing.Point(293, 18);
+            this.txtSearchParamater.Name = "txtSearchParamater";
+            this.txtSearchParamater.Size = new System.Drawing.Size(152, 20);
+            this.txtSearchParamater.TabIndex = 7;
+            // 
+            // cmbSearchBy
+            // 
+            this.cmbSearchBy.FormattingEnabled = true;
+            this.cmbSearchBy.Location = new System.Drawing.Point(178, 17);
+            this.cmbSearchBy.Name = "cmbSearchBy";
+            this.cmbSearchBy.Size = new System.Drawing.Size(109, 21);
+            this.cmbSearchBy.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(99, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Search by:";
             // 
             // Contract_Screen
             // 
@@ -639,5 +670,8 @@ namespace PresentationLayer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox chkClientEdit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbSearchBy;
+        private System.Windows.Forms.TextBox txtSearchParamater;
     }
 }
