@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5AC41AFC-DC6D-42AF-81CF-A67A79313D02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PresentationLayer</RootNamespace>
-    <AssemblyName>PresentationLayer</AssemblyName>
+    <RootNamespace>Presentation_Layer</RootNamespace>
+    <AssemblyName>Presentation_Layer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PresentationLayer.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -116,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ServiceDepartment.resx">
       <DependentUpon>ServiceDepartment.cs</DependentUpon>
@@ -140,6 +142,10 @@
     <ProjectReference Include="..\Business_Logic_Laye\Business_Logic_Layer.csproj">
       <Project>{c283a6b9-c848-4459-8887-60c5bc43142d}</Project>
       <Name>Business_Logic_Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data_Access_Laye\Data_Access_Layer.csproj">
+      <Project>{b7017492-938c-4dfc-a724-ba1c57b83275}</Project>
+      <Name>Data_Access_Layer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

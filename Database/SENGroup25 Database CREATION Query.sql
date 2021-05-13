@@ -21,8 +21,8 @@ GO
 CREATE Table tblContract
 (
 ContractID VARCHAR(30) PRIMARY KEY NOT NULL,
-ServiceLevel VARCHAR(20),
-ExperationDate DATE
+ServiceLevel VARCHAR(20) NOT NULL,
+ExperationDate VARCHAR(30) NOT NULL
 )
 GO
 CREATE Table tblClient
@@ -33,7 +33,7 @@ ClientName VARCHAR(30) NOT NULL,
 ClientSurname VARCHAR(30) NOT NULL,
 ClientAddress VARCHAR(100) NOT NULL, 
 Email VARCHAR(50) NOT NULL,
-ContactNumber VARCHAR(12)
+ContactNumber VARCHAR(12) NOT NULL
 )
 GO 
 CREATE Table tblEmployee
@@ -52,15 +52,15 @@ JobID VARCHAR(30) PRIMARY KEY NOT NULL,
 ClientID VARCHAR(30) FOREIGN KEY REFERENCES tblClient(ClientID),
 EmpID VARCHAR(30) FOREIGN KEY REFERENCES tblEmployee(EmpID),
 JobDescription VARCHAR(100) NOT NULL,
-JobType VARCHAR(10) NOT NULL,
-JobStatus VARCHAR(10) NOT NULL
+JobType VARCHAR(15) NOT NULL,
+JobStatus VARCHAR(15) NOT NULL
 )
 GO
 CREATE Table tblSkill
 (
 SkillID VARCHAR(30) PRIMARY KEY NOT NULL,
 SkillDescription VARCHAR(80) NOT NULL,
-SkillType VARCHAR(10) NOT NULL
+SkillType VARCHAR(15) NOT NULL
 )
 GO
 CREATE Table tblEmployeeSkill

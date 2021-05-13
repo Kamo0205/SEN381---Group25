@@ -35,7 +35,6 @@ namespace PresentationLayer
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblContractID = new System.Windows.Forms.Label();
-            this.chkClientEdit = new System.Windows.Forms.CheckBox();
             this.btnClientClear = new System.Windows.Forms.Button();
             this.txtClientLocation = new System.Windows.Forms.TextBox();
             this.lblClientAdress = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@ namespace PresentationLayer
             this.btnEmployeeRemove = new System.Windows.Forms.Button();
             this.btnEmployeeUpdate = new System.Windows.Forms.Button();
             this.btnEmployeeAdd = new System.Windows.Forms.Button();
+            this.chkClientEdit = new System.Windows.Forms.CheckBox();
             this.pnlData.SuspendLayout();
             this.pnlClientData.SuspendLayout();
             this.pnlEmployeeData.SuspendLayout();
@@ -142,7 +142,6 @@ namespace PresentationLayer
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.textBox1.Location = new System.Drawing.Point(11, 192);
             this.textBox1.Name = "textBox1";
@@ -159,18 +158,6 @@ namespace PresentationLayer
             this.lblContractID.TabIndex = 23;
             this.lblContractID.Text = "Contract ID:";
             // 
-            // chkClientEdit
-            // 
-            this.chkClientEdit.AutoSize = true;
-            this.chkClientEdit.Checked = true;
-            this.chkClientEdit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkClientEdit.Location = new System.Drawing.Point(3, 276);
-            this.chkClientEdit.Name = "chkClientEdit";
-            this.chkClientEdit.Size = new System.Drawing.Size(44, 17);
-            this.chkClientEdit.TabIndex = 21;
-            this.chkClientEdit.Text = "Edit";
-            this.chkClientEdit.UseVisualStyleBackColor = true;
-            // 
             // btnClientClear
             // 
             this.btnClientClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -184,7 +171,6 @@ namespace PresentationLayer
             // 
             // txtClientLocation
             // 
-            this.txtClientLocation.Enabled = false;
             this.txtClientLocation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientLocation.Location = new System.Drawing.Point(140, 137);
             this.txtClientLocation.Name = "txtClientLocation";
@@ -203,7 +189,6 @@ namespace PresentationLayer
             // 
             // txtClientPhoneNumber
             // 
-            this.txtClientPhoneNumber.Enabled = false;
             this.txtClientPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientPhoneNumber.Location = new System.Drawing.Point(11, 137);
             this.txtClientPhoneNumber.Name = "txtClientPhoneNumber";
@@ -222,7 +207,6 @@ namespace PresentationLayer
             // 
             // txtClientContractType
             // 
-            this.txtClientContractType.Enabled = false;
             this.txtClientContractType.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientContractType.Location = new System.Drawing.Point(140, 37);
             this.txtClientContractType.Name = "txtClientContractType";
@@ -241,7 +225,6 @@ namespace PresentationLayer
             // 
             // txtClientLastName
             // 
-            this.txtClientLastName.Enabled = false;
             this.txtClientLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientLastName.Location = new System.Drawing.Point(140, 87);
             this.txtClientLastName.Name = "txtClientLastName";
@@ -260,7 +243,6 @@ namespace PresentationLayer
             // 
             // txtClientFirstName
             // 
-            this.txtClientFirstName.Enabled = false;
             this.txtClientFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientFirstName.Location = new System.Drawing.Point(11, 87);
             this.txtClientFirstName.Name = "txtClientFirstName";
@@ -279,7 +261,6 @@ namespace PresentationLayer
             // 
             // txtClientId
             // 
-            this.txtClientId.Enabled = false;
             this.txtClientId.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientId.Location = new System.Drawing.Point(11, 37);
             this.txtClientId.Name = "txtClientId";
@@ -577,6 +558,18 @@ namespace PresentationLayer
             this.btnEmployeeAdd.Text = "Add";
             this.btnEmployeeAdd.UseVisualStyleBackColor = true;
             // 
+            // chkClientEdit
+            // 
+            this.chkClientEdit.AutoSize = true;
+            this.chkClientEdit.Checked = true;
+            this.chkClientEdit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkClientEdit.Location = new System.Drawing.Point(3, 276);
+            this.chkClientEdit.Name = "chkClientEdit";
+            this.chkClientEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkClientEdit.TabIndex = 21;
+            this.chkClientEdit.Text = "Edit";
+            this.chkClientEdit.UseVisualStyleBackColor = true;
+            // 
             // Contract_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,7 +596,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Panel pnlClientData;
-        private System.Windows.Forms.CheckBox chkClientEdit;
         private System.Windows.Forms.Button btnClientClear;
         private System.Windows.Forms.TextBox txtClientLocation;
         private System.Windows.Forms.Label lblClientAdress;
@@ -646,5 +638,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblContractID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox chkClientEdit;
     }
 }

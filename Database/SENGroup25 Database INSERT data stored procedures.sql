@@ -36,7 +36,7 @@ CREATE PROCEDURE spInsertEmployee
 @id VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
-@vatID VARCHAR(100),
+@vatID VARCHAR(10),
 @email VARCHAR(50),
 @number VARCHAR(12)
 )
@@ -62,11 +62,11 @@ GO
 CREATE PROCEDURE spInsertJob
 (
 @id VARCHAR(30),
-@clientID INT,
-@empID INT,
+@clientID VARCHAR(30),
+@empID VARCHAR(30),
 @description VARCHAR(100),
-@type VARCHAR(10),
-@status VARCHAR(10)
+@type VARCHAR(15),
+@status VARCHAR(15)
 )
 AS 
 BEGIN
@@ -91,7 +91,7 @@ CREATE PROCEDURE spInsertSkill
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
-@type VARCHAR(10)
+@type VARCHAR(15)
 )
 AS 
 BEGIN
@@ -140,7 +140,7 @@ CREATE PROCEDURE spInsertContract
 (
 @id VARCHAR(30),
 @serviceLevel VARCHAR(20),
-@experationDate DATE
+@experationDate VARCHAR(30)
 )
 AS
 BEGIN
@@ -148,7 +148,7 @@ BEGIN
 		BEGIN TRANSACTION
 			
 			INSERT INTO tblContract(ContractID,ServiceLevel,ExperationDate)
-			VALUES(@id,@experationDate,@serviceLevel)
+			VALUES(@id,@serviceLevel,@experationDate)
 
 		COMMIT
 		PRINT 'spInsertContract Transaction Successful'

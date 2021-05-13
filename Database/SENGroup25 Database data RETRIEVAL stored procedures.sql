@@ -49,7 +49,7 @@ END
 GO
 
 CREATE PROCEDURE spListEmployeesForJob
-@jobType VARCHAR(10)
+@jobType VARCHAR(15)
 AS
 BEGIN
 SELECT *
@@ -201,7 +201,7 @@ END
 GO
 
 CREATE PROCEDURE spListJobsByStatus
-@status VARCHAR(10)
+@status VARCHAR(15)
 AS
 BEGIN
 SELECT *
@@ -220,10 +220,10 @@ FROM tblJob
 WHERE JobDescription = @description
 END
 
-GO
+GO*/
 
 CREATE PROCEDURE spListJobsByType
-@type VARCHAR(10)
+@type VARCHAR(15)
 AS
 BEGIN
 SELECT *
@@ -231,7 +231,7 @@ FROM tblJob
 WHERE JobType = @type
 END
 
-GO*/
+GO
 
 /* Skill data retrieval stored procedures */
 
@@ -269,7 +269,7 @@ END
 GO*/
 
 CREATE PROCEDURE spGetSkillByType
-@type VARCHAR(10)
+@type VARCHAR(15)
 AS
 BEGIN
 SELECT *
@@ -316,7 +316,7 @@ GO
 
 /* Contract */
 
-CREATE PROCEDURE spGetContractByClientID
+CREATE PROCEDURE spGetContractByID
 @id VARCHAR(30)
 AS
 BEGIN
