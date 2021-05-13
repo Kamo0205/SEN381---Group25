@@ -366,9 +366,9 @@ GO*/
 CREATE PROCEDURE spUpdateJob
 (
 @id VARCHAR(30),
-@clientID INT,
+@clientID VARCHAR(30),
 @description VARCHAR(100),
-@type VARCHAR(10)
+@type VARCHAR(15)
 )
 AS
 BEGIN
@@ -477,7 +477,7 @@ CREATE PROCEDURE spUpdateSkill
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
-@type VARCHAR(10)
+@type VARCHAR(15)
 )
 AS
 BEGIN
@@ -559,7 +559,7 @@ CREATE PROCEDURE spUpdateContract
 (
 @id VARCHAR(30),
 @serviceLevel VARCHAR(80),
-@date DATE
+@date VARCHAR(30)
 )
 AS
 BEGIN

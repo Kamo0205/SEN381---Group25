@@ -112,6 +112,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WelcomeScreen";
+            this.Load += new System.EventHandler(this.FrmWelcomeScreen_Load);
             this.ResumeLayout(false);
 
         }

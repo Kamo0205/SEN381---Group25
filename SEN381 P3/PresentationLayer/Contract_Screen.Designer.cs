@@ -33,15 +33,14 @@ namespace PresentationLayer
             this.pnlData = new System.Windows.Forms.Panel();
             this.pnlClientData = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClientEmail = new System.Windows.Forms.TextBox();
             this.lblContractID = new System.Windows.Forms.Label();
-            this.chkClientEdit = new System.Windows.Forms.CheckBox();
             this.btnClientClear = new System.Windows.Forms.Button();
-            this.txtClientLocation = new System.Windows.Forms.TextBox();
+            this.txtClientAddress = new System.Windows.Forms.TextBox();
             this.lblClientAdress = new System.Windows.Forms.Label();
             this.txtClientPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblClientPhoneNumber = new System.Windows.Forms.Label();
-            this.txtClientContractType = new System.Windows.Forms.TextBox();
+            this.txtServiceLevel = new System.Windows.Forms.TextBox();
             this.lblServiceLevel = new System.Windows.Forms.Label();
             this.txtClientLastName = new System.Windows.Forms.TextBox();
             this.lblClientLastName = new System.Windows.Forms.Label();
@@ -75,6 +74,11 @@ namespace PresentationLayer
             this.btnEmployeeRemove = new System.Windows.Forms.Button();
             this.btnEmployeeUpdate = new System.Windows.Forms.Button();
             this.btnEmployeeAdd = new System.Windows.Forms.Button();
+            this.lblExperationDate = new System.Windows.Forms.Label();
+            this.txtExperationDate = new System.Windows.Forms.TextBox();
+            this.txtSearchParamater = new System.Windows.Forms.TextBox();
+            this.cmbSearchType = new System.Windows.Forms.ComboBox();
+            this.lblSearchType = new System.Windows.Forms.Label();
             this.pnlData.SuspendLayout();
             this.pnlClientData.SuspendLayout();
             this.pnlEmployeeData.SuspendLayout();
@@ -94,6 +98,9 @@ namespace PresentationLayer
             // 
             // pnlData
             // 
+            this.pnlData.Controls.Add(this.lblSearchType);
+            this.pnlData.Controls.Add(this.cmbSearchType);
+            this.pnlData.Controls.Add(this.txtSearchParamater);
             this.pnlData.Controls.Add(this.pnlClientData);
             this.pnlData.Controls.Add(this.lstData);
             this.pnlData.Controls.Add(this.btnNext);
@@ -106,16 +113,17 @@ namespace PresentationLayer
             // 
             // pnlClientData
             // 
+            this.pnlClientData.Controls.Add(this.lblExperationDate);
+            this.pnlClientData.Controls.Add(this.txtExperationDate);
             this.pnlClientData.Controls.Add(this.label1);
-            this.pnlClientData.Controls.Add(this.textBox1);
+            this.pnlClientData.Controls.Add(this.txtClientEmail);
             this.pnlClientData.Controls.Add(this.lblContractID);
-            this.pnlClientData.Controls.Add(this.chkClientEdit);
             this.pnlClientData.Controls.Add(this.btnClientClear);
-            this.pnlClientData.Controls.Add(this.txtClientLocation);
+            this.pnlClientData.Controls.Add(this.txtClientAddress);
             this.pnlClientData.Controls.Add(this.lblClientAdress);
             this.pnlClientData.Controls.Add(this.txtClientPhoneNumber);
             this.pnlClientData.Controls.Add(this.lblClientPhoneNumber);
-            this.pnlClientData.Controls.Add(this.txtClientContractType);
+            this.pnlClientData.Controls.Add(this.txtServiceLevel);
             this.pnlClientData.Controls.Add(this.lblServiceLevel);
             this.pnlClientData.Controls.Add(this.txtClientLastName);
             this.pnlClientData.Controls.Add(this.lblClientLastName);
@@ -134,20 +142,19 @@ namespace PresentationLayer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 168);
+            this.label1.Location = new System.Drawing.Point(8, 218);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 25;
             this.label1.Text = "Email:";
             // 
-            // textBox1
+            // txtClientEmail
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(11, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 24;
+            this.txtClientEmail.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtClientEmail.Location = new System.Drawing.Point(11, 242);
+            this.txtClientEmail.Name = "txtClientEmail";
+            this.txtClientEmail.Size = new System.Drawing.Size(100, 22);
+            this.txtClientEmail.TabIndex = 24;
             // 
             // lblContractID
             // 
@@ -158,18 +165,6 @@ namespace PresentationLayer
             this.lblContractID.Size = new System.Drawing.Size(75, 15);
             this.lblContractID.TabIndex = 23;
             this.lblContractID.Text = "Contract ID:";
-            // 
-            // chkClientEdit
-            // 
-            this.chkClientEdit.AutoSize = true;
-            this.chkClientEdit.Checked = true;
-            this.chkClientEdit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkClientEdit.Location = new System.Drawing.Point(3, 276);
-            this.chkClientEdit.Name = "chkClientEdit";
-            this.chkClientEdit.Size = new System.Drawing.Size(44, 17);
-            this.chkClientEdit.TabIndex = 21;
-            this.chkClientEdit.Text = "Edit";
-            this.chkClientEdit.UseVisualStyleBackColor = true;
             // 
             // btnClientClear
             // 
@@ -182,20 +177,19 @@ namespace PresentationLayer
             this.btnClientClear.Text = "Clear";
             this.btnClientClear.UseVisualStyleBackColor = true;
             // 
-            // txtClientLocation
+            // txtClientAddress
             // 
-            this.txtClientLocation.Enabled = false;
-            this.txtClientLocation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtClientLocation.Location = new System.Drawing.Point(140, 137);
-            this.txtClientLocation.Name = "txtClientLocation";
-            this.txtClientLocation.Size = new System.Drawing.Size(100, 22);
-            this.txtClientLocation.TabIndex = 19;
+            this.txtClientAddress.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtClientAddress.Location = new System.Drawing.Point(140, 187);
+            this.txtClientAddress.Name = "txtClientAddress";
+            this.txtClientAddress.Size = new System.Drawing.Size(100, 22);
+            this.txtClientAddress.TabIndex = 19;
             // 
             // lblClientAdress
             // 
             this.lblClientAdress.AutoSize = true;
             this.lblClientAdress.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientAdress.Location = new System.Drawing.Point(137, 112);
+            this.lblClientAdress.Location = new System.Drawing.Point(137, 162);
             this.lblClientAdress.Name = "lblClientAdress";
             this.lblClientAdress.Size = new System.Drawing.Size(56, 15);
             this.lblClientAdress.TabIndex = 18;
@@ -203,9 +197,8 @@ namespace PresentationLayer
             // 
             // txtClientPhoneNumber
             // 
-            this.txtClientPhoneNumber.Enabled = false;
             this.txtClientPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtClientPhoneNumber.Location = new System.Drawing.Point(11, 137);
+            this.txtClientPhoneNumber.Location = new System.Drawing.Point(11, 187);
             this.txtClientPhoneNumber.Name = "txtClientPhoneNumber";
             this.txtClientPhoneNumber.Size = new System.Drawing.Size(100, 22);
             this.txtClientPhoneNumber.TabIndex = 17;
@@ -214,20 +207,19 @@ namespace PresentationLayer
             // 
             this.lblClientPhoneNumber.AutoSize = true;
             this.lblClientPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientPhoneNumber.Location = new System.Drawing.Point(8, 112);
+            this.lblClientPhoneNumber.Location = new System.Drawing.Point(8, 162);
             this.lblClientPhoneNumber.Name = "lblClientPhoneNumber";
             this.lblClientPhoneNumber.Size = new System.Drawing.Size(90, 15);
             this.lblClientPhoneNumber.TabIndex = 16;
             this.lblClientPhoneNumber.Text = "Phone number:";
             // 
-            // txtClientContractType
+            // txtServiceLevel
             // 
-            this.txtClientContractType.Enabled = false;
-            this.txtClientContractType.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtClientContractType.Location = new System.Drawing.Point(140, 37);
-            this.txtClientContractType.Name = "txtClientContractType";
-            this.txtClientContractType.Size = new System.Drawing.Size(100, 22);
-            this.txtClientContractType.TabIndex = 15;
+            this.txtServiceLevel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtServiceLevel.Location = new System.Drawing.Point(140, 37);
+            this.txtServiceLevel.Name = "txtServiceLevel";
+            this.txtServiceLevel.Size = new System.Drawing.Size(100, 22);
+            this.txtServiceLevel.TabIndex = 15;
             // 
             // lblServiceLevel
             // 
@@ -241,9 +233,8 @@ namespace PresentationLayer
             // 
             // txtClientLastName
             // 
-            this.txtClientLastName.Enabled = false;
             this.txtClientLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtClientLastName.Location = new System.Drawing.Point(140, 87);
+            this.txtClientLastName.Location = new System.Drawing.Point(140, 137);
             this.txtClientLastName.Name = "txtClientLastName";
             this.txtClientLastName.Size = new System.Drawing.Size(100, 22);
             this.txtClientLastName.TabIndex = 13;
@@ -252,7 +243,7 @@ namespace PresentationLayer
             // 
             this.lblClientLastName.AutoSize = true;
             this.lblClientLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientLastName.Location = new System.Drawing.Point(137, 62);
+            this.lblClientLastName.Location = new System.Drawing.Point(137, 112);
             this.lblClientLastName.Name = "lblClientLastName";
             this.lblClientLastName.Size = new System.Drawing.Size(106, 15);
             this.lblClientLastName.TabIndex = 12;
@@ -260,9 +251,8 @@ namespace PresentationLayer
             // 
             // txtClientFirstName
             // 
-            this.txtClientFirstName.Enabled = false;
             this.txtClientFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtClientFirstName.Location = new System.Drawing.Point(11, 87);
+            this.txtClientFirstName.Location = new System.Drawing.Point(11, 137);
             this.txtClientFirstName.Name = "txtClientFirstName";
             this.txtClientFirstName.Size = new System.Drawing.Size(100, 22);
             this.txtClientFirstName.TabIndex = 11;
@@ -271,7 +261,7 @@ namespace PresentationLayer
             // 
             this.lblClientFirstName.AutoSize = true;
             this.lblClientFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientFirstName.Location = new System.Drawing.Point(8, 62);
+            this.lblClientFirstName.Location = new System.Drawing.Point(8, 112);
             this.lblClientFirstName.Name = "lblClientFirstName";
             this.lblClientFirstName.Size = new System.Drawing.Size(109, 15);
             this.lblClientFirstName.TabIndex = 10;
@@ -279,7 +269,6 @@ namespace PresentationLayer
             // 
             // txtClientId
             // 
-            this.txtClientId.Enabled = false;
             this.txtClientId.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientId.Location = new System.Drawing.Point(11, 37);
             this.txtClientId.Name = "txtClientId";
@@ -330,6 +319,7 @@ namespace PresentationLayer
             this.lstData.Name = "lstData";
             this.lstData.Size = new System.Drawing.Size(431, 334);
             this.lstData.TabIndex = 6;
+            this.lstData.SelectedIndexChanged += new System.EventHandler(this.lstData_SelectedIndexChanged);
             // 
             // btnNext
             // 
@@ -577,6 +567,49 @@ namespace PresentationLayer
             this.btnEmployeeAdd.Text = "Add";
             this.btnEmployeeAdd.UseVisualStyleBackColor = true;
             // 
+            // lblExperationDate
+            // 
+            this.lblExperationDate.AutoSize = true;
+            this.lblExperationDate.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExperationDate.Location = new System.Drawing.Point(11, 62);
+            this.lblExperationDate.Name = "lblExperationDate";
+            this.lblExperationDate.Size = new System.Drawing.Size(97, 15);
+            this.lblExperationDate.TabIndex = 27;
+            this.lblExperationDate.Text = "Experation Date:";
+            // 
+            // txtExperationDate
+            // 
+            this.txtExperationDate.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtExperationDate.Location = new System.Drawing.Point(11, 87);
+            this.txtExperationDate.Name = "txtExperationDate";
+            this.txtExperationDate.Size = new System.Drawing.Size(100, 22);
+            this.txtExperationDate.TabIndex = 26;
+            // 
+            // txtSearchParamater
+            // 
+            this.txtSearchParamater.Location = new System.Drawing.Point(296, 16);
+            this.txtSearchParamater.Name = "txtSearchParamater";
+            this.txtSearchParamater.Size = new System.Drawing.Size(149, 20);
+            this.txtSearchParamater.TabIndex = 7;
+            // 
+            // cmbSearchType
+            // 
+            this.cmbSearchType.FormattingEnabled = true;
+            this.cmbSearchType.Location = new System.Drawing.Point(186, 16);
+            this.cmbSearchType.Name = "cmbSearchType";
+            this.cmbSearchType.Size = new System.Drawing.Size(90, 21);
+            this.cmbSearchType.TabIndex = 8;
+            // 
+            // lblSearchType
+            // 
+            this.lblSearchType.AutoSize = true;
+            this.lblSearchType.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchType.Location = new System.Drawing.Point(107, 17);
+            this.lblSearchType.Name = "lblSearchType";
+            this.lblSearchType.Size = new System.Drawing.Size(73, 17);
+            this.lblSearchType.TabIndex = 9;
+            this.lblSearchType.Text = "Search by:";
+            // 
             // Contract_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,13 +636,12 @@ namespace PresentationLayer
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Panel pnlClientData;
-        private System.Windows.Forms.CheckBox chkClientEdit;
         private System.Windows.Forms.Button btnClientClear;
-        private System.Windows.Forms.TextBox txtClientLocation;
+        private System.Windows.Forms.TextBox txtClientAddress;
         private System.Windows.Forms.Label lblClientAdress;
         private System.Windows.Forms.TextBox txtClientPhoneNumber;
         private System.Windows.Forms.Label lblClientPhoneNumber;
-        private System.Windows.Forms.TextBox txtClientContractType;
+        private System.Windows.Forms.TextBox txtServiceLevel;
         private System.Windows.Forms.Label lblServiceLevel;
         private System.Windows.Forms.TextBox txtClientLastName;
         private System.Windows.Forms.Label lblClientLastName;
@@ -645,6 +677,11 @@ namespace PresentationLayer
         private System.Windows.Forms.Button btnEmployeeAdd;
         private System.Windows.Forms.Label lblContractID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtClientEmail;
+        private System.Windows.Forms.Label lblExperationDate;
+        private System.Windows.Forms.TextBox txtExperationDate;
+        private System.Windows.Forms.TextBox txtSearchParamater;
+        private System.Windows.Forms.Label lblSearchType;
+        private System.Windows.Forms.ComboBox cmbSearchType;
     }
 }

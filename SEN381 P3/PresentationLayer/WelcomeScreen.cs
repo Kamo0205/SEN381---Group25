@@ -35,9 +35,9 @@ namespace PresentationLayer
 
         private void btnServiceDepartment_Click(object sender, EventArgs e)
         {
-            FrmServiceDepartment serviceDepartment = new FrmServiceDepartment();
+            Contract_Screen contractScreen = new Contract_Screen();
             this.Hide();
-            serviceDepartment.ShowDialog();
+            contractScreen.ShowDialog();
             this.Close();
         }
 
@@ -47,6 +47,11 @@ namespace PresentationLayer
             this.Hide();
             clientSatisfaction.ShowDialog();
             this.Close();
+        }
+
+        private void FrmWelcomeScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
