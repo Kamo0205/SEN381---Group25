@@ -151,3 +151,34 @@ BEGIN
 		PRINT 'spDeleteEquipment Transaction UNSUCCSESSFUL'
 	END CATCH
 END 
+
+GO
+
+CREATE PROCEDURE spDeleteContract
+(
+@id VARCHAR(30)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			IF EXISTS(SELECT * FROM tblClient WHERE ContractID = @id)
+			BEGIN
+			UPDATE tblClient 
+			SET 
+			ContractID = null
+			WHERE ContractID = @id
+			END
+
+			DELETE FROM tblContract 
+			WHERE ContractID=@id
+
+		COMMIT
+		PRINT 'spDeleteContract Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spDeleteContract Transaction UNSUCCSESSFUL'
+	END CATCH
+END
