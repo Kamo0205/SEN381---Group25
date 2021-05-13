@@ -148,6 +148,11 @@ namespace Data_Access_Layer
             return readDataHandler.GetJobByID(id);
         }
 
+        public DataTable GetJobByType(string type)
+        {
+            return readDataHandler.GetJobByType(type);
+        }
+
         public DataTable GetSkillByID(string id)
         {
             return readDataHandler.GetSkillByID(id);

@@ -63,6 +63,30 @@ namespace Business_Logic_Layer
             }
         }
 
+        List<Job> getJobByType(string type)
+        {
+            try
+            {
+                DataTable jobData = db.GetJobByType(type);
+                if (jobData != null && jobData.IsInitialized)
+                {
+                    for (int i = 0; i < jobData.Rows.Count; i++)
+                    {
+                        jobs.Add(new Job(data: jobData, i: i));
+                    }
+                    return jobs;
+                }
+
+                return null;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("JobBusinessLogic : getJob ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         void createJob(Job job)
         {
             try
