@@ -42,13 +42,5 @@ namespace PresentationLayer
                 throw;
             }
         }
-
-        private void lstData_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Contract selectedContract = (Contract)lstData.SelectedItem;
-
-            txtServiceLevel.Text = selectedContract.ServiceLevel;
-            txtExperationDate.Text = selectedContract.ExperationDate;
-        }
     }
 }
