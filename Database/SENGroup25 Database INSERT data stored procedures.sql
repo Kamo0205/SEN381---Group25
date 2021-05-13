@@ -6,6 +6,7 @@ CREATE PROCEDURE spInsertClient
 (
 @id VARCHAR(30),
 @contractID VARCHAR(30),
+@password VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
 @address VARCHAR(100),
@@ -17,8 +18,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblClient(ClientID,ContractID,ClientName,ClientSurname,ClientAddress,Email,ContactNumber)
-			VALUES(@id,@contractID,@name,@surname,@address,@email,@number)
+			INSERT INTO tblClient(ClientID,ContractID,ClientName,ClientSurname,ClientPassword,ClientAddress,Email,ContactNumber)
+			VALUES(@id,@contractID,@name,@surname,@password,@address,@email,@number)
 
 		COMMIT
 		PRINT 'spInsertClient Transaction Successful'
@@ -36,6 +37,7 @@ CREATE PROCEDURE spInsertEmployee
 @id VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
+@password VARCHAR(30),
 @vatID VARCHAR(10),
 @email VARCHAR(50),
 @number VARCHAR(12)
@@ -45,8 +47,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblEmployee(EmpID,EmpName,EmpSurname,VatIDNumber,Email,ContactNumber)
-			VALUES(@id,@name,@surname,@vatID,@email,@number)
+			INSERT INTO tblEmployee(EmpID,EmpName,EmpSurname,EmpPassword,VatIDNumber,Email,ContactNumber)
+			VALUES(@id,@name,@surname,@password,@vatID,@email,@number)
 
 		COMMIT
 		PRINT 'spInsertEmployee Transaction Successful'

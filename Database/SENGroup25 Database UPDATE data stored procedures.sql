@@ -10,6 +10,7 @@ CREATE PROCEDURE spUpdateClient
 @contractID VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
+@password VARCHAR(30),
 @address VARCHAR(100),
 @email VARCHAR(50),
 @number VARCHAR(12)
@@ -23,6 +24,7 @@ BEGIN
 			SET 
 			ClientName = @name,
 			ClientSurname = @surname,
+			ClientPassword = @password,
 			ClientAddress = @address,
 			Email = @email,
 			ContactNumber = @number
@@ -202,6 +204,7 @@ CREATE PROCEDURE spUpdateEmployee
 @id VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
+@password VARCHAR(30),
 @vat VARCHAR(10),
 @email VARCHAR(50),
 @number VARCHAR(12)
@@ -215,6 +218,7 @@ BEGIN
 			SET 
 			EmpName = @name,
 			EmpSurname = @surname,
+			EmpPassword = @password,
 			VatIDNumber = @vat,
 			Email = @email,
 			ContactNumber = @number
