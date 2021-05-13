@@ -155,7 +155,12 @@ namespace Data_Access_Layer
 
         public DataTable GetSkillByType(string type)
         {
-            return readDataHandler.GetSkillByType(type);
+            return readDataHandler.GetJobByType(type);
+        }
+
+        public DataTable GetJobByType(string type)
+        {
+            return readDataHandler.GetJobByType(type);
         }
 
         public void UpdateClient(Client client)
