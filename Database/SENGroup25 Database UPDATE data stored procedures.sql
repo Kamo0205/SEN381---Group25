@@ -12,8 +12,7 @@ CREATE PROCEDURE spUpdateClient
 @password VARCHAR(30),
 @address VARCHAR(100),
 @email VARCHAR(50),
-@number VARCHAR(12),
-@type VARCHAR(15)
+@number VARCHAR(12)
 )
 AS
 BEGIN
@@ -23,8 +22,7 @@ BEGIN
 			UPDATE tblAuthentication
 			SET
 			UserName = @email,
-			UserPassword = @password,
-			UserType = @type
+			UserPassword = @password
 			WHERE AuthenticationID = @id
 
 			UPDATE tblClient 
