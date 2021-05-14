@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Business_Logic_Layer
@@ -106,40 +106,21 @@ namespace Business_Logic_Layer
         {
             try
             {
+                List<Employee> allEmployees = new List<Employee>();
                 List<Employee> employeesOnStandBy = new List<Employee>();
                 List<Employee> assignedEmployees = new List<Employee>();
                 DataTable jobData = db.ListJobsByStatus("Assigned");
                 DataTable employeeData = db.ListEmployees();
                 for (int i = 0; i < employeeData.Rows.Count; i++)
                 {
-                    for (int j = 0; j < jobData.Rows.Count; j++)
-                    {
-                        if(employeeData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
-                        {
-                            assignedEmployees.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
-                        }
-                    }
+                    allEmployees.Add(new TechnicalStaff(i:i,data: employeeData, new Pay("Technician", 600)));
                 }
-                if(assignedEmployees != null)
+                for (int i = 0; i < jobData.Rows.Count; i++)
                 {
-                    foreach (Employee employee in assignedEmployees)
-                    {
-                        for (int i = 0; i < employeeData.Rows.Count; i++)
-                        {
-                            if (employee.Id != employeeData.Rows[i]["EmpID"].ToString())
-                            {
-                                employeesOnStandBy.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
-                            }
-                        }
-                    }
+                    assignedEmployees.Add(new TechnicalStaff(i: i, data: db.GetEmployeeByID(jobData.Rows[i]["EmpID"].ToString()), new Pay("Technician", 600)));
                 }
-                else
-                {
-                    for (int i = 0; i < employeeData.Rows.Count; i++)
-                    {
-                        employeesOnStandBy.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
-                    }
-                }
+                employeesOnStandBy = allEmployees.Except(assignedEmployees).ToList();
+
                 return employeesOnStandBy;
             }
             catch (Exception e)
