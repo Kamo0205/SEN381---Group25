@@ -216,6 +216,34 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
+        public DataTable ListEmployees()
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM tblEmployee", conn);
+                cmd.CommandType = CommandType.Text;
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListEmployees ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
         public DataTable GetEmployeeByEmail(string email)
         {
             DataTable output = new DataTable();
@@ -407,6 +435,35 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("ReadHandler : ListJobsByEmployeeID ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListJobsByStatus(string status)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListJobsByStatus", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", status);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListJobsByStatus ERROR:" + e.Message);
                 throw;
             }
             finally

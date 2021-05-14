@@ -13,7 +13,6 @@ namespace Business_Logic_Layer
         callCenter,
         technician
     }
-
     public enum employeeSearchParamaters{
         id,
         email,
@@ -103,6 +102,51 @@ namespace Business_Logic_Layer
             }
         }
 
-        
+        public List<Employee> employeesOnStandBy()
+        {
+            try
+            {
+                List<Employee> employeesOnStandBy = new List<Employee>();
+                List<Employee> assignedEmployees = new List<Employee>();
+                DataTable jobData = db.ListJobsByStatus("Assigned");
+                DataTable employeeData = db.ListEmployees();
+                for (int i = 0; i < employeeData.Rows.Count; i++)
+                {
+                    for (int j = 0; j < jobData.Rows.Count; j++)
+                    {
+                        if(employeeData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
+                        {
+                            assignedEmployees.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
+                        }
+                    }
+                }
+                if(assignedEmployees != null)
+                {
+                    foreach (Employee employee in assignedEmployees)
+                    {
+                        for (int i = 0; i < employeeData.Rows.Count; i++)
+                        {
+                            if (employee.Id != employeeData.Rows[i]["EmpID"].ToString())
+                            {
+                                employeesOnStandBy.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < employeeData.Rows.Count; i++)
+                    {
+                        employeesOnStandBy.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("Technician", 600)));
+                    }
+                }
+                return employeesOnStandBy;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : searchEmployeesByParamater ERROR:" + e.Message);
+                throw;
+            }
+        }
     }
 }

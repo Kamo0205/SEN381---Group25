@@ -143,6 +143,11 @@ namespace Data_Access_Layer
             return readDataHandler.GetEmployeeByID(id);
         }
 
+        public DataTable ListEmployees()
+        {
+            return readDataHandler.ListEmployees();
+        }
+
         public DataTable GetEquipmentByID(string id)
         {
             return readDataHandler.GetEquipmentByID(id);
@@ -161,6 +166,11 @@ namespace Data_Access_Layer
         public DataTable ListJobsByEmployeeID(string id)
         {
             return readDataHandler.ListJobsByEmployeeID(id);
+        }
+
+        public DataTable ListJobsByStatus(string status)
+        {
+            return readDataHandler.ListJobsByStatus(status);
         }
 
         public DataTable GetSkillByID(string id)
