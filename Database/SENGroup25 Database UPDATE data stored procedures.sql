@@ -410,6 +410,58 @@ END
 
 GO
 
+CREATE PROCEDURE spReassignJob
+(
+@id VARCHAR(30),
+@employeeID VARCHAR(30)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			UPDATE tblJob 
+			SET 
+			EmpID = @employeeID
+			WHERE JobID = @id
+
+		COMMIT
+		PRINT 'spReassignJob Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spReassignJob Transaction UNSUCCESSFUL'
+	END CATCH
+END
+
+GO
+
+CREATE PROCEDURE spUpdateJobStatus
+(
+@id VARCHAR(30),
+@status VARCHAR(15)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			UPDATE tblJob 
+			SET 
+			JobStatus = @status
+			WHERE JobID = @id
+
+		COMMIT
+		PRINT 'spUpdateJobStatus Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spUpdateJobStatus Transaction UNSUCCESSFUL'
+	END CATCH
+END
+
+GO
+
 /*CREATE PROCEDURE spUpdateJobClient
 (
 @id VARCHAR(30),
