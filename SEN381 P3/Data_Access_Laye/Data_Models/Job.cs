@@ -11,7 +11,7 @@ namespace Data_Access_Layer
     {
         private string id;
         private string employeeID;
-        private string clientID;
+        private string contractID;
         private string jobStatus;
         private string jobDescription;
         private string jobType;
@@ -21,22 +21,22 @@ namespace Data_Access_Layer
         public string JobType { get => jobType; set => jobType = value; }
         public string JobDescription { get => jobDescription; set => jobDescription = value; }
         public string EmployeeID { get => employeeID; set => employeeID = value; }
-        public string ClientID { get => clientID; set => clientID = value; }
+        public string ContractID { get => contractID; set => contractID = value; }
         public string JobStatus { get => jobStatus; set => jobStatus = value; }
         public Pay Pay { get => pay; set => pay = value; }
 
-        public Job(string id, string clientID, string employeeID,string jobStatus, Pay pay, string jobDescription, string jobType)
+        public Job(string id, string contractID, string employeeID,string jobStatus, Pay pay, string jobDescription, string jobType)
         {
-            this.clientID = clientID;
+            if (id == null)
+                this.id = this.GetHashCode().ToString();
+            else
+                this.id = id;
+            this.contractID = contractID;
             this.employeeID = employeeID;
             this.jobType = jobType;
             this.jobDescription = jobDescription;
             this.jobStatus = jobStatus;
             this.pay = pay;
-            if (id == null)
-                this.id = this.GetHashCode().ToString();
-            else
-                this.id = id;
         }
 
         public Job(DataTable data, int i)
@@ -45,7 +45,7 @@ namespace Data_Access_Layer
                 this.id = this.GetHashCode().ToString();
             else
                 this.id = data.Rows[i]["JobID"].ToString();
-            this.clientID = data.Rows[i]["ClientID"].ToString();
+            this.contractID = data.Rows[i]["ContractID"].ToString();
             this.employeeID = data.Rows[i]["EmpID"].ToString();
             this.jobDescription = data.Rows[i]["JobDescription"].ToString();
             this.jobType = data.Rows[i]["JobType"].ToString();
@@ -63,7 +63,7 @@ namespace Data_Access_Layer
         public override int GetHashCode()
         {
             int hash = 1;
-            foreach (string word in new string[] { jobStatus, clientID, employeeID })
+            foreach (string word in new string[] { jobStatus, contractID, employeeID })
                 hash *= CharToInt(word);
             return hash;
         }

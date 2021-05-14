@@ -50,27 +50,21 @@ namespace Data_Access_Layer
 
         public Person(DataTable data, int i)
         {
+            this.id = data.Rows[i]["ClientID"].ToString();
             this.firstName = data.Rows[i]["ClientName"].ToString();
             this.address = data.Rows[i]["ClientAddress"].ToString();
             this.lastName = data.Rows[i]["ClientSurname"].ToString();
             this.phoneNumber = data.Rows[i]["ContactNumber"].ToString();
             this.email = data.Rows[i]["Email"].ToString();
-            if (id == null)
-                this.id = this.GetHashCode().ToString();
-            else
-                this.id = data.Rows[i]["ClientID"].ToString();
         }
 
         public Person(int i, DataTable data)
         {
+            this.id = data.Rows[i]["EmpID"].ToString();
             this.firstName = data.Rows[i]["EmpName"].ToString();
             this.lastName = data.Rows[i]["EmpSurname"].ToString();
             this.phoneNumber = data.Rows[i]["ContactNumber"].ToString();
-            this.email = data.Rows[i]["Email"].ToString();
-            if (id == null)
-                this.id = this.GetHashCode().ToString();
-            else
-                this.id = data.Rows[i]["EmpID"].ToString();
+            this.email = data.Rows[i]["Email"].ToString();              
         }
 
         private int CharToInt(string word)

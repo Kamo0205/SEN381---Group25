@@ -28,7 +28,6 @@ namespace PresentationLayer
             cmbSearchBy.Items.Add(new ComboBoxItem(name: "Email", id: 0));
             cmbSearchBy.Items.Add(new ComboBoxItem(name: "Address", id: 1));
             cmbSearchBy.Items.Add(new ComboBoxItem(name: "Phone Number", id: 2));
-            cmbSearchBy.Items.Add(new ComboBoxItem(name: "Contract ID", id: 3));
             cmbSearchBy.DisplayMember = "Name";
             cmbSearchBy.ValueMember = "Id";
         }
@@ -60,7 +59,7 @@ namespace PresentationLayer
             clientSearchParameter searchParameter = (clientSearchParameter)cmbSearchBy.SelectedIndex;
 
             searchResults = clientData.searchClientByParameter(parameter: searchParameter, query: txtSearchParamater.Text, serviceLevel: selectedService);
-            if (searchResults.Count > 0)
+            if (searchResults != null)
             {
                 Client client = searchResults[0];
 
@@ -70,7 +69,7 @@ namespace PresentationLayer
                 txtClientPhoneNumber.Text = client.PhoneNumber;
                 txtClientEmail.Text = client.Email;
 
-                List<Contract> selectedClientContracts = contractData.searchContractsByID(id: client.ContractID);
+                List<Contract> selectedClientContracts = contractData.searchContractsByClientID(id: client.Id);
 
                 contractBind.DataSource = selectedClientContracts;
             }
@@ -80,7 +79,7 @@ namespace PresentationLayer
         {
             Contract selectedContract = (Contract)lstData.SelectedItem;
 
-            txtContractId.Text = selectedContract.ID;
+            txtContractId.Text = selectedContract.Id;
             txtContractExperationDate.Text = selectedContract.ExperationDate;
             cmbServiceChange.Text = selectedContract.ServiceLevel;
         }
@@ -118,7 +117,7 @@ namespace PresentationLayer
             {
                 if (DateTime.TryParse(txtContractExperationDate.Text, out dDate))
                 {
-                    contractData.updateContract(new Contract(serviceLevel: cmbServiceChange.Text, ID: txtContractId.Text, experationDate: txtContractExperationDate.Text));
+                    contractData.updateContract(new Contract(id: txtContractId.Text, clientID: searchResults[0].Id,serviceLevel: cmbServiceChange.Text, experationDate: txtContractExperationDate.Text));
                     MessageBox.Show("Contract Updated!");
                 }
                 else
@@ -139,10 +138,8 @@ namespace PresentationLayer
             {
                 if (DateTime.TryParse(txtContractExperationDate.Text, out dDate))
                 {
-                    Contract newContract = new Contract(serviceLevel: cmbServiceChange.Text, ID: null, experationDate: txtContractExperationDate.Text);
+                    Contract newContract = new Contract(id: null, clientID: searchResults[0].Id, serviceLevel: cmbServiceChange.Text, experationDate: txtContractExperationDate.Text);
                     contractData.createContract(newContract);
-                    searchResults[0].ContractID = newContract.ID;
-                    clientData.updateClient(searchResults[0]);
                     MessageBox.Show(string.Format("Created contract for {0} {1}!", txtClientFirstName.Text, txtClientLastName.Text));
                 }
                 else

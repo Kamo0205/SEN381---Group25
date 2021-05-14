@@ -18,8 +18,7 @@ namespace Business_Logic_Layer
     {
         email,
         address,
-        phone,
-        contractID
+        phone
     }
 
     public class ClientBusinessLogic
@@ -59,14 +58,11 @@ namespace Business_Logic_Layer
                     case clientSearchParameter.phone:
                         clientData = db.GetClientByContactNumber(number: query);
                         break;
-                    case clientSearchParameter.contractID:
-                        clientData = db.GetClientByContractID(id: query);
-                        break;
                     default:
                         break;
                 }
 
-                if (clientData != null || clientData.IsInitialized)
+                if (clientData.Rows.Count != 0)
                 {
                     for (int i = 0; i < clientData.Rows.Count; i++)
                     {
@@ -97,11 +93,11 @@ namespace Business_Logic_Layer
             }
         }
 
-        public void updateClient(Client client)
+        public void updateClient(Client client, string password)
         {
             try
             {
-                db.UpdateClient(client: client);
+                db.UpdateClient(client: client, password: password);
             }
             catch (Exception e)
             {
@@ -110,11 +106,11 @@ namespace Business_Logic_Layer
             }
         }
 
-        public void createClient(Client client)
+        public void createClient(Client client, string password)
         {
             try
             {
-                db.CreateClient(client);
+                db.CreateClient(client: client, password: password);
             }
             catch (Exception e)
             {

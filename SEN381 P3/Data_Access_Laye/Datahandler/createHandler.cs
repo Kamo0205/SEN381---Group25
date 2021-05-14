@@ -14,7 +14,7 @@ namespace Data_Access_Layer.Datahandler
             this.conn = new SqlConnection(connection);
         }
 
-        public void CreateClient(Client client)
+        public void CreateClient(Client client, string password, string type = "Client")
         {
             try
             {
@@ -22,12 +22,13 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spInsertClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", client.Id);
-                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@name", client.FirstName);
                 cmd.Parameters.AddWithValue("@surname", client.LastName);
                 cmd.Parameters.AddWithValue("@address", client.Address);
                 cmd.Parameters.AddWithValue("@email", client.Email);
                 cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
+                cmd.Parameters.AddWithValue("@type", type);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -44,7 +45,7 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateEmployee(Employee employee)
+        public void CreateEmployee(Employee employee, string password, string type)
         {
             try
             {
@@ -54,9 +55,11 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@id", employee.Id);
                 cmd.Parameters.AddWithValue("@name", employee.FirstName);
                 cmd.Parameters.AddWithValue("@surname", employee.LastName);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@vatID", employee.VatID);
                 cmd.Parameters.AddWithValue("@email", employee.VatID);
                 cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
+                cmd.Parameters.AddWithValue("@type", type);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -80,8 +83,10 @@ namespace Data_Access_Layer.Datahandler
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spInsertContract", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", contract.ID);
+                cmd.Parameters.AddWithValue("@id", contract.Id);
+                cmd.Parameters.AddWithValue("@clientID", contract.ClientID);
                 cmd.Parameters.AddWithValue("@serviceLevel", contract.ServiceLevel);
+                cmd.Parameters.AddWithValue("@experationDate", contract.ExperationDate);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -156,7 +161,8 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spInsertJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@clientID", job.ClientID);
+                cmd.Parameters.AddWithValue("@contractID", job.ContractID);
+                cmd.Parameters.AddWithValue("@empID", job.EmployeeID);
                 cmd.Parameters.AddWithValue("@description", job.JobDescription);
                 cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.Parameters.AddWithValue("@status", job.JobStatus);

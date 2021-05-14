@@ -10,14 +10,14 @@ namespace Business_Logic_Layer
     {
         private DBAccess db = new DBAccess();
 
-        public List<Contract> searchContractsByID(String id)
+        public List<Contract> searchContractsByClientID(String id)
         {
             List<Contract> contracts = new List<Contract>();
             try
             {
-                DataTable contractData = db.GetContractByID(id);
+                DataTable contractData = db.ListContractsByClientID(id);
 
-                if (contractData != null || contractData.IsInitialized)
+                if (contractData.Rows.Count != 0)
                 {
                     for (int i = 0; i < contractData.Rows.Count; i++)
                     {
@@ -29,7 +29,7 @@ namespace Business_Logic_Layer
             }
             catch (Exception e)
             {
-                MessageBox.Show("ContractBusinessLogic : searchContractsByID ERROR:" + e.Message);
+                MessageBox.Show("ContractBusinessLogic : searchContractsByClientID ERROR:" + e.Message);
                 throw;
             }
         }

@@ -28,14 +28,14 @@ namespace Data_Access_Layer
             updateDataHandler = new UpdateHandler(connection.ToString());
         }
 
-        public void CreateClient(Client client)
+        public void CreateClient(Client client, string password)
         {
-            createDataHandler.CreateClient(client);
+            createDataHandler.CreateClient(client, password);
         }
 
-        public void CreateEmployee(Employee employee)
+        public void CreateEmployee(Employee employee, string password, string type)
         {
-            createDataHandler.CreateEmployee(employee);
+            createDataHandler.CreateEmployee(employee, password, type);
         }
 
         public void CreateContract(Contract contract)
@@ -108,11 +108,6 @@ namespace Data_Access_Layer
             return readDataHandler.GetClientByContactNumber(number);
         }
 
-        public DataTable GetClientByContractID(string id)
-        {
-            return readDataHandler.GetClientByContractID(id);
-        }
-
         public DataTable GetClientByEmail(string email)
         {
             return readDataHandler.GetClientByEmail(email);
@@ -126,6 +121,11 @@ namespace Data_Access_Layer
         public DataTable GetContractByID(string id)
         {
             return readDataHandler.GetContractByID(id);
+        }
+
+        public DataTable ListContractsByClientID(string id)
+        {
+            return readDataHandler.ListContractsByClientID(id);
         }
 
         public DataTable GetEmployeeByContactNumber(string number)
@@ -153,6 +153,16 @@ namespace Data_Access_Layer
             return readDataHandler.GetJobByID(id);
         }
 
+        public DataTable ListJobsByContractID(string id)
+        {
+            return readDataHandler.ListJobsByContractID(id);
+        }
+
+        public DataTable ListJobsByEmployeeID(string id)
+        {
+            return readDataHandler.ListJobsByEmployeeID(id);
+        }
+
         public DataTable GetSkillByID(string id)
         {
             return readDataHandler.GetSkillByID(id);
@@ -160,7 +170,7 @@ namespace Data_Access_Layer
 
         public DataTable GetSkillByType(string type)
         {
-            return readDataHandler.GetJobByType(type);
+            return readDataHandler.GetSkillByType(type);
         }
 
         public DataTable GetJobByType(string type)
@@ -168,9 +178,14 @@ namespace Data_Access_Layer
             return readDataHandler.GetJobByType(type);
         }
 
-        public void UpdateClient(Client client)
+        public DataTable Authenticate(string userName, string password)
         {
-            updateDataHandler.UpdateClient(client);
+            return readDataHandler.Authenticate(userName, password);
+        }
+
+        public void UpdateClient(Client client, string password)
+        {
+            updateDataHandler.UpdateClient(client, password);
         }
 
         public void UpdateContract(Contract contract)
@@ -178,9 +193,9 @@ namespace Data_Access_Layer
             updateDataHandler.UpdateContract(contract);
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void UpdateEmployee(Employee employee, string password, string type)
         {
-            updateDataHandler.UpdateEmployee(employee);
+            updateDataHandler.UpdateEmployee(employee, password, type);
         }
 
         public void UpdateEquipment(Equipment equipment)
@@ -191,6 +206,16 @@ namespace Data_Access_Layer
         public void UpdateJob(Job job)
         {
             updateDataHandler.UpdateJob(job);
+        }
+
+        public void ReassignJob(Job job )
+        {
+            updateDataHandler.ReassignJob(job);
+        }
+
+        public void UpdateJobStatus(Job job)
+        {
+            updateDataHandler.UpdateJobStatus(job);
         }
 
         public void UpdateSkill(Skills skill)

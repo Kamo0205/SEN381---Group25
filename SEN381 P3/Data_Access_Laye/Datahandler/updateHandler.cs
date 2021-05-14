@@ -15,7 +15,7 @@ namespace Data_Access_Layer.Datahandler
             this.conn = new SqlConnection(connection);
         }
 
-        public void UpdateClient(Client client)
+        public void UpdateClient(Client client, string password)
         {
             try
             {
@@ -23,12 +23,12 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spUpdateClient", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", client.Id);
-                cmd.Parameters.AddWithValue("@contractID", client.ContractID);
                 cmd.Parameters.AddWithValue("@name", client.FirstName);
                 cmd.Parameters.AddWithValue("@surname", client.LastName);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@address", client.Address);
-                cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
                 cmd.Parameters.AddWithValue("@email", client.Email);
+                cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -52,8 +52,9 @@ namespace Data_Access_Layer.Datahandler
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateContract", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", contract.ID);
+                cmd.Parameters.AddWithValue("@id", contract.Id);
                 cmd.Parameters.AddWithValue("@serviceLevel", contract.ServiceLevel);
+                cmd.Parameters.AddWithValue("@date", contract.ExperationDate);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -70,7 +71,7 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void UpdateEmployee(Employee employee, string password, string type)
         {
             try
             {
@@ -80,8 +81,10 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@id", employee.Id);
                 cmd.Parameters.AddWithValue("@name", employee.FirstName);
                 cmd.Parameters.AddWithValue("@surname", employee.LastName);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@email", employee.Email);
                 cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
+                cmd.Parameters.AddWithValue("@type", type);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -131,14 +134,63 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spUpdateJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@clientID", job.ClientID);
-                cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.Parameters.AddWithValue("@description", job.JobDescription);
+                cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
             {
                 System.Console.WriteLine("UpdateHandler : UpdateJob ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public void ReassignJob(Job job)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spReassignJob", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", job.Id);
+                cmd.Parameters.AddWithValue("@employeeID", job.EmployeeID);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("UpdateHandler : ReassignJob ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public void UpdateJobStatus(Job job)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spUpdateJobStatus", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", job.Id);
+                cmd.Parameters.AddWithValue("@status", job.JobStatus);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("UpdateHandler : UpdateJobStatus ERROR:" + e.Message);
                 throw;
             }
             finally

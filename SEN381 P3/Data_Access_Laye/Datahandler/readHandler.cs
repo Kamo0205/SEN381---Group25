@@ -71,35 +71,6 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetClientByContractID(string id)
-        {
-            DataTable output = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter();
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("spGetClientByContractID", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
-                sda.SelectCommand = cmd;
-                sda.FillSchema(output, SchemaType.Source);
-                sda.Fill(output);
-            }
-            catch (SqlException e)
-            {
-                System.Console.WriteLine("ReadHandler : GetClientByContractID ERROR:" + e.Message);
-                throw;
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-            return output;
-        }
-
         public DataTable GetClientByEmail(string email)
         {
             DataTable output = new DataTable();
@@ -175,6 +146,35 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("ReadHandler : GetContractByID ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListContractsByClientID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListContractsByClientID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListContractsByClientID ERROR:" + e.Message);
                 throw;
             }
             finally
@@ -361,6 +361,64 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
+        public DataTable ListJobsByContractID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(); 
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListJobsByContractID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListJobsByContractID ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListJobsByEmployeeID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListJobsByEmpID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListJobsByEmployeeID ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
         public DataTable GetSkillByID(string id)
         {
             DataTable output = new DataTable();
@@ -407,6 +465,36 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("ReadHandler : GetSkillByType ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable Authenticate(string userName, string password)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spAuthenticate", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userName", userName);
+                cmd.Parameters.AddWithValue("@password", password);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : Authenticate ERROR:" + e.Message);
                 throw;
             }
             finally

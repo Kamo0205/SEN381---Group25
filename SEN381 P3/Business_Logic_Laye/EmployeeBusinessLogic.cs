@@ -39,11 +39,11 @@ namespace Business_Logic_Layer
             }
         }
 
-        public void updateEmployee(Employee employee)
+        public void updateEmployee(Employee employee, string password, employeeType type)
         {
             try
             {
-                db.UpdateEmployee(employee:employee);
+                db.UpdateEmployee(employee:employee, password: password, type: type.ToString());
             }
             catch (Exception e)
             {
