@@ -2,19 +2,19 @@ USE SENGroup25DB
 
 GO
 
-EXEC spInsertEmployee @id = 'tianAdminID' , @name = 'Tian', @surname = 'Hanekom', @password = 'Fumz',@vatID = '101vatID', @email = 'hanekom.tian@gmail.com', @number = '+27738158483';
+EXEC spInsertEmployee @id = 'tianAdminID' , @name = 'Tian', @surname = 'Hanekom', @password = 'Fumz',@vatID = '101vatID', @email = 'hanekom.tian@gmail.com', @number = '+27738158483', @type = 'Admin';
 
 GO
 
-EXEC spInsertEmployee @id = 'johanAdminID', @name = 'Johan', @surname = 'Schoeman', @password = 'Vatmz',@vatID = '102vatID', @email = 'jschoeman@gmail.com', @number = '+27609931422';
+EXEC spInsertEmployee @id = 'johanAdminID', @name = 'Johan', @surname = 'Schoeman', @password = 'Vatmz',@vatID = '102vatID', @email = 'jschoeman@gmail.com', @number = '+27609931422', @type = 'Admin';
 
 GO
 
-EXEC spInsertEmployee @id = 'arcoCallCentreID', @name = 'Arco', @surname = 'Unknown', @password = 'Mdoa', @vatID = '103vatID', @email = 'arco@gmail.com', @number = '+27111111111';
+EXEC spInsertEmployee @id = 'arcoCallCentreID', @name = 'Arco', @surname = 'Unknown', @password = 'Mdoa', @vatID = '103vatID', @email = 'arco@gmail.com', @number = '+27111111111', @type = 'CallCentre';
 
 GO
 
-EXEC spInsertEmployee @id = 'kamoTechnicianID', @name = 'Kamo', @surname = 'Unknown', @password = 'Wmya', @vatID = '104vatID', @email = 'kamo@gmail.com', @number = '+27222222222';
+EXEC spInsertEmployee @id = 'kamoTechnicianID', @name = 'Kamo', @surname = 'Unknown', @password = 'Wmya', @vatID = '104vatID', @email = 'kamo@gmail.com', @number = '+27222222222', @type = 'Technician';
 
 GO
 
@@ -26,23 +26,15 @@ EXEC spInsertEmployeeSkill @empID = 'kamoTechnicianID', @skillID = 'instalationS
 
 GO
 
-EXEC spInsertContract @id = 'bronzeID', @serviceLevel = 'bronze', @experationDate = '2023-03-03' ;
+EXEC spInsertClient @id = 'hanoClientID', @name = 'Hano', @surname = 'Jochemus', @password = 'Tmza',@address = 'Girlfriends house', @email = 'hano@gmail.com', @number = '+27715239487', @type = 'Client';
 
 GO
 
-EXEC spInsertContract @id = 'silverID', @serviceLevel = 'silver', @experationDate = '2023-03-03';
+EXEC spInsertContract @id = 'premiumID', @clientID = 'hanoClientID', @serviceLevel = 'premium', @experationDate = '2023-03-03';
 
 GO
 
-EXEC spInsertContract @id = 'premiumID', @serviceLevel = 'premium', @experationDate = '2023-03-03';
-
-GO
-
-EXEC spInsertClient @id = 'hanoClientID', @contractID = 'premiumID', @name = 'Hano', @surname = 'Jochemus', @password = 'Tmza',@address = 'Girlfriends house', @email = 'hano@gmail.com', @number = '+27715239487';
-
-GO
-
-EXEC spInsertJob @id = 'hanoJobID', @clientID = 'hanoClientID', @empID = null, @description = 'Buy and install new laptop', @type = 'Instalation', @status = 'unassigned';
+EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @type = 'Instalation', @status = 'unassigned';
 
 GO
 

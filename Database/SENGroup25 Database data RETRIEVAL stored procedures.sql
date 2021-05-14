@@ -129,14 +129,14 @@ END
 
 GO
 
-CREATE PROCEDURE spGetClientByContractID
+/*CREATE PROCEDURE spGetClientByContractID
 @id VARCHAR(30)
 AS
 BEGIN
 SELECT * 
 FROM tblClient
 WHERE ContractID = @id
-END
+END*/
 
 
 /* Client-ID data retrieval stored procedures */
@@ -178,13 +178,13 @@ END
 
 GO
 
-CREATE PROCEDURE spListJobsByClientID
+CREATE PROCEDURE spListJobsByContractID
 @id VARCHAR(30)
 AS
 BEGIN
 SELECT *
 FROM tblJob
-WHERE ClientID = @id
+WHERE ContractID = @id
 END
 
 GO
@@ -312,7 +312,7 @@ FROM tblEquipment
 WHERE (SELECT EquipmentID FROM tblJobEquipment WHERE JobID = @jobID) = EquipmentID
 END
 
-GO
+/*GO
 
 /* Contract */
 
@@ -323,6 +323,17 @@ BEGIN
 SELECT *
 FROM tblContract
 WHERE ContractID = @id
+END*/
+
+GO
+
+CREATE PROCEDURE spListContractsByClientID
+@id VARCHAR(30)
+AS
+BEGIN
+SELECT *
+FROM tblContract
+WHERE ClientID = @id
 END
 
 GO
@@ -338,7 +349,16 @@ END
 
 GO 
 
-CREATE PROCEDURE spGetContractByExperationDate
+CREATE PROCEDURE spAuthenticate
+@id VARCHAR(30)
+AS
+BEGIN
+SELECT * 
+FROM tblAuthentication
+WHERE AuthenticationID = @id
+END
+
+/*CREATE PROCEDURE spGetContractByExperationDate
 @date DATE
 AS
 BEGIN
@@ -347,7 +367,7 @@ FROM tblContract
 WHERE ExperationDate = @date
 END
 
-GO
+GO*/
 
 /*CREATE PROCEDURE spListClientContracts
 @id VARCHAR(30)

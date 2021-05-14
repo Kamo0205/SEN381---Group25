@@ -5,21 +5,24 @@ GO
 CREATE PROCEDURE spInsertClient
 (
 @id VARCHAR(30),
-@contractID VARCHAR(30),
 @password VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
 @address VARCHAR(100),
 @email VARCHAR(50),
-@number VARCHAR(12)
+@number VARCHAR(12),
+@type VARCHAR(15)
 )
 AS 
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblClient(ClientID,ContractID,ClientName,ClientSurname,ClientPassword,ClientAddress,Email,ContactNumber)
-			VALUES(@id,@contractID,@name,@surname,@password,@address,@email,@number)
+			INSERT INTO tblAuthentication(AuthenticationID,UserName,UserPassword,UserType)
+			VALUES(@id,@email,@password,@type)
+
+			INSERT INTO tblClient(ClientID,ClientName,ClientSurname,ClientPassword,ClientAddress,Email,ContactNumber)
+			VALUES(@id,@name,@surname,@password,@address,@email,@number)
 
 		COMMIT
 		PRINT 'spInsertClient Transaction Successful'
@@ -40,12 +43,16 @@ CREATE PROCEDURE spInsertEmployee
 @password VARCHAR(30),
 @vatID VARCHAR(10),
 @email VARCHAR(50),
-@number VARCHAR(12)
+@number VARCHAR(12),
+@type VARCHAR(15)
 )
 AS 
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
+
+			INSERT INTO tblAuthentication(AuthenticationID,UserName,UserPassword,UserType)
+			VALUES(@id,@email,@password,@type)
 
 			INSERT INTO tblEmployee(EmpID,EmpName,EmpSurname,EmpPassword,VatIDNumber,Email,ContactNumber)
 			VALUES(@id,@name,@surname,@password,@vatID,@email,@number)
@@ -64,7 +71,7 @@ GO
 CREATE PROCEDURE spInsertJob
 (
 @id VARCHAR(30),
-@clientID VARCHAR(30),
+@contractID VARCHAR(30),
 @empID VARCHAR(30),
 @description VARCHAR(100),
 @type VARCHAR(15),
@@ -75,8 +82,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblJob(JobID,ClientID,EmpID,JobDescription,JobType,JobStatus)
-			VALUES(@id,@clientID,@empID,@description,@type,@status)
+			INSERT INTO tblJob(JobID,ContractID,EmpID,JobDescription,JobType,JobStatus)
+			VALUES(@id,@contractID,@empID,@description,@type,@status)
 
 		COMMIT
 		PRINT 'spInsertJob Transaction Successful'
@@ -141,6 +148,7 @@ GO
 CREATE PROCEDURE spInsertContract
 (
 @id VARCHAR(30),
+@clientID VARCHAR(30),
 @serviceLevel VARCHAR(20),
 @experationDate VARCHAR(30)
 )
@@ -149,8 +157,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 			
-			INSERT INTO tblContract(ContractID,ServiceLevel,ExperationDate)
-			VALUES(@id,@serviceLevel,@experationDate)
+			INSERT INTO tblContract(ContractID,ClientID,ServiceLevel,ExperationDate)
+			VALUES(@id,@clientID,@serviceLevel,@experationDate)
 
 		COMMIT
 		PRINT 'spInsertContract Transaction Successful'

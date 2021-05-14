@@ -11,10 +11,16 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblJob WHERE ClientID = @id)
+			IF EXISTS(SELECT * FROM tblContract WHERE ClientID = @id)
 			BEGIN
-			DELETE FROM tblJob
+			DELETE FROM tblContract
 			WHERE ClientID = @id 
+			END
+
+			IF EXISTS(SELECT * FROM tblAuthentication WHERE AuthenticationID = @id)
+			BEGIN
+			DELETE FROM tblAuthentication
+			WHERE AuthenticationID = @id
 			END
 
 			DELETE FROM tblClient 
@@ -44,6 +50,12 @@ BEGIN
 			BEGIN
 			DELETE FROM tblEmployeeSkill
 			WHERE EmpID = @id
+			END
+
+			IF EXISTS(SELECT * FROM tblAuthentication WHERE AuthenticationID = @id)
+			BEGIN
+			DELETE FROM tblAuthentication
+			WHERE AuthenticationID = @id
 			END
 
 			IF EXISTS(SELECT * FROM tblJob WHERE EmpID = @id)
@@ -163,12 +175,10 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			IF EXISTS(SELECT * FROM tblClient WHERE ContractID = @id)
+			IF EXISTS(SELECT * FROM tblJob WHERE ContractID = @id)
 			BEGIN
-			UPDATE tblClient 
-			SET 
-			ContractID = null
-			WHERE ContractID = @id
+			DELETE FROM tblJob
+			WHERE ContractID = @id 
 			END
 
 			DELETE FROM tblContract 

@@ -7,18 +7,25 @@ GO
 CREATE PROCEDURE spUpdateClient
 (
 @id VARCHAR(30),
-@contractID VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
 @password VARCHAR(30),
 @address VARCHAR(100),
 @email VARCHAR(50),
-@number VARCHAR(12)
+@number VARCHAR(12),
+@type VARCHAR(15)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
+
+			UPDATE tblAuthentication
+			SET
+			UserName = @email,
+			UserPassword = @password,
+			UserType = @type
+			WHERE AuthenticationID = @id
 
 			UPDATE tblClient 
 			SET 
@@ -207,12 +214,20 @@ CREATE PROCEDURE spUpdateEmployee
 @password VARCHAR(30),
 @vat VARCHAR(10),
 @email VARCHAR(50),
-@number VARCHAR(12)
+@number VARCHAR(12),
+@type VARCHAR(15)
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
+
+			UPDATE tblAuthentication
+			SET
+			UserName = @email,
+			UserPassword = @password,
+			UserType = @type
+			WHERE AuthenticationID = @id
 
 			UPDATE tblEmployee 
 			SET 
@@ -370,7 +385,6 @@ GO*/
 CREATE PROCEDURE spUpdateJob
 (
 @id VARCHAR(30),
-@clientID VARCHAR(30),
 @description VARCHAR(100),
 @type VARCHAR(15)
 )
@@ -381,7 +395,6 @@ BEGIN
 
 			UPDATE tblJob 
 			SET 
-			ClientID = @clientID,
 			JobDescription = @description,
 			JobType = @type
 			WHERE JobID = @id
