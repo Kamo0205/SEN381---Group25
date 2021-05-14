@@ -350,12 +350,13 @@ END
 GO 
 
 CREATE PROCEDURE spAuthenticate
-@id VARCHAR(30)
+@userName VARCHAR(30),
+@password VARCHAR(30)
 AS
 BEGIN
 SELECT * 
 FROM tblAuthentication
-WHERE AuthenticationID = @id
+WHERE UserName = @userName AND UserPassword = @password
 END
 
 /*CREATE PROCEDURE spGetContractByExperationDate
