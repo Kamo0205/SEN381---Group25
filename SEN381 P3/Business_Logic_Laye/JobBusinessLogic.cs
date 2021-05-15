@@ -2,15 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
+    public enum jobCategory
+    {
+        hardware,
+        software
+    }
+
     public enum jobType
     {
-        callCentre,
-        technician
+        instalation,
+        repair
     }
 
     class JobBusinessLogic
@@ -43,6 +50,19 @@ namespace Business_Logic_Layer
             }
         }
 
+        public void assignJob(string jobId, string employeeId)
+        {
+            try
+            {
+                db.ReassignJob(jobId, employeeId);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("JobBusinessLogic : assignJob ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public List<Job> getJobById(string id)
         {
             try
@@ -68,6 +88,42 @@ namespace Business_Logic_Layer
             }
         }
 
+        public List<Job> getJobByCategory(jobCategory category)
+        {
+            try
+            {
+                DataTable jobData = new DataTable();
+                List<Job> jobs = new List<Job>();
+                switch (category)
+                {
+                    case jobCategory.hardware:
+                        jobData = db.ListJobsByCategory("Hardware");
+                        break;
+                    case jobCategory.software:
+                        jobData = db.ListJobsByCategory("Software");
+                        break;
+                    default:
+                        break;
+                }
+                if (jobData.Rows.Count > 0)
+                {
+                    for (int i = 0; i < jobData.Rows.Count; i++)
+                    {
+                        jobs.Add(new Job(data: jobData, i: i));
+                    }
+                    return jobs;
+                }
+
+                return null;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("JobBusinessLogic : getJobByCategory ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public List<Job> getJobByType(jobType type)
         {
             try
@@ -76,16 +132,16 @@ namespace Business_Logic_Layer
                 List<Job> jobs = new List<Job>();
                 switch (type)
                 {
-                    case jobType.callCentre:
-                        jobData = db.GetJobByType("CallCentre");
+                    case jobType.instalation:
+                        jobData = db.ListJobsByType("Instalation");
                         break;
-                    case jobType.technician:
-                        jobData = db.GetJobByType("Technician");
+                    case jobType.repair:
+                        jobData = db.ListJobsByType("Repair");
                         break;
                     default:
                         break;
                 }
-                if (jobData != null && jobData.IsInitialized)
+                if (jobData.Rows.Count > 0)
                 {
                     for (int i = 0; i < jobData.Rows.Count; i++)
                     {
@@ -104,34 +160,66 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Job> getUnassignedJobByType(jobType type)
+        public List<Job> getJobsByCategoryAndType(jobCategory category, jobType type)
         {
             try
             {
                 DataTable jobData = new DataTable();
                 List<Job> jobs = new List<Job>();
-                switch (type)
+                switch (category)
                 {
-                    case jobType.callCentre:
-                        jobData = db.GetJobByType(type:"CallCentre");
+                    case jobCategory.hardware:
+                        jobs = getJobByCategory(jobCategory.hardware);
                         break;
-                    case jobType.technician:
-                        jobData = db.GetJobByType(type:"Technician");
+                    case jobCategory.software:
+                        jobs = getJobByCategory(jobCategory.software);
                         break;
                     default:
                         break;
                 }
-                
-                if (jobData != null && jobData.IsInitialized)
+                switch (type)
                 {
-                    for (int i = 0; i < jobData.Rows.Count; i++)
-                    {
-                        if (jobData.Rows[i]["JobStatus"].ToString() == "Unassigned" && jobData.Rows[i]["EmpID"] == null)
-                        {
-                            jobs.Add(new Job(data: jobData, i: i));
-                        }
-                    }
+                    case jobType.instalation:
+                        jobs = jobs.Except(getJobByType(jobType.repair)).ToList();
+                        break;
+                    case jobType.repair:
+                        jobs = jobs.Except(getJobByType(jobType.instalation)).ToList();
+                        break;
+                    default:
+                        break;
+                }
+                if(jobs.Count > 0)
+                {
                     return jobs;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("JobBusinessLogic : getJobByType ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public List<Job> getUnassignedJobByCategoryAndType(jobCategory category, jobType type)
+        {
+            try
+            {
+                List<Job> jobs = new List<Job>();
+                List<Job> unassignedJobs = new List<Job>();
+                jobs = getJobsByCategoryAndType(category, type);
+
+                foreach (Job job in jobs)
+                {
+                    if (job.JobStatus == "Unassigned" && job.EmployeeID == null)
+                    {
+                        unassignedJobs.Add(job);
+                    }
+                }
+
+                if (unassignedJobs.Count > 0)
+                {
+                    return unassignedJobs;
                 }
 
                 return null;

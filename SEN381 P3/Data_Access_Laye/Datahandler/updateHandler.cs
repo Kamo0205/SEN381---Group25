@@ -152,15 +152,15 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void ReassignJob(Job job)
+        public void ReassignJob(string jobId, string employeeId)
         {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("spReassignJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@employeeID", job.EmployeeID);
+                cmd.Parameters.AddWithValue("@id", jobId);
+                cmd.Parameters.AddWithValue("@employeeID", employeeId);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)

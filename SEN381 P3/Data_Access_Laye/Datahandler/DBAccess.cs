@@ -148,6 +148,11 @@ namespace Data_Access_Layer
             return readDataHandler.ListEmployees();
         }
 
+        public DataTable ListEmployeesForJob(string category, string type)
+        {
+            return readDataHandler.ListEmployeesForJob(category, type);
+        }
+
         public DataTable ListEmployeesByType()
         {
             return readDataHandler.ListEmployeesByType();
@@ -193,6 +198,11 @@ namespace Data_Access_Layer
             return readDataHandler.ListSkillsByCategory(category);
         }
 
+        public DataTable ListSkillsByEmployeeID(string id)
+        {
+            return readDataHandler.ListSkillsByEmployeeID(id);
+        }
+
         public DataTable ListJobsByType(string type)
         {
             return readDataHandler.ListJobsByType(type);
@@ -233,9 +243,9 @@ namespace Data_Access_Layer
             updateDataHandler.UpdateJob(job);
         }
 
-        public void ReassignJob(Job job )
+        public void ReassignJob(string jobId, string employeeId)
         {
-            updateDataHandler.ReassignJob(job);
+            updateDataHandler.ReassignJob(jobId, employeeId);
         }
 
         public void UpdateJobStatus(Job job)

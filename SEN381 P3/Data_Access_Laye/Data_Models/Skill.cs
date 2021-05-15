@@ -41,5 +41,10 @@ namespace Data_Access_Layer
             this.category = data.Rows[i]["SkillCategory"].ToString();
             this.type = data.Rows[i]["SkillType"].ToString();
         }
+
+        public Skill()
+        {
+
+        }
     }
 }

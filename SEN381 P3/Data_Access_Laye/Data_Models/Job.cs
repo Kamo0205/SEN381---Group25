@@ -49,14 +49,15 @@ namespace Data_Access_Layer
                 this.id = this.GetHashCode().ToString();
             else
                 this.id = data.Rows[i]["JobID"].ToString();
-            this.contractID = data.Rows[i]["ContractID"].ToString();
-            this.employeeID = data.Rows[i]["EmpID"].ToString();
+            this.contractID = data.Rows[i]["ContractID"] == null ? null : data.Rows[i]["ContractID"].ToString();
+            this.employeeID = data.Rows[i]["EmpID"] == null ? null : data.Rows[i]["EmpID"].ToString();
             this.jobStatus = data.Rows[i]["JobStatus"].ToString();
             this.jobDescription = data.Rows[i]["JobDescription"].ToString();
             this.jobCategory = data.Rows[i]["JobCategory"].ToString();
             this.jobType = data.Rows[i]["JobType"].ToString();
-            
         }
+
+        public Job() { }
 
         private int CharToInt(string word)
         {

@@ -49,12 +49,13 @@ END
 GO
 
 CREATE PROCEDURE spListEmployeesForJob
-@jobType VARCHAR(15)
+@category VARCHAR(15),
+@type VARCHAR(15)
 AS
 BEGIN
 SELECT *
 FROM tblEmployee 
-WHERE (SELECT EmpID FROM tblEmployeeSkill WHERE (SELECT SkillID FROM tblSkill WHERE SkillType = @jobType)=SkillID) = EmpID
+WHERE (SELECT EmpID FROM tblEmployeeSkill WHERE (SELECT SkillID FROM tblSkill WHERE SkillCategory = @category AND SkillType = @type)=SkillID) = EmpID
 END 
 
 /* Employee-ID data retrieval stored procedures */

@@ -216,6 +216,36 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
+        public DataTable ListEmployeesForJob(string category, string type)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListEmployeesForJob", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@category", category);
+                cmd.Parameters.AddWithValue("@type", type);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListEmployeesForJob ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
         public DataTable ListEmployees()
         {
             DataTable output = new DataTable();
@@ -607,6 +637,35 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("ReadHandler : ListSkillsByCategory ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListSkillsByEmployeeID(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListSkillsByEmpID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListSkillsByEmployeeID ERROR:" + e.Message);
                 throw;
             }
             finally

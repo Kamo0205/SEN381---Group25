@@ -65,7 +65,7 @@
     <Compile Include="Data_Models\Premium.cs" />
     <Compile Include="Data_Models\RecieveCall.cs" />
     <Compile Include="Data_Models\Silver.cs" />
-    <Compile Include="Data_Models\Skills.cs" />
+    <Compile Include="Data_Models\Skill.cs" />
     <Compile Include="Data_Models\TechnicalStaff.cs" />
     <Compile Include="Data_Models\TicketEditor.cs" />
     <Compile Include="Data_Models\Ticketing.cs" />

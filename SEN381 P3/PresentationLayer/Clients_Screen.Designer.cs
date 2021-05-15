@@ -39,7 +39,7 @@ namespace PresentationLayer
             this.txtSearchParamater = new System.Windows.Forms.TextBox();
             this.pnlClientData = new System.Windows.Forms.Panel();
             this.cmbServiceChange = new System.Windows.Forms.ComboBox();
-            this.btnJobDetails = new System.Windows.Forms.Button();
+            this.btnCreateJob = new System.Windows.Forms.Button();
             this.lblExperationDate = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtClientEmail = new System.Windows.Forms.TextBox();
@@ -174,7 +174,7 @@ namespace PresentationLayer
             // pnlClientData
             // 
             this.pnlClientData.Controls.Add(this.cmbServiceChange);
-            this.pnlClientData.Controls.Add(this.btnJobDetails);
+            this.pnlClientData.Controls.Add(this.btnCreateJob);
             this.pnlClientData.Controls.Add(this.lblExperationDate);
             this.pnlClientData.Controls.Add(this.lblEmail);
             this.pnlClientData.Controls.Add(this.txtClientEmail);
@@ -206,17 +206,17 @@ namespace PresentationLayer
             this.cmbServiceChange.Size = new System.Drawing.Size(109, 21);
             this.cmbServiceChange.TabIndex = 13;
             // 
-            // btnJobDetails
+            // btnCreateJob
             // 
-            this.btnJobDetails.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnJobDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnJobDetails.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJobDetails.Location = new System.Drawing.Point(20, 293);
-            this.btnJobDetails.Name = "btnJobDetails";
-            this.btnJobDetails.Size = new System.Drawing.Size(237, 35);
-            this.btnJobDetails.TabIndex = 27;
-            this.btnJobDetails.Text = "Job Details";
-            this.btnJobDetails.UseVisualStyleBackColor = true;
+            this.btnCreateJob.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCreateJob.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreateJob.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateJob.Location = new System.Drawing.Point(20, 293);
+            this.btnCreateJob.Name = "btnCreateJob";
+            this.btnCreateJob.Size = new System.Drawing.Size(237, 35);
+            this.btnCreateJob.TabIndex = 27;
+            this.btnCreateJob.Text = "Create Job";
+            this.btnCreateJob.UseVisualStyleBackColor = true;
             // 
             // lblExperationDate
             // 
@@ -243,6 +243,7 @@ namespace PresentationLayer
             this.txtClientEmail.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientEmail.Location = new System.Drawing.Point(20, 154);
             this.txtClientEmail.Name = "txtClientEmail";
+            this.txtClientEmail.ReadOnly = true;
             this.txtClientEmail.Size = new System.Drawing.Size(111, 22);
             this.txtClientEmail.TabIndex = 24;
             // 
@@ -259,6 +260,7 @@ namespace PresentationLayer
             this.txtClientLocation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientLocation.Location = new System.Drawing.Point(149, 105);
             this.txtClientLocation.Name = "txtClientLocation";
+            this.txtClientLocation.ReadOnly = true;
             this.txtClientLocation.Size = new System.Drawing.Size(109, 22);
             this.txtClientLocation.TabIndex = 19;
             // 
@@ -296,6 +298,7 @@ namespace PresentationLayer
             this.txtClientPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientPhoneNumber.Location = new System.Drawing.Point(20, 105);
             this.txtClientPhoneNumber.Name = "txtClientPhoneNumber";
+            this.txtClientPhoneNumber.ReadOnly = true;
             this.txtClientPhoneNumber.Size = new System.Drawing.Size(111, 22);
             this.txtClientPhoneNumber.TabIndex = 17;
             // 
@@ -324,6 +327,7 @@ namespace PresentationLayer
             this.txtClientLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientLastName.Location = new System.Drawing.Point(149, 55);
             this.txtClientLastName.Name = "txtClientLastName";
+            this.txtClientLastName.ReadOnly = true;
             this.txtClientLastName.Size = new System.Drawing.Size(108, 22);
             this.txtClientLastName.TabIndex = 13;
             // 
@@ -342,6 +346,7 @@ namespace PresentationLayer
             this.txtClientFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtClientFirstName.Location = new System.Drawing.Point(20, 55);
             this.txtClientFirstName.Name = "txtClientFirstName";
+            this.txtClientFirstName.ReadOnly = true;
             this.txtClientFirstName.Size = new System.Drawing.Size(111, 22);
             this.txtClientFirstName.TabIndex = 11;
             // 
@@ -728,7 +733,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.ComboBox cmbService;
         private System.Windows.Forms.Label lblClientContracts;
-        private System.Windows.Forms.Button btnJobDetails;
+        private System.Windows.Forms.Button btnCreateJob;
         private System.Windows.Forms.ComboBox cmbServiceChange;
     }
 }

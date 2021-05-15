@@ -19,6 +19,18 @@ namespace Business_Logic_Layer
         phone
     }
 
+    public enum employeeSkillCategories
+    {
+        software,
+        hardware
+    }
+
+    public enum employeeSkillsTypes
+    {
+        installation,
+        repair
+    }
+
     public class EmployeeBusinessLogic
     {
         DBAccess db = new DBAccess();
@@ -47,6 +59,132 @@ namespace Business_Logic_Layer
             catch (Exception e)
             {
                 MessageBox.Show("EmployeeBusinessLogic : updateEmployee ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public void addEmployeeSkill(string employeeID, string skillDescription,employeeSkillCategories category, employeeSkillsTypes type)
+        {
+            try
+            {
+                Skill newSkill = new Skill();
+                newSkill.ID = ""; // AUTO GENERATRE ID
+                newSkill.Description = skillDescription;
+                switch (category)
+                {
+                    case employeeSkillCategories.software:
+                        newSkill.Category = "Software";
+                        break;
+                    case employeeSkillCategories.hardware:
+                        newSkill.Category = "Hardware";
+                        break;
+                    default:
+                        break;
+                }
+                switch (type)
+                {
+                    case employeeSkillsTypes.installation:
+                        newSkill.Type = "Instalation";
+                        break;
+                    case employeeSkillsTypes.repair:
+                        newSkill.Type = "Repair";
+                        break;
+                    default:
+                        break;
+                }
+                db.CreateSkill(newSkill);
+                db.CreateEmployeeSkill(employeeID, newSkill.ID);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : addEmployeeSkill ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public void updateEmployeeSkill(string skillID, string skillDescription, employeeSkillCategories category, employeeSkillsTypes type) 
+        {
+            try
+            {
+                Skill newSkill = new Skill();
+                newSkill.ID = skillID;
+                newSkill.Description = skillDescription;
+                switch (category)
+                {
+                    case employeeSkillCategories.software:
+                        newSkill.Category = "Software";
+                        break;
+                    case employeeSkillCategories.hardware:
+                        newSkill.Category = "Hardware";
+                        break;
+                    default:
+                        break;
+                }
+                switch (type)
+                {
+                    case employeeSkillsTypes.installation:
+                        newSkill.Type = "Instalation";
+                        break;
+                    case employeeSkillsTypes.repair:
+                        newSkill.Type = "Repair";
+                        break;
+                    default:
+                        break;
+                }
+                db.UpdateSkill(newSkill);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : updateEmployeeSkill ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public List<Employee> listEmployeesBySkillCategoryAndType(employeeSkillCategories category, employeeSkillsTypes type)
+        {
+            try
+            {
+                string ct = "";
+                string tp = "";
+
+                List<Employee> employees = new List<Employee>();
+                DataTable employeeData = new DataTable();
+
+                switch (category)
+                {
+                    case employeeSkillCategories.software:
+                        ct = "Software";
+                        break;
+                    case employeeSkillCategories.hardware:
+                        ct = "Hardware";
+                        break;
+                    default:
+                        break;
+                }
+                switch (type)
+                {
+                    case employeeSkillsTypes.installation:
+                        tp = "Instalation";
+                        break;
+                    case employeeSkillsTypes.repair:
+                        tp = "Repair";
+                        break;
+                    default:
+                        break;
+                }
+
+                employeeData = db.ListEmployeesForJob(category: ct, type: tp);
+
+                for (int i = 0; i < employeeData.Rows.Count; i++)
+                {
+                    employees.Add(new TechnicalStaff(i, employeeData,new Pay("Technician", 600)));
+                }
+
+                return employees;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : listEmployeesBySkillCategoryAndType ERROR:" + e.Message);
                 throw;
             }
         }
