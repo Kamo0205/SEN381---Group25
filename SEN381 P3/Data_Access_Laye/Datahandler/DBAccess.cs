@@ -163,6 +163,11 @@ namespace Data_Access_Layer
             return readDataHandler.GetEquipmentByID(id);
         }
 
+        public DataTable ListEquipmentByJobId(string id)
+        {
+            return readDataHandler.ListEquipmentByJobId(id);
+        }
+
         public DataTable GetJobByID(string id)
         {
             return readDataHandler.GetJobByID(id);

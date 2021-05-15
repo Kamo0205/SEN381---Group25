@@ -148,5 +148,20 @@ namespace PresentationLayer
                 }
             }
         }
+
+        private void btnJobScreen_Click(object sender, EventArgs e)
+        {
+            if(txtContractId.Text == "")
+            {
+                MessageBox.Show("Please select a contract to assign the job to");
+            }
+            else
+            {
+                FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(txtContractId.Text);
+                this.Hide();
+                serviceDepartment.ShowDialog();
+                this.Close();
+            }
+        }
     }
 }

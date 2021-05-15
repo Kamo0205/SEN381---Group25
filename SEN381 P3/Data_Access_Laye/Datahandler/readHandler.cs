@@ -388,6 +388,35 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
+        public DataTable ListEquipmentByJobId(string id)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListEquipmentByJob", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@jobID", id);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListEquipmentByJobId ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
         public DataTable GetJobByID(string id)
         {
             DataTable output = new DataTable();

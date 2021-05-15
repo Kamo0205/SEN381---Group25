@@ -39,7 +39,7 @@ namespace PresentationLayer
             this.txtSearchParamater = new System.Windows.Forms.TextBox();
             this.pnlClientData = new System.Windows.Forms.Panel();
             this.cmbServiceChange = new System.Windows.Forms.ComboBox();
-            this.btnCreateJob = new System.Windows.Forms.Button();
+            this.btnJobScreen = new System.Windows.Forms.Button();
             this.lblExperationDate = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtClientEmail = new System.Windows.Forms.TextBox();
@@ -62,29 +62,8 @@ namespace PresentationLayer
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
             this.lblSearchCLients = new System.Windows.Forms.Label();
-            this.pnlEmployeeData = new System.Windows.Forms.Panel();
-            this.cmbEmployeeClassificaion = new System.Windows.Forms.ComboBox();
-            this.cmbEmployeeSkill = new System.Windows.Forms.ComboBox();
-            this.chkEmployeeEdit = new System.Windows.Forms.CheckBox();
-            this.btnEmployeeClear = new System.Windows.Forms.Button();
-            this.txtEmployeeClassificaion = new System.Windows.Forms.TextBox();
-            this.lblEmployeeClassification = new System.Windows.Forms.Label();
-            this.txtEmployeePhoneNumber = new System.Windows.Forms.TextBox();
-            this.lblEmployeePhoneNumber = new System.Windows.Forms.Label();
-            this.txtEmployeeSkill = new System.Windows.Forms.TextBox();
-            this.lblEmployeeSkill = new System.Windows.Forms.Label();
-            this.txtEmployeeLastName = new System.Windows.Forms.TextBox();
-            this.lblEmployeeLastName = new System.Windows.Forms.Label();
-            this.txtEmployeeFirstName = new System.Windows.Forms.TextBox();
-            this.lblEmployeeFirstName = new System.Windows.Forms.Label();
-            this.txtEmployeeId = new System.Windows.Forms.TextBox();
-            this.lblEmployeeId = new System.Windows.Forms.Label();
-            this.btnEmployeeRemove = new System.Windows.Forms.Button();
-            this.btnEmployeeUpdate = new System.Windows.Forms.Button();
-            this.btnEmployeeAdd = new System.Windows.Forms.Button();
             this.pnlData.SuspendLayout();
             this.pnlClientData.SuspendLayout();
-            this.pnlEmployeeData.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -174,7 +153,7 @@ namespace PresentationLayer
             // pnlClientData
             // 
             this.pnlClientData.Controls.Add(this.cmbServiceChange);
-            this.pnlClientData.Controls.Add(this.btnCreateJob);
+            this.pnlClientData.Controls.Add(this.btnJobScreen);
             this.pnlClientData.Controls.Add(this.lblExperationDate);
             this.pnlClientData.Controls.Add(this.lblEmail);
             this.pnlClientData.Controls.Add(this.txtClientEmail);
@@ -206,17 +185,18 @@ namespace PresentationLayer
             this.cmbServiceChange.Size = new System.Drawing.Size(109, 21);
             this.cmbServiceChange.TabIndex = 13;
             // 
-            // btnCreateJob
+            // btnJobScreen
             // 
-            this.btnCreateJob.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCreateJob.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCreateJob.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateJob.Location = new System.Drawing.Point(20, 293);
-            this.btnCreateJob.Name = "btnCreateJob";
-            this.btnCreateJob.Size = new System.Drawing.Size(237, 35);
-            this.btnCreateJob.TabIndex = 27;
-            this.btnCreateJob.Text = "Create Job";
-            this.btnCreateJob.UseVisualStyleBackColor = true;
+            this.btnJobScreen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnJobScreen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnJobScreen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJobScreen.Location = new System.Drawing.Point(20, 329);
+            this.btnJobScreen.Name = "btnJobScreen";
+            this.btnJobScreen.Size = new System.Drawing.Size(237, 35);
+            this.btnJobScreen.TabIndex = 27;
+            this.btnJobScreen.Text = "Job Screen";
+            this.btnJobScreen.UseVisualStyleBackColor = true;
+            this.btnJobScreen.Click += new System.EventHandler(this.btnJobScreen_Click);
             // 
             // lblExperationDate
             // 
@@ -365,7 +345,7 @@ namespace PresentationLayer
             this.btnContractDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnContractDelete.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContractDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnContractDelete.Location = new System.Drawing.Point(182, 334);
+            this.btnContractDelete.Location = new System.Drawing.Point(181, 296);
             this.btnContractDelete.Name = "btnContractDelete";
             this.btnContractDelete.Size = new System.Drawing.Size(75, 23);
             this.btnContractDelete.TabIndex = 8;
@@ -378,7 +358,7 @@ namespace PresentationLayer
             this.btnContractUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnContractUpdate.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContractUpdate.ForeColor = System.Drawing.Color.Magenta;
-            this.btnContractUpdate.Location = new System.Drawing.Point(101, 334);
+            this.btnContractUpdate.Location = new System.Drawing.Point(100, 296);
             this.btnContractUpdate.Name = "btnContractUpdate";
             this.btnContractUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnContractUpdate.TabIndex = 7;
@@ -391,7 +371,7 @@ namespace PresentationLayer
             this.btnContractAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnContractAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContractAdd.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnContractAdd.Location = new System.Drawing.Point(20, 334);
+            this.btnContractAdd.Location = new System.Drawing.Point(19, 296);
             this.btnContractAdd.Name = "btnContractAdd";
             this.btnContractAdd.Size = new System.Drawing.Size(75, 23);
             this.btnContractAdd.TabIndex = 6;
@@ -415,7 +395,7 @@ namespace PresentationLayer
             // 
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNext.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(370, 351);
+            this.btnNext.Location = new System.Drawing.Point(370, 357);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 4;
@@ -445,220 +425,6 @@ namespace PresentationLayer
             this.lblSearchCLients.TabIndex = 1;
             this.lblSearchCLients.Text = "Search Clients:";
             // 
-            // pnlEmployeeData
-            // 
-            this.pnlEmployeeData.Controls.Add(this.cmbEmployeeClassificaion);
-            this.pnlEmployeeData.Controls.Add(this.cmbEmployeeSkill);
-            this.pnlEmployeeData.Controls.Add(this.chkEmployeeEdit);
-            this.pnlEmployeeData.Controls.Add(this.btnEmployeeClear);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeeClassificaion);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeeClassification);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeePhoneNumber);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeePhoneNumber);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeeSkill);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeeSkill);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeeLastName);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeeLastName);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeeFirstName);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeeFirstName);
-            this.pnlEmployeeData.Controls.Add(this.txtEmployeeId);
-            this.pnlEmployeeData.Controls.Add(this.lblEmployeeId);
-            this.pnlEmployeeData.Controls.Add(this.btnEmployeeRemove);
-            this.pnlEmployeeData.Controls.Add(this.btnEmployeeUpdate);
-            this.pnlEmployeeData.Controls.Add(this.btnEmployeeAdd);
-            this.pnlEmployeeData.Location = new System.Drawing.Point(474, 32);
-            this.pnlEmployeeData.Name = "pnlEmployeeData";
-            this.pnlEmployeeData.Size = new System.Drawing.Size(273, 362);
-            this.pnlEmployeeData.TabIndex = 26;
-            // 
-            // cmbEmployeeClassificaion
-            // 
-            this.cmbEmployeeClassificaion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmployeeClassificaion.FormattingEnabled = true;
-            this.cmbEmployeeClassificaion.Location = new System.Drawing.Point(11, 219);
-            this.cmbEmployeeClassificaion.Name = "cmbEmployeeClassificaion";
-            this.cmbEmployeeClassificaion.Size = new System.Drawing.Size(121, 21);
-            this.cmbEmployeeClassificaion.TabIndex = 23;
-            // 
-            // cmbEmployeeSkill
-            // 
-            this.cmbEmployeeSkill.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmployeeSkill.FormattingEnabled = true;
-            this.cmbEmployeeSkill.Location = new System.Drawing.Point(11, 192);
-            this.cmbEmployeeSkill.Name = "cmbEmployeeSkill";
-            this.cmbEmployeeSkill.Size = new System.Drawing.Size(121, 21);
-            this.cmbEmployeeSkill.TabIndex = 22;
-            // 
-            // chkEmployeeEdit
-            // 
-            this.chkEmployeeEdit.AutoSize = true;
-            this.chkEmployeeEdit.Checked = true;
-            this.chkEmployeeEdit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEmployeeEdit.Location = new System.Drawing.Point(3, 302);
-            this.chkEmployeeEdit.Name = "chkEmployeeEdit";
-            this.chkEmployeeEdit.Size = new System.Drawing.Size(44, 17);
-            this.chkEmployeeEdit.TabIndex = 21;
-            this.chkEmployeeEdit.Text = "Edit";
-            this.chkEmployeeEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnEmployeeClear
-            // 
-            this.btnEmployeeClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEmployeeClear.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeClear.Location = new System.Drawing.Point(195, 302);
-            this.btnEmployeeClear.Name = "btnEmployeeClear";
-            this.btnEmployeeClear.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployeeClear.TabIndex = 20;
-            this.btnEmployeeClear.Text = "Clear";
-            this.btnEmployeeClear.UseVisualStyleBackColor = true;
-            // 
-            // txtEmployeeClassificaion
-            // 
-            this.txtEmployeeClassificaion.Enabled = false;
-            this.txtEmployeeClassificaion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeClassificaion.Location = new System.Drawing.Point(140, 163);
-            this.txtEmployeeClassificaion.Name = "txtEmployeeClassificaion";
-            this.txtEmployeeClassificaion.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeClassificaion.TabIndex = 19;
-            // 
-            // lblEmployeeClassification
-            // 
-            this.lblEmployeeClassification.AutoSize = true;
-            this.lblEmployeeClassification.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeClassification.Location = new System.Drawing.Point(137, 138);
-            this.lblEmployeeClassification.Name = "lblEmployeeClassification";
-            this.lblEmployeeClassification.Size = new System.Drawing.Size(87, 15);
-            this.lblEmployeeClassification.TabIndex = 18;
-            this.lblEmployeeClassification.Text = "Classification:";
-            // 
-            // txtEmployeePhoneNumber
-            // 
-            this.txtEmployeePhoneNumber.Enabled = false;
-            this.txtEmployeePhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeePhoneNumber.Location = new System.Drawing.Point(11, 163);
-            this.txtEmployeePhoneNumber.Name = "txtEmployeePhoneNumber";
-            this.txtEmployeePhoneNumber.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeePhoneNumber.TabIndex = 17;
-            // 
-            // lblEmployeePhoneNumber
-            // 
-            this.lblEmployeePhoneNumber.AutoSize = true;
-            this.lblEmployeePhoneNumber.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeePhoneNumber.Location = new System.Drawing.Point(8, 138);
-            this.lblEmployeePhoneNumber.Name = "lblEmployeePhoneNumber";
-            this.lblEmployeePhoneNumber.Size = new System.Drawing.Size(90, 15);
-            this.lblEmployeePhoneNumber.TabIndex = 16;
-            this.lblEmployeePhoneNumber.Text = "Phone number:";
-            // 
-            // txtEmployeeSkill
-            // 
-            this.txtEmployeeSkill.Enabled = false;
-            this.txtEmployeeSkill.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeSkill.Location = new System.Drawing.Point(140, 63);
-            this.txtEmployeeSkill.Name = "txtEmployeeSkill";
-            this.txtEmployeeSkill.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeSkill.TabIndex = 15;
-            // 
-            // lblEmployeeSkill
-            // 
-            this.lblEmployeeSkill.AutoSize = true;
-            this.lblEmployeeSkill.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeSkill.Location = new System.Drawing.Point(137, 38);
-            this.lblEmployeeSkill.Name = "lblEmployeeSkill";
-            this.lblEmployeeSkill.Size = new System.Drawing.Size(39, 15);
-            this.lblEmployeeSkill.TabIndex = 14;
-            this.lblEmployeeSkill.Text = "Skill:";
-            // 
-            // txtEmployeeLastName
-            // 
-            this.txtEmployeeLastName.Enabled = false;
-            this.txtEmployeeLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeLastName.Location = new System.Drawing.Point(140, 113);
-            this.txtEmployeeLastName.Name = "txtEmployeeLastName";
-            this.txtEmployeeLastName.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeLastName.TabIndex = 13;
-            // 
-            // lblEmployeeLastName
-            // 
-            this.lblEmployeeLastName.AutoSize = true;
-            this.lblEmployeeLastName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeLastName.Location = new System.Drawing.Point(137, 88);
-            this.lblEmployeeLastName.Name = "lblEmployeeLastName";
-            this.lblEmployeeLastName.Size = new System.Drawing.Size(69, 15);
-            this.lblEmployeeLastName.TabIndex = 12;
-            this.lblEmployeeLastName.Text = "Last Name:";
-            // 
-            // txtEmployeeFirstName
-            // 
-            this.txtEmployeeFirstName.Enabled = false;
-            this.txtEmployeeFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeFirstName.Location = new System.Drawing.Point(11, 113);
-            this.txtEmployeeFirstName.Name = "txtEmployeeFirstName";
-            this.txtEmployeeFirstName.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeFirstName.TabIndex = 11;
-            // 
-            // lblEmployeeFirstName
-            // 
-            this.lblEmployeeFirstName.AutoSize = true;
-            this.lblEmployeeFirstName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeFirstName.Location = new System.Drawing.Point(8, 88);
-            this.lblEmployeeFirstName.Name = "lblEmployeeFirstName";
-            this.lblEmployeeFirstName.Size = new System.Drawing.Size(72, 15);
-            this.lblEmployeeFirstName.TabIndex = 10;
-            this.lblEmployeeFirstName.Text = "First Name:";
-            // 
-            // txtEmployeeId
-            // 
-            this.txtEmployeeId.Enabled = false;
-            this.txtEmployeeId.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeId.Location = new System.Drawing.Point(11, 63);
-            this.txtEmployeeId.Name = "txtEmployeeId";
-            this.txtEmployeeId.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeId.TabIndex = 9;
-            // 
-            // lblEmployeeId
-            // 
-            this.lblEmployeeId.AutoSize = true;
-            this.lblEmployeeId.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeId.Location = new System.Drawing.Point(8, 38);
-            this.lblEmployeeId.Name = "lblEmployeeId";
-            this.lblEmployeeId.Size = new System.Drawing.Size(24, 15);
-            this.lblEmployeeId.TabIndex = 6;
-            this.lblEmployeeId.Text = "ID:";
-            // 
-            // btnEmployeeRemove
-            // 
-            this.btnEmployeeRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEmployeeRemove.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeRemove.Location = new System.Drawing.Point(195, 331);
-            this.btnEmployeeRemove.Name = "btnEmployeeRemove";
-            this.btnEmployeeRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployeeRemove.TabIndex = 8;
-            this.btnEmployeeRemove.Text = "Remove";
-            this.btnEmployeeRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnEmployeeUpdate
-            // 
-            this.btnEmployeeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEmployeeUpdate.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeUpdate.Location = new System.Drawing.Point(100, 331);
-            this.btnEmployeeUpdate.Name = "btnEmployeeUpdate";
-            this.btnEmployeeUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployeeUpdate.TabIndex = 7;
-            this.btnEmployeeUpdate.Text = "Update";
-            this.btnEmployeeUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnEmployeeAdd
-            // 
-            this.btnEmployeeAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEmployeeAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeAdd.Location = new System.Drawing.Point(3, 331);
-            this.btnEmployeeAdd.Name = "btnEmployeeAdd";
-            this.btnEmployeeAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployeeAdd.TabIndex = 6;
-            this.btnEmployeeAdd.Text = "Add";
-            this.btnEmployeeAdd.UseVisualStyleBackColor = true;
-            // 
             // Clients_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,7 +432,6 @@ namespace PresentationLayer
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlData);
-            this.Controls.Add(this.pnlEmployeeData);
             this.Name = "Clients_Screen";
             this.Text = "Clients_Screen";
             this.Load += new System.EventHandler(this.Contract_Screen_Load);
@@ -674,8 +439,6 @@ namespace PresentationLayer
             this.pnlData.PerformLayout();
             this.pnlClientData.ResumeLayout(false);
             this.pnlClientData.PerformLayout();
-            this.pnlEmployeeData.ResumeLayout(false);
-            this.pnlEmployeeData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -702,26 +465,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Label lblSearchCLients;
-        private System.Windows.Forms.Panel pnlEmployeeData;
-        private System.Windows.Forms.ComboBox cmbEmployeeClassificaion;
-        private System.Windows.Forms.ComboBox cmbEmployeeSkill;
-        private System.Windows.Forms.CheckBox chkEmployeeEdit;
-        private System.Windows.Forms.Button btnEmployeeClear;
-        private System.Windows.Forms.TextBox txtEmployeeClassificaion;
-        private System.Windows.Forms.Label lblEmployeeClassification;
-        private System.Windows.Forms.TextBox txtEmployeePhoneNumber;
-        private System.Windows.Forms.Label lblEmployeePhoneNumber;
-        private System.Windows.Forms.TextBox txtEmployeeSkill;
-        private System.Windows.Forms.Label lblEmployeeSkill;
-        private System.Windows.Forms.TextBox txtEmployeeLastName;
-        private System.Windows.Forms.Label lblEmployeeLastName;
-        private System.Windows.Forms.TextBox txtEmployeeFirstName;
-        private System.Windows.Forms.Label lblEmployeeFirstName;
-        private System.Windows.Forms.TextBox txtEmployeeId;
-        private System.Windows.Forms.Label lblEmployeeId;
-        private System.Windows.Forms.Button btnEmployeeRemove;
-        private System.Windows.Forms.Button btnEmployeeUpdate;
-        private System.Windows.Forms.Button btnEmployeeAdd;
         private System.Windows.Forms.Label lblContractID;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtClientEmail;
@@ -733,7 +476,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.ComboBox cmbService;
         private System.Windows.Forms.Label lblClientContracts;
-        private System.Windows.Forms.Button btnCreateJob;
+        private System.Windows.Forms.Button btnJobScreen;
         private System.Windows.Forms.ComboBox cmbServiceChange;
     }
 }
