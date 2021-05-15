@@ -148,6 +148,11 @@ namespace Data_Access_Layer
             return readDataHandler.ListEmployees();
         }
 
+        public DataTable ListEmployeesByType()
+        {
+            return readDataHandler.ListEmployeesByType();
+        }
+
         public DataTable GetEquipmentByID(string id)
         {
             return readDataHandler.GetEquipmentByID(id);
