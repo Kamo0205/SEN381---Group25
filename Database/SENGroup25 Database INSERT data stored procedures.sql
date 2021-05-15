@@ -21,8 +21,8 @@ BEGIN
 			INSERT INTO tblAuthentication(AuthenticationID,UserName,UserPassword,UserType)
 			VALUES(@id,@email,@password,@type)
 
-			INSERT INTO tblClient(ClientID,ClientName,ClientSurname,ClientPassword,ClientAddress,Email,ContactNumber)
-			VALUES(@id,@name,@surname,@password,@address,@email,@number)
+			INSERT INTO tblClient(ClientID,ClientName,ClientSurname,ClientAddress,Email,ContactNumber)
+			VALUES(@id,@name,@surname,@address,@email,@number)
 
 		COMMIT
 		PRINT 'spInsertClient Transaction Successful'
@@ -54,8 +54,8 @@ BEGIN
 			INSERT INTO tblAuthentication(AuthenticationID,UserName,UserPassword,UserType)
 			VALUES(@id,@email,@password,@type)
 
-			INSERT INTO tblEmployee(EmpID,EmpName,EmpSurname,EmpPassword,VatIDNumber,Email,ContactNumber)
-			VALUES(@id,@name,@surname,@password,@vatID,@email,@number)
+			INSERT INTO tblEmployee(EmpID,EmpName,EmpSurname,VatIDNumber,Email,ContactNumber)
+			VALUES(@id,@name,@surname,@vatID,@email,@number)
 
 		COMMIT
 		PRINT 'spInsertEmployee Transaction Successful'
@@ -74,6 +74,7 @@ CREATE PROCEDURE spInsertJob
 @contractID VARCHAR(30),
 @empID VARCHAR(30),
 @description VARCHAR(100),
+@category VARCHAR(15),
 @type VARCHAR(15),
 @status VARCHAR(15)
 )
@@ -82,8 +83,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblJob(JobID,ContractID,EmpID,JobDescription,JobType,JobStatus)
-			VALUES(@id,@contractID,@empID,@description,@type,@status)
+			INSERT INTO tblJob(JobID,ContractID,EmpID,JobDescription,JobCategory,JobType,JobStatus)
+			VALUES(@id,@contractID,@empID,@description,@category,@type,@status)
 
 		COMMIT
 		PRINT 'spInsertJob Transaction Successful'
@@ -100,6 +101,7 @@ CREATE PROCEDURE spInsertSkill
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
+@category VARCHAR(15),
 @type VARCHAR(15)
 )
 AS 
@@ -107,8 +109,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			INSERT INTO tblSkill(SkillID,SkillDescription,SkillType)
-			VALUES(@id,@description,@type)
+			INSERT INTO tblSkill(SkillID,SkillDescription,SkillCategory,SkillType)
+			VALUES(@id,@description,@category,@type)
 
 		COMMIT
 		PRINT 'spInsertSkill Transaction Successful'

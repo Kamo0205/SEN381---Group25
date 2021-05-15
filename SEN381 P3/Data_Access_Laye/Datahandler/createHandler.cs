@@ -207,7 +207,7 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void CreateSkill(Skills skill)
+        public void CreateSkill(Skill skill)
         {
             try
             {

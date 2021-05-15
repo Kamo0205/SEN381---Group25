@@ -387,7 +387,7 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetJobByType(string type)
+        public DataTable ListJobsByType(string type)
         {
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
@@ -403,7 +403,36 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                System.Console.WriteLine("ReadHandler : GetJobByType ERROR:" + e.Message);
+                System.Console.WriteLine("ReadHandler : ListJobsByType ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListJobsByCategory(string category)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListJobsByCategory", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@category", category);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListJobsByCategory ERROR:" + e.Message);
                 throw;
             }
             finally
@@ -532,14 +561,14 @@ namespace Data_Access_Layer.Datahandler
             return output;
         }
 
-        public DataTable GetSkillByType(string type)
+        public DataTable ListSkillsByType(string type)
         {
             DataTable output = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter();
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("spGetSkillByType", conn);
+                SqlCommand cmd = new SqlCommand("spListSkillsByType", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@type", type);
                 sda.SelectCommand = cmd;
@@ -548,7 +577,36 @@ namespace Data_Access_Layer.Datahandler
             }
             catch (SqlException e)
             {
-                System.Console.WriteLine("ReadHandler : GetSkillByType ERROR:" + e.Message);
+                System.Console.WriteLine("ReadHandler : ListSkillsByType ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
+
+        public DataTable ListSkillsByCategory(string category)
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spListSkillsByCategory", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@category", category);
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListSkillsByCategory ERROR:" + e.Message);
                 throw;
             }
             finally

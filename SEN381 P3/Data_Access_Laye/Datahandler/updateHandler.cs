@@ -202,7 +202,7 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateSkill(Skills skill)
+        public void UpdateSkill(Skill skill)
         {
             try
             {

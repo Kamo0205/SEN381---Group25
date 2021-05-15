@@ -63,7 +63,7 @@ namespace Data_Access_Layer
             createDataHandler.CreateJobEquipment(equipmentID, jobID);
         }
 
-        public void CreateSkill(Skills skill)
+        public void CreateSkill(Skill skill)
         {
             createDataHandler.CreateSkill(skill);
         }
@@ -183,14 +183,24 @@ namespace Data_Access_Layer
             return readDataHandler.GetSkillByID(id);
         }
 
-        public DataTable GetSkillByType(string type)
+        public DataTable ListSkillsByType(string type)
         {
-            return readDataHandler.GetSkillByType(type);
+            return readDataHandler.ListSkillsByType(type);
         }
 
-        public DataTable GetJobByType(string type)
+        public DataTable ListSkillsByCategory(string category)
         {
-            return readDataHandler.GetJobByType(type);
+            return readDataHandler.ListSkillsByCategory(category);
+        }
+
+        public DataTable ListJobsByType(string type)
+        {
+            return readDataHandler.ListJobsByType(type);
+        }
+
+        public DataTable ListJobsByCategory(string category)
+        {
+            return readDataHandler.ListJobsByCategory(category);
         }
 
         public DataTable Authenticate(string userName, string password)
@@ -233,7 +243,7 @@ namespace Data_Access_Layer
             updateDataHandler.UpdateJobStatus(job);
         }
 
-        public void UpdateSkill(Skills skill)
+        public void UpdateSkill(Skill skill)
         {
             updateDataHandler.UpdateSkill(skill);
         }

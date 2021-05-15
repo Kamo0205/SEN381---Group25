@@ -14,18 +14,21 @@ namespace Data_Access_Layer
         private string contractID;
         private string jobStatus;
         private string jobDescription;
+        private string jobCategory;
         private string jobType;
         private Pay pay;
 
         public string Id { get => id; set => id = value; }
-        public string JobType { get => jobType; set => jobType = value; }
-        public string JobDescription { get => jobDescription; set => jobDescription = value; }
         public string EmployeeID { get => employeeID; set => employeeID = value; }
         public string ContractID { get => contractID; set => contractID = value; }
         public string JobStatus { get => jobStatus; set => jobStatus = value; }
+        public string JobDescription { get => jobDescription; set => jobDescription = value; }
+        public string JobCategory { get => jobCategory; set => jobCategory = value; }
+        public string JobType { get => jobType; set => jobType = value; }
+        
         public Pay Pay { get => pay; set => pay = value; }
 
-        public Job(string id, string contractID, string employeeID,string jobStatus, Pay pay, string jobDescription, string jobType)
+        public Job(string id, string contractID, string employeeID,string jobStatus, string jobDescription, string jobCategory, string jobType, Pay pay)
         {
             if (id == null)
                 this.id = this.GetHashCode().ToString();
@@ -33,9 +36,10 @@ namespace Data_Access_Layer
                 this.id = id;
             this.contractID = contractID;
             this.employeeID = employeeID;
-            this.jobType = jobType;
-            this.jobDescription = jobDescription;
             this.jobStatus = jobStatus;
+            this.jobDescription = jobDescription;
+            this.jobCategory = jobCategory;
+            this.jobType = jobType;
             this.pay = pay;
         }
 
@@ -47,9 +51,11 @@ namespace Data_Access_Layer
                 this.id = data.Rows[i]["JobID"].ToString();
             this.contractID = data.Rows[i]["ContractID"].ToString();
             this.employeeID = data.Rows[i]["EmpID"].ToString();
-            this.jobDescription = data.Rows[i]["JobDescription"].ToString();
-            this.jobType = data.Rows[i]["JobType"].ToString();
             this.jobStatus = data.Rows[i]["JobStatus"].ToString();
+            this.jobDescription = data.Rows[i]["JobDescription"].ToString();
+            this.jobCategory = data.Rows[i]["JobCategory"].ToString();
+            this.jobType = data.Rows[i]["JobType"].ToString();
+            
         }
 
         private int CharToInt(string word)

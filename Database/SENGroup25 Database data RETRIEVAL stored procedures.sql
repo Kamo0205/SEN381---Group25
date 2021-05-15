@@ -233,6 +233,17 @@ END
 
 GO
 
+CREATE PROCEDURE spListJobsByCategory
+@category VARCHAR(15)
+AS
+BEGIN
+SELECT *
+FROM tblJob
+WHERE JobCategory = @category
+END
+
+GO
+
 /* Skill data retrieval stored procedures */
 
 CREATE PROCEDURE spGetSkillByID
@@ -268,7 +279,7 @@ END
 
 GO*/
 
-CREATE PROCEDURE spGetSkillByType
+CREATE PROCEDURE spListSkillsByType
 @type VARCHAR(15)
 AS
 BEGIN
@@ -276,6 +287,17 @@ SELECT *
 FROM tblSkill
 WHERE SkillType = @type
 END 
+
+GO
+
+CREATE PROCEDURE spListSkillsByCategory
+@category VARCHAR(15)
+AS
+BEGIN
+SELECT *
+FROM tblJob
+WHERE JobCategory = @category
+END
 
 GO
 

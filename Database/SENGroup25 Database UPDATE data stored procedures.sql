@@ -29,7 +29,6 @@ BEGIN
 			SET 
 			ClientName = @name,
 			ClientSurname = @surname,
-			ClientPassword = @password,
 			ClientAddress = @address,
 			Email = @email,
 			ContactNumber = @number
@@ -231,7 +230,6 @@ BEGIN
 			SET 
 			EmpName = @name,
 			EmpSurname = @surname,
-			EmpPassword = @password,
 			VatIDNumber = @vat,
 			Email = @email,
 			ContactNumber = @number
@@ -384,6 +382,7 @@ CREATE PROCEDURE spUpdateJob
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
+@category VARCHAR(15),
 @type VARCHAR(15)
 )
 AS
@@ -394,6 +393,7 @@ BEGIN
 			UPDATE tblJob 
 			SET 
 			JobDescription = @description,
+			JobCategory = @category,
 			JobType = @type
 			WHERE JobID = @id
 
@@ -544,6 +544,7 @@ CREATE PROCEDURE spUpdateSkill
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
+@category VARCHAR(15),
 @type VARCHAR(15)
 )
 AS
@@ -554,6 +555,7 @@ BEGIN
 			UPDATE tblSkill
 			SET 
 			SkillDescription = @description,
+			SkillCategory = @category,
 			SkillType = @type
 			WHERE SkillID = @id
 

@@ -18,7 +18,7 @@ EXEC spInsertEmployee @id = 'kamoTechnicianID', @name = 'Kamo', @surname = 'Unkn
 
 GO
 
-EXEC spInsertSkill @id = 'instalationSkillID', @description = 'Can install software and tech equipment', @type = 'installation';
+EXEC spInsertSkill @id = 'instalationSkillID', @description = 'Can install software and tech equipment', @category = 'Hardware', @type = 'Instalation';
 
 GO
 
@@ -34,7 +34,7 @@ EXEC spInsertContract @id = 'premiumID', @clientID = 'hanoClientID', @serviceLev
 
 GO
 
-EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @type = 'Instalation', @status = 'unassigned';
+EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @category = 'Hardware', @type = 'Instalation', @status = 'unassigned';
 
 GO
 
