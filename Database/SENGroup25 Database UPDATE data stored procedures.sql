@@ -382,6 +382,7 @@ CREATE PROCEDURE spUpdateJob
 (
 @id VARCHAR(30),
 @description VARCHAR(100),
+@clientSatisfaction INT,
 @category VARCHAR(15),
 @type VARCHAR(15)
 )
@@ -393,6 +394,7 @@ BEGIN
 			UPDATE tblJob 
 			SET 
 			JobDescription = @description,
+			ClientSatisfaction = @clientSatisfaction,
 			JobCategory = @category,
 			JobType = @type
 			WHERE JobID = @id
