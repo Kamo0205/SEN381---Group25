@@ -7,13 +7,6 @@ using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
-    public enum serviceLevel
-    {
-        bronze,
-        silver,
-        premium
-    }
-
     public enum clientSearchParameter
     {
         id,
@@ -42,11 +35,12 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Client> searchClientByParameter(clientSearchParameter parameter,string query, serviceLevel serviceLevel)
+        public List<Client> searchClientByParameter(clientSearchParameter parameter,string query)
         {
             try
             {
                 DataTable clientData = new DataTable();
+                DataTable contractData = new DataTable();
 
                 switch (parameter)
                 {
@@ -70,21 +64,28 @@ namespace Business_Logic_Layer
                 {
                     for (int i = 0; i < clientData.Rows.Count; i++)
                     {
-                        switch (serviceLevel)
-                        {
-                            case serviceLevel.bronze:
-                                clients.Add(new Bronze(data: clientData, i: i));
-                                break;
-                            case serviceLevel.silver:
-                                clients.Add(new Silver(data: clientData, i: i));
-                                break;
-                            case serviceLevel.premium:
-                                clients.Add(new Premium(data: clientData, i: i));
-                                break;
-                            default:
-                                break;
-                        }
+                        contractData = db.ListContractsByClientID(clientData.Rows[i]["ClientID"].ToString());
+                        string serviceLevel = clientData.Rows[i]["ServiceLevel"].ToString();
 
+                        for (int j = 0; j < contractData.Rows.Count; j++)
+                        {
+                            if (serviceLevel == "Bronze")
+                            {
+                                clients.Add(new Bronze(data: clientData, i: i));
+                            }
+                            else if (serviceLevel == "Silver")
+                            {
+                                clients.Add(new Silver(data: clientData, i: i));
+                            }
+                            else if (serviceLevel == "Premium")
+                            {
+                                clients.Add(new Premium(data: clientData, i: i));
+                            }
+                            else
+                            {
+                                clients.Add(new Bronze(data: clientData, i: i));
+                            }
+                        }
                     }
                     return clients;
                 }

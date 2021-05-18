@@ -33,7 +33,7 @@ namespace PresentationLayer
             this.pnlData = new System.Windows.Forms.Panel();
             this.lblClientContracts = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSearchBy = new System.Windows.Forms.Label();
             this.cmbSearchBy = new System.Windows.Forms.ComboBox();
             this.cmbService = new System.Windows.Forms.ComboBox();
             this.txtSearchParamater = new System.Windows.Forms.TextBox();
@@ -82,7 +82,7 @@ namespace PresentationLayer
             // 
             this.pnlData.Controls.Add(this.lblClientContracts);
             this.pnlData.Controls.Add(this.lblService);
-            this.pnlData.Controls.Add(this.label2);
+            this.pnlData.Controls.Add(this.lblSearchBy);
             this.pnlData.Controls.Add(this.cmbSearchBy);
             this.pnlData.Controls.Add(this.cmbService);
             this.pnlData.Controls.Add(this.txtSearchParamater);
@@ -116,15 +116,15 @@ namespace PresentationLayer
             this.lblService.TabIndex = 11;
             this.lblService.Text = "Service Level:";
             // 
-            // label2
+            // lblSearchBy
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Search by:";
+            this.lblSearchBy.AutoSize = true;
+            this.lblSearchBy.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchBy.Location = new System.Drawing.Point(39, 82);
+            this.lblSearchBy.Name = "lblSearchBy";
+            this.lblSearchBy.Size = new System.Drawing.Size(73, 17);
+            this.lblSearchBy.TabIndex = 9;
+            this.lblSearchBy.Text = "Search by:";
             // 
             // cmbSearchBy
             // 
@@ -407,7 +407,7 @@ namespace PresentationLayer
             // 
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPrev.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrev.Location = new System.Drawing.Point(14, 351);
+            this.btnPrev.Location = new System.Drawing.Point(14, 357);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 3;
@@ -468,7 +468,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblContractID;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtClientEmail;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSearchBy;
         private System.Windows.Forms.ComboBox cmbSearchBy;
         private System.Windows.Forms.TextBox txtSearchParamater;
         private System.Windows.Forms.Label lblExperationDate;

@@ -17,9 +17,25 @@ namespace PresentationLayer
         private Prompt prompt = new Prompt();
         private DateTime dDate;
 
-        public Clients_Screen()
+        public Clients_Screen(Client client = null)
         {
             InitializeComponent();
+            if (client != null)
+            {
+                lblSearchCLients.Hide();
+                lblSearchBy.Hide();
+                lblService.Hide();
+                cmbSearchBy.Hide();
+                cmbService.Hide();
+                cmbServiceChange.AllowDrop = false;
+                txtSearchParamater.Hide();
+                txtContractExperationDate.ReadOnly = true;
+                btnContractAdd.Hide();
+                btnContractUpdate.Hide();
+                btnContractDelete.Hide();
+                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.id, query: client.Id);
+                contractBind.DataSource = selectedClientContracts;
+            }
         }
 
         private void populateSearchBy()
@@ -54,10 +70,9 @@ namespace PresentationLayer
 
         private void txtSearchParamater_TextChanged(object sender, EventArgs e)
         {
-            serviceLevel selectedService = (serviceLevel)cmbService.SelectedIndex;
             clientSearchParameter searchParameter = (clientSearchParameter)cmbSearchBy.SelectedIndex;
 
-            searchResults = clientData.searchClientByParameter(parameter: searchParameter, query: txtSearchParamater.Text, serviceLevel: selectedService);
+            searchResults = clientData.searchClientByParameter(parameter: searchParameter, query: txtSearchParamater.Text);
             if (searchResults != null)
             {
                 Client client = searchResults[0];
