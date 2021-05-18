@@ -86,7 +86,7 @@ GO
 
 /* Client data retrieval stored procedures */
 
-/*CREATE PROCEDURE spGetClientByID
+CREATE PROCEDURE spGetClientByID
 @id VARCHAR(30)
 AS
 BEGIN
@@ -95,7 +95,7 @@ FROM tblClient
 WHERE ClientID = @id
 END
 
-GO*/
+GO
 
 CREATE PROCEDURE spGetClientByEmail
 @email VARCHAR(50)
