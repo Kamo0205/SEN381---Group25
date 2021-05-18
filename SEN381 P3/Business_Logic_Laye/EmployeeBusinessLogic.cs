@@ -153,7 +153,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Employee> listEmployeesBySkillCategoryAndType(employeeSkillCategories category, employeeSkillsTypes type, bool onlyActiveUsers)
+        public List<Employee> listEmployeesBySkillCategoryAndType(employeeSkillCategories category, employeeSkillsTypes type, bool onlyActiveUsers = false)
         {
             try
             {
@@ -273,8 +273,12 @@ namespace Business_Logic_Layer
                 List<Employee> employeesOnStandBy = new List<Employee>();
                 List<Employee> assignedEmployees = new List<Employee>();
                 DataTable jobData = db.ListJobsByStatus("Assigned");
-                DataTable employeeData = db.ListEmployees();
                 DataTable employeeTypesData = db.ListEmployeesByType();
+                DataTable employeeData = db.ListEmployees();
+                for (int i = 0; i < employeeData.Rows.Count; i++)
+                {
+                    allEmployees.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("",600)));   
+                }
                 for (int i = 0; i < employeeTypesData.Rows.Count; i++)
                 {
                     switch (type)
@@ -284,11 +288,11 @@ namespace Business_Logic_Layer
                         case employeeType.callCenter:
                             if(employeeTypesData.Rows[i]["UserType"].ToString() == "CallCentre")
                             {
-                                for (int j = 0; j < employeeData.Rows.Count; j++)
+                                for (int j = 0; j < jobData.Rows.Count; j++)
                                 {
-                                    if (employeeTypesData.Rows[i]["AuthenticationID"] == employeeData.Rows[j]["EmpID"])
+                                    if (employeeTypesData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
                                     {
-                                        allEmployees.Add(new CallCenterStaff(i: j, data: employeeData, new Pay("Technician", 600)));
+                                        assignedEmployees.Add(new CallCenterStaff(i: j, data: employeeTypesData, new Pay("Technician", 600)));
                                     }
                                 }
                             }
@@ -296,11 +300,11 @@ namespace Business_Logic_Layer
                         case employeeType.technician:
                             if (employeeTypesData.Rows[i]["UserType"].ToString() == "Technician")
                             {
-                                for (int j = 0; j < employeeData.Rows.Count; j++)
+                                for (int j = 0; j < jobData.Rows.Count; j++)
                                 {
-                                    if (employeeTypesData.Rows[i]["AuthenticationID"] == employeeData.Rows[j]["EmpID"])
+                                    if (employeeTypesData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
                                     {
-                                        allEmployees.Add(new TechnicalStaff(i: j, data: employeeData, new Pay("Technician", 600)));
+                                        assignedEmployees.Add(new TechnicalStaff(i: j, data: employeeTypesData, new Pay("Technician", 600)));
                                     }
                                 }
                                 
@@ -310,40 +314,6 @@ namespace Business_Logic_Layer
                             break;
                     }
                     
-                }
-                for (int i = 0; i < employeeTypesData.Rows.Count; i++)
-                {
-                    switch (type)
-                    {
-                        case employeeType.admin:
-                            break;
-                        case employeeType.callCenter:
-                            if (employeeTypesData.Rows[i]["UserType"].ToString() == "CallCentre")
-                            {
-                                for (int j = 0; j < employeeData.Rows.Count; j++)
-                                {
-                                    if(employeeTypesData.Rows[i]["AuthenticationID"] == employeeData.Rows[j]["EmpID"])
-                                    {
-                                        assignedEmployees.Add(new CallCenterStaff(i: j, data: employeeData, new Pay("Technician", 600)));
-                                    }
-                                }
-                            }
-                                break;
-                        case employeeType.technician:
-                            if (employeeTypesData.Rows[i]["UserType"].ToString() == "Technician")
-                            {
-                                for (int j = 0; j < employeeData.Rows.Count; j++)
-                                {
-                                    if (employeeTypesData.Rows[i]["AuthenticationID"] == employeeData.Rows[j]["EmpID"])
-                                    {
-                                        assignedEmployees.Add(new TechnicalStaff(i: j, data: employeeData, new Pay("Technician", 600)));
-                                    }
-                                }
-                            }
-                                break;
-                        default:
-                            break;
-                    }
                 }
                 employeesOnStandBy = allEmployees.Except(assignedEmployees).ToList();
 

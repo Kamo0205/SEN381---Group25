@@ -280,7 +280,7 @@ namespace Data_Access_Layer.Datahandler
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM tblAuthentication WHERE UserType = 'Technician' OR 'CallCentre'", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM tblAuthentication", conn);
                 cmd.CommandType = CommandType.Text;
                 sda.SelectCommand = cmd;
                 sda.FillSchema(output, SchemaType.Source);
