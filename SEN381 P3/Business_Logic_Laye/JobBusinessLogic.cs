@@ -11,13 +11,15 @@ namespace Business_Logic_Layer
     public enum jobCategory
     {
         hardware,
-        software
+        software,
+        callCentre
     }
 
     public enum jobType
     {
         instalation,
-        repair
+        repair,
+        callCentre
     }
 
     public enum jobSearchParamaters
@@ -124,6 +126,9 @@ namespace Business_Logic_Layer
                     case jobCategory.software:
                         jobData = db.ListJobsByCategory("Software");
                         break;
+                    case jobCategory.callCentre:
+                        jobData = db.ListJobsByCategory("CallCentre");
+                        break;
                     default:
                         break;
                 }
@@ -159,6 +164,9 @@ namespace Business_Logic_Layer
                         break;
                     case jobType.repair:
                         jobData = db.ListJobsByType("Repair");
+                        break;
+                    case jobType.callCentre:
+                        jobData = db.ListJobsByType("CallCentre");
                         break;
                     default:
                         break;

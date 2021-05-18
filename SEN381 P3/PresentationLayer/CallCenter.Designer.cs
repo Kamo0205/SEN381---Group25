@@ -32,24 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCallCenter));
             this.pnlCaller = new System.Windows.Forms.Panel();
             this.lblCallLoad = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrev = new System.Windows.Forms.Button();
             this.btnLeaveCall = new System.Windows.Forms.Button();
             this.btnMakeCall = new System.Windows.Forms.Button();
             this.lblCallerName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblClientName = new System.Windows.Forms.Label();
-            this.cmbClientName = new System.Windows.Forms.ComboBox();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dtStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblEndDate = new System.Windows.Forms.Label();
-            this.lblDetails = new System.Windows.Forms.Label();
-            this.txtDetails = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnClientScreen = new System.Windows.Forms.Button();
+            this.btnSignOut = new System.Windows.Forms.Button();
             this.t1 = new System.Windows.Forms.Timer(this.components);
             this.pnlCaller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,8 +55,6 @@
             this.pnlCaller.BackColor = System.Drawing.Color.White;
             this.pnlCaller.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCaller.Controls.Add(this.lblCallLoad);
-            this.pnlCaller.Controls.Add(this.btnNext);
-            this.pnlCaller.Controls.Add(this.btnPrev);
             this.pnlCaller.Controls.Add(this.btnLeaveCall);
             this.pnlCaller.Controls.Add(this.btnMakeCall);
             this.pnlCaller.Controls.Add(this.lblCallerName);
@@ -82,28 +74,6 @@
             this.lblCallLoad.TabIndex = 3;
             this.lblCallLoad.Text = "Connecting...";
             this.lblCallLoad.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(210, 134);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(34, 33);
-            this.btnNext.TabIndex = 6;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrev.Location = new System.Drawing.Point(11, 134);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(38, 33);
-            this.btnPrev.TabIndex = 5;
-            this.btnPrev.Text = "<";
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnLeaveCall
             // 
@@ -152,26 +122,15 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // lblClientName
+            // lblEmployeeName
             // 
-            this.lblClientName.AutoSize = true;
-            this.lblClientName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientName.Location = new System.Drawing.Point(14, 14);
-            this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(88, 19);
-            this.lblClientName.TabIndex = 1;
-            this.lblClientName.Text = "Client Name:";
-            // 
-            // cmbClientName
-            // 
-            this.cmbClientName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbClientName.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.cmbClientName.FormattingEnabled = true;
-            this.cmbClientName.Location = new System.Drawing.Point(14, 37);
-            this.cmbClientName.Name = "cmbClientName";
-            this.cmbClientName.Size = new System.Drawing.Size(145, 27);
-            this.cmbClientName.TabIndex = 2;
-            this.cmbClientName.SelectedIndexChanged += new System.EventHandler(this.cmbClientName_SelectedIndexChanged);
+            this.lblEmployeeName.AutoSize = true;
+            this.lblEmployeeName.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeName.Location = new System.Drawing.Point(14, 14);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(229, 39);
+            this.lblEmployeeName.TabIndex = 1;
+            this.lblEmployeeName.Text = "employee name";
             // 
             // lblStartDate
             // 
@@ -208,58 +167,14 @@
             this.lblEndDate.TabIndex = 5;
             this.lblEndDate.Text = "End Date:";
             // 
-            // lblDetails
-            // 
-            this.lblDetails.AutoSize = true;
-            this.lblDetails.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetails.Location = new System.Drawing.Point(10, 140);
-            this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(53, 19);
-            this.lblDetails.TabIndex = 7;
-            this.lblDetails.Text = "Details:";
-            // 
-            // txtDetails
-            // 
-            this.txtDetails.Location = new System.Drawing.Point(14, 163);
-            this.txtDetails.Multiline = true;
-            this.txtDetails.Name = "txtDetails";
-            this.txtDetails.Size = new System.Drawing.Size(406, 73);
-            this.txtDetails.TabIndex = 8;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.btnSave.Location = new System.Drawing.Point(18, 258);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 33);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.btnClear.Location = new System.Drawing.Point(110, 258);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 33);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblClientName);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.cmbClientName);
-            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnClientScreen);
+            this.panel1.Controls.Add(this.lblEmployeeName);
             this.panel1.Controls.Add(this.lblStartDate);
-            this.panel1.Controls.Add(this.txtDetails);
             this.panel1.Controls.Add(this.dtStartDate);
-            this.panel1.Controls.Add(this.lblDetails);
             this.panel1.Controls.Add(this.lblEndDate);
             this.panel1.Controls.Add(this.dtEndDate);
             this.panel1.Location = new System.Drawing.Point(5, 8);
@@ -267,16 +182,26 @@
             this.panel1.Size = new System.Drawing.Size(504, 318);
             this.panel1.TabIndex = 7;
             // 
-            // btnBack
+            // btnClientScreen
             // 
-            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.btnBack.Location = new System.Drawing.Point(20, 391);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 33);
-            this.btnBack.TabIndex = 11;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnClientScreen.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.btnClientScreen.Location = new System.Drawing.Point(14, 146);
+            this.btnClientScreen.Name = "btnClientScreen";
+            this.btnClientScreen.Size = new System.Drawing.Size(138, 33);
+            this.btnClientScreen.TabIndex = 12;
+            this.btnClientScreen.Text = "Client Screen";
+            this.btnClientScreen.UseVisualStyleBackColor = true;
+            this.btnClientScreen.Click += new System.EventHandler(this.btnClientScreen_Click);
+            // 
+            // btnSignOut
+            // 
+            this.btnSignOut.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.btnSignOut.Location = new System.Drawing.Point(27, 373);
+            this.btnSignOut.Name = "btnSignOut";
+            this.btnSignOut.Size = new System.Drawing.Size(112, 33);
+            this.btnSignOut.TabIndex = 11;
+            this.btnSignOut.Text = "Sign Out";
+            this.btnSignOut.UseVisualStyleBackColor = true;
             // 
             // FrmCallCenter
             // 
@@ -284,7 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 436);
-            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnSignOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlCaller);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -308,22 +233,16 @@
         private System.Windows.Forms.Label lblCallerName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCallLoad;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnLeaveCall;
         private System.Windows.Forms.Button btnMakeCall;
-        private System.Windows.Forms.Label lblClientName;
-        private System.Windows.Forms.ComboBox cmbClientName;
+        private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dtStartDate;
         private System.Windows.Forms.DateTimePicker dtEndDate;
         private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.Label lblDetails;
-        private System.Windows.Forms.TextBox txtDetails;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnSignOut;
         private System.Windows.Forms.Timer t1;
+        private System.Windows.Forms.Button btnClientScreen;
     }
 }

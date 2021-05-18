@@ -16,6 +16,7 @@ namespace PresentationLayer
         private List<Client> searchResults = new List<Client>();
         private Prompt prompt = new Prompt();
         private DateTime dDate;
+        private bool isClient = false;
 
         public Clients_Screen(Client client = null)
         {
@@ -35,6 +36,7 @@ namespace PresentationLayer
                 btnContractDelete.Hide();
                 List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.id, query: client.Id);
                 contractBind.DataSource = selectedClientContracts;
+                this.isClient = true;
             }
         }
 
@@ -171,10 +173,21 @@ namespace PresentationLayer
             }
             else
             {
-                FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(contractData.listContractsBySearchParamater(contractSearchParamaters.id,txtContractId.Text)[0]);
-                this.Hide();
-                serviceDepartment.ShowDialog();
-                this.Close();
+                if (!this.isClient)
+                {
+                    FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(contractData.listContractsBySearchParamater(contractSearchParamaters.id, txtContractId.Text)[0]);
+                    this.Hide();
+                    serviceDepartment.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    JobStatusScreen jobStatusScreen = new JobStatusScreen();
+                    this.Hide();
+                    jobStatusScreen.ShowDialog();
+                    this.Close();
+                }
+                
             }
         }
     }
