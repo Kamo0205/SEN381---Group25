@@ -3,9 +3,8 @@ using System.Windows.Forms;
 using Business_Logic_Layer;
 using System.Collections.Generic;
 using Data_Access_Layer;
-using Presentation_Layer;
 
-namespace LoginApplication
+namespace Presentation_Layer
 {
     public partial class frmLogin : Form
     {

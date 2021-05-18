@@ -1,4 +1,4 @@
-﻿namespace LoginApplication
+﻿namespace Presentation_Layer
 {
     partial class frmLogin
     {
