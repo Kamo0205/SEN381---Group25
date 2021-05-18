@@ -14,7 +14,7 @@ namespace Data_Access_Layer
         private string contractID;
         private string jobStatus;
         private string jobDescription;
-        private int clientSatisfaction;
+        private string clientSatisfaction;
         private string jobCategory;
         private string jobType;
         private Pay pay;
@@ -24,13 +24,13 @@ namespace Data_Access_Layer
         public string ContractID { get => contractID; set => contractID = value; }
         public string JobStatus { get => jobStatus; set => jobStatus = value; }
         public string JobDescription { get => jobDescription; set => jobDescription = value; }
-        public int ClientSatisfaction { get => clientSatisfaction; set => clientSatisfaction = value; }
+        public string ClientSatisfaction { get => clientSatisfaction; set => clientSatisfaction = value; }
         public string JobCategory { get => jobCategory; set => jobCategory = value; }
         public string JobType { get => jobType; set => jobType = value; }
         
         public Pay Pay { get => pay; set => pay = value; }
 
-        public Job(string id, string contractID, string employeeID,string jobStatus, string jobDescription, int clientSatisfaction, string jobCategory, string jobType, Pay pay)
+        public Job(string id, string contractID, string employeeID,string jobStatus, string jobDescription, string clientSatisfaction, string jobCategory, string jobType, Pay pay)
         {
             if (id == null)
                 this.id = this.GetHashCode().ToString();
@@ -56,21 +56,11 @@ namespace Data_Access_Layer
             this.employeeID = data.Rows[i]["EmpID"] == null ? null : data.Rows[i]["EmpID"].ToString();
             this.jobStatus = data.Rows[i]["JobStatus"].ToString();
             this.jobDescription = data.Rows[i]["JobDescription"].ToString();
-            this.clientSatisfaction = (int)data.Rows[i]["ClientSatisfaction"];
+            this.clientSatisfaction = data.Rows[i]["ClientSatisfaction"] == null ? null : data.Rows[i]["ClientSatisfaction"].ToString();
             this.jobCategory = data.Rows[i]["JobCategory"].ToString();
             this.jobType = data.Rows[i]["JobType"].ToString();
         }
 
         public Job() { }
-
-        public override bool Equals(object obj)
-        {
-            return Id.Equals(((Job)obj).Id);
-        }
-        public override string ToString()
-        {
-            return string.Format("EmployeeID: {1}\nJob status: {2}",
-                employeeID, jobStatus);
-        }
     }
 }

@@ -61,7 +61,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobInformation.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: null, jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0, jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobInformation.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: null, jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
                 MessageBox.Show("Job added to contract!");
             }
         }
@@ -74,7 +74,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobInformation.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0, jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobInformation.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
             }
         }
 

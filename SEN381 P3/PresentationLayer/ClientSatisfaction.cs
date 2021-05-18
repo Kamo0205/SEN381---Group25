@@ -86,7 +86,7 @@ namespace Presentation_Layer
 
         private void btnMakeCall_Click(object sender, EventArgs e)
         {
-            jobInformation.createJob(new Job(id: null,contractID: null, employeeID: null,jobStatus: "Unassigned", jobDescription: "CallCentre", clientSatisfaction:0, jobCategory:"CallCentre", jobType:"CallCentre",new Pay("",600)));
+            jobInformation.createJob(new Job(id: null,contractID: null, employeeID: null,jobStatus: "Unassigned", jobDescription: "CallCentre", clientSatisfaction:0.ToString(), jobCategory:"CallCentre", jobType:"CallCentre",new Pay("",600)));
         }
 
         private void btnLeaveCall_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace Presentation_Layer
                     jobInformation.deleteJob(job.Id);
                 }else if (job.JobStatus == "Assigned")
                 {
-                    jobInformation.updateJob(new Job(id: job.Id, contractID:job.ContractID,employeeID:job.EmployeeID,jobStatus:job.JobStatus, jobDescription: job.JobDescription,clientSatisfaction: this.satisfaction, jobCategory:job.JobCategory, jobType: job.JobType, new Pay("", 600)));
+                    jobInformation.updateJob(new Job(id: job.Id, contractID:job.ContractID,employeeID:job.EmployeeID,jobStatus:job.JobStatus, jobDescription: job.JobDescription,clientSatisfaction: this.satisfaction.ToString(), jobCategory:job.JobCategory, jobType: job.JobType, new Pay("", 600)));
                 }
             }
         }
