@@ -62,5 +62,10 @@ namespace Data_Access_Layer
         }
 
         public Job() { }
+
+        public override string ToString()
+        {
+            return "ID:" + this.id + " contractID:" + this.contractID + " employeeID:" + this.employeeID + " Client satisfaction:" + this.clientSatisfaction;
+        }
     }
 }

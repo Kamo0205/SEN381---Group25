@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Business_Logic_Layer;
@@ -13,6 +14,7 @@ namespace Presentation_Layer
         private Job selectedJob = new Job();
         private Contract selectedContract;
         private Prompt prompt = new Prompt();
+        private BindingSource contractBind = new BindingSource();
 
         private void populateJobCategory()
         {
@@ -40,9 +42,11 @@ namespace Presentation_Layer
         {
             populateJobCategory();
             populateJobType();
-            lstJobs.DataSource = jobInformation.getJobsBySearchParamater(jobSearchParamaters.contractID,this.selectedContract.Id);
+            List<Job> jobs = jobInformation.getJobsBySearchParamater(jobSearchParamaters.contractID, this.selectedContract.Id);
+            contractBind.DataSource = jobs;
+            lstJobs.DataSource = contractBind;
             lblServiceLevel.Text = selectedContract.ServiceLevel;
-            lblExperationDate.Text = selectedContract.ServiceLevel;
+            lblExperationDate.Text = selectedContract.ExperationDate;
         }
 
         private void lstJobs_SelectedIndexChanged(object sender, EventArgs e)

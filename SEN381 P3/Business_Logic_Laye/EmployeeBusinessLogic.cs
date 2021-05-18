@@ -153,7 +153,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Employee> listEmployeesBySkillCategoryAndType(employeeSkillCategories category, employeeSkillsTypes type)
+        public List<Employee> listEmployeesBySkillCategoryAndType(employeeSkillCategories category, employeeSkillsTypes type, bool onlyActiveUsers)
         {
             try
             {
@@ -188,9 +188,21 @@ namespace Business_Logic_Layer
 
                 employeeData = db.ListEmployeesForJob(category: ct, type: tp);
 
+                List<Employee> activeEmployees = employeesOnStandBy(employeeType.technician);
+
                 for (int i = 0; i < employeeData.Rows.Count; i++)
                 {
-                    employees.Add(new TechnicalStaff(i, employeeData,new Pay("Technician", 600)));
+                    if (onlyActiveUsers)
+                    {
+                        if (activeEmployees.Contains(new TechnicalStaff(i, employeeData, new Pay("Technician", 600))))
+                        {
+                            employees.Add(new TechnicalStaff(i, employeeData, new Pay("Technician", 600)));
+                        }
+                    }                    
+                    else
+                    {
+                        employees.Add(new TechnicalStaff(i, employeeData, new Pay("Technician", 600)));
+                    }
                 }
 
                 return employees;
