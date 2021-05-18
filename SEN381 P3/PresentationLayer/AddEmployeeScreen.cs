@@ -55,7 +55,7 @@ namespace Presentation_Layer
             {
                 MessageBox.Show("Please select an employee type");
             }
-            if (validator.IsValidEmail(txtEmail.Text) && txtContactNumber.TextLength > 10 && txtVATID.Text.Length > 10 && txtSurname.Text.Length > 3 && txtName.Text.Length > 3 && txtPassword.Text == txtConfirmPassword.Text && cmbEmployeeType.SelectedIndex >= 0)
+            if (validator.IsValidEmail(txtEmail.Text) && txtContactNumber.TextLength >= 10 && txtVATID.Text.Length >= 10 && txtSurname.Text.Length >= 3 && txtName.Text.Length >= 3 && txtPassword.Text == txtConfirmPassword.Text && cmbEmployeeType.SelectedIndex >= 0)
             {
                 if (cmbEmployeeType.SelectedIndex == 0)
                 {
@@ -64,7 +64,8 @@ namespace Presentation_Layer
                 }
                 else
                 {
-                    employeeLogic.addEmplpoyee(employee: new TechnicalStaff(id: null, firstName: txtName.Text, lastName: txtSurname.Text, phoneNumber: txtContactNumber.Text, email: txtEmail.Text, new Pay("", 600), vatID: txtVATID.Text), password: txtPassword.Text, type: cmbEmployeeType.Text);
+                    AuthenticationBusinessLogic authenticationBusinessLogic = new AuthenticationBusinessLogic();
+                    employeeLogic.addEmplpoyee(employee: new TechnicalStaff(id: null, firstName: txtName.Text, lastName: txtSurname.Text, phoneNumber: txtContactNumber.Text, email: txtEmail.Text, new Pay("", 600), vatID: txtVATID.Text), password: authenticationBusinessLogic.Encipher(txtPassword.Text, 12), type: cmbEmployeeType.Text);
                     MessageBox.Show(string.Format("Technician {0} {1} created!", txtName.Text,txtSurname.Text));
                 }
             }

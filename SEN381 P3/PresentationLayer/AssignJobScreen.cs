@@ -57,5 +57,10 @@ namespace Presentation_Layer
 
             List<Employee> assignableUsers = employeeBusinessLogic.listEmployeesBySkillCategoryAndType(skillCategories, employeeSkills, true);
         }
+
+        private void btnAssignJob_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
