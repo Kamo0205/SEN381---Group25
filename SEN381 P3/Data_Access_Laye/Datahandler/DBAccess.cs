@@ -223,9 +223,9 @@ namespace Data_Access_Layer
             return readDataHandler.Authenticate(userName, password);
         }
 
-        public void UpdateClient(Client client, string password)
+        public void UpdateClient(Client client)
         {
-            updateDataHandler.UpdateClient(client, password);
+            updateDataHandler.UpdateClient(client);
         }
 
         public void UpdateContract(Contract contract)

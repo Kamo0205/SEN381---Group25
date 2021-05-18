@@ -17,6 +17,7 @@ namespace Presentation_Layer
         private Prompt prompt = new Prompt();
         private DateTime dDate;
         private bool isClient = false;
+        private Client selectedClient;
 
         public Clients_Screen(Client client = null)
         {
@@ -43,6 +44,7 @@ namespace Presentation_Layer
                 contractBind.DataSource = selectedClientContracts;
                 lstData.DataSource = contractBind;
                 this.isClient = true;
+                this.selectedClient = client;
             }
         }
 
@@ -193,6 +195,13 @@ namespace Presentation_Layer
                 }
                 
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(selectedClient);
+            clientSatisfaction.Show();
         }
     }
 }

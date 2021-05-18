@@ -98,11 +98,11 @@ namespace Business_Logic_Layer
             }
         }
 
-        public void updateClient(Client client, string password)
+        public void updateClient(Client client)
         {
             try
             {
-                db.UpdateClient(client: client, password: password);
+                db.UpdateClient(client: client);
             }
             catch (Exception e)
             {

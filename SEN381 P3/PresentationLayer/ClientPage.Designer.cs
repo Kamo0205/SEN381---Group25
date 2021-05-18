@@ -46,65 +46,73 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(23, 73);
+            this.txtName.Location = new System.Drawing.Point(31, 90);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 0;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(149, 73);
+            this.txtEmail.Location = new System.Drawing.Point(199, 90);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 2;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(149, 114);
+            this.txtAddress.Location = new System.Drawing.Point(199, 140);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(100, 20);
+            this.txtAddress.Size = new System.Drawing.Size(132, 22);
             this.txtAddress.TabIndex = 4;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(23, 114);
+            this.txtSurname.Location = new System.Drawing.Point(31, 140);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(100, 20);
+            this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 3;
             // 
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(23, 57);
+            this.lblname.Location = new System.Drawing.Point(31, 70);
+            this.lblname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(35, 13);
+            this.lblname.Size = new System.Drawing.Size(45, 17);
             this.lblname.TabIndex = 6;
             this.lblname.Text = "Name";
             // 
             // lblemail
             // 
             this.lblemail.AutoSize = true;
-            this.lblemail.Location = new System.Drawing.Point(146, 57);
+            this.lblemail.Location = new System.Drawing.Point(195, 70);
+            this.lblemail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(32, 13);
+            this.lblemail.Size = new System.Drawing.Size(42, 17);
             this.lblemail.TabIndex = 8;
             this.lblemail.Text = "Email";
             // 
             // lblsurname
             // 
             this.lblsurname.AutoSize = true;
-            this.lblsurname.Location = new System.Drawing.Point(23, 98);
+            this.lblsurname.Location = new System.Drawing.Point(31, 121);
+            this.lblsurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblsurname.Name = "lblsurname";
-            this.lblsurname.Size = new System.Drawing.Size(49, 13);
+            this.lblsurname.Size = new System.Drawing.Size(65, 17);
             this.lblsurname.TabIndex = 9;
             this.lblsurname.Text = "Surname";
             // 
             // lbladdress
             // 
             this.lbladdress.AutoSize = true;
-            this.lbladdress.Location = new System.Drawing.Point(146, 98);
+            this.lbladdress.Location = new System.Drawing.Point(195, 121);
+            this.lbladdress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbladdress.Name = "lbladdress";
-            this.lbladdress.Size = new System.Drawing.Size(45, 13);
+            this.lbladdress.Size = new System.Drawing.Size(60, 17);
             this.lbladdress.TabIndex = 10;
             this.lbladdress.Text = "Address";
             // 
@@ -112,29 +120,34 @@
             // 
             this.lbltitle.AutoSize = true;
             this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(37, 30);
+            this.lbltitle.Location = new System.Drawing.Point(49, 37);
+            this.lbltitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(132, 25);
+            this.lbltitle.Size = new System.Drawing.Size(162, 31);
             this.lbltitle.TabIndex = 12;
             this.lbltitle.Text = "Client page";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(23, 154);
+            this.btnSave.Location = new System.Drawing.Point(31, 190);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSave.Size = new System.Drawing.Size(133, 28);
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEXIT
             // 
-            this.btnEXIT.Location = new System.Drawing.Point(23, 199);
+            this.btnEXIT.Location = new System.Drawing.Point(31, 245);
+            this.btnEXIT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEXIT.Name = "btnEXIT";
-            this.btnEXIT.Size = new System.Drawing.Size(100, 23);
+            this.btnEXIT.Size = new System.Drawing.Size(133, 28);
             this.btnEXIT.TabIndex = 15;
             this.btnEXIT.Text = "Exit";
             this.btnEXIT.UseVisualStyleBackColor = true;
+            this.btnEXIT.Click += new System.EventHandler(this.btnEXIT_Click);
             // 
             // panel1
             // 
@@ -150,27 +163,30 @@
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.lblemail);
             this.panel1.Controls.Add(this.txtAddress);
-            this.panel1.Location = new System.Drawing.Point(13, 12);
+            this.panel1.Location = new System.Drawing.Point(17, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 252);
+            this.panel1.Size = new System.Drawing.Size(361, 310);
             this.panel1.TabIndex = 16;
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(149, 154);
+            this.btnChangePassword.Location = new System.Drawing.Point(199, 190);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(100, 68);
+            this.btnChangePassword.Size = new System.Drawing.Size(133, 84);
             this.btnChangePassword.TabIndex = 16;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
             // 
             // ClientPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 280);
+            this.ClientSize = new System.Drawing.Size(400, 345);
             this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ClientPage";
             this.Text = "ClientPage";
             this.panel1.ResumeLayout(false);

@@ -36,7 +36,7 @@ namespace Presentation_Layer
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FrmWelcomeScreen welcomeScreen = new FrmWelcomeScreen();
+            frmLogin welcomeScreen = new frmLogin();
             this.Hide();
             welcomeScreen.Show();
         }
@@ -124,7 +124,7 @@ namespace Presentation_Layer
 
         private void btnPersonalDetails_Click(object sender, EventArgs e)
         {
-            ClientPage clientPage = new ClientPage();
+            ClientPage clientPage = new ClientPage(loggedInClient);
             this.Hide();
             clientPage.Show();
         }

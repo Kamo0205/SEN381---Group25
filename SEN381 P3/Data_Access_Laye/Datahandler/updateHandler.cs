@@ -1,6 +1,4 @@
 ﻿using Data_Access_Layer.Data_Models;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -15,7 +13,7 @@ namespace Data_Access_Layer.Datahandler
             this.conn = new SqlConnection(connection);
         }
 
-        public void UpdateClient(Client client, string password)
+        public void UpdateClient(Client client)
         {
             try
             {
@@ -25,7 +23,6 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@id", client.Id);
                 cmd.Parameters.AddWithValue("@name", client.FirstName);
                 cmd.Parameters.AddWithValue("@surname", client.LastName);
-                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@address", client.Address);
                 cmd.Parameters.AddWithValue("@email", client.Email);
                 cmd.Parameters.AddWithValue("@number", client.PhoneNumber);
