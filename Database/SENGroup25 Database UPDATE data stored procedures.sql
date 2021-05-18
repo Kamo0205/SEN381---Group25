@@ -9,7 +9,6 @@ CREATE PROCEDURE spUpdateClient
 @id VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
-@password VARCHAR(30),
 @address VARCHAR(100),
 @email VARCHAR(50),
 @number VARCHAR(12)
@@ -21,8 +20,7 @@ BEGIN
 
 			UPDATE tblAuthentication
 			SET
-			UserName = @email,
-			UserPassword = @password
+			UserName = @email
 			WHERE AuthenticationID = @id
 
 			UPDATE tblClient 
@@ -40,6 +38,32 @@ BEGIN
 	BEGIN CATCH
 		ROLLBACK
 		PRINT 'spUpdateClient Transaction UNSUCCESSFUL'
+	END CATCH
+END
+
+GO
+
+CREATE PROCEDURE spUpdateClientPassword
+(
+@id VARCHAR(30),
+@password VARCHAR(30)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			UPDATE tblAuthentication
+			SET
+			UserPassword = @password
+			WHERE AuthenticationID = @id
+
+		COMMIT
+		PRINT 'spUpdateClientPassword Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spUpdateClientPassword Transaction UNSUCCESSFUL'
 	END CATCH
 END
 
@@ -208,7 +232,6 @@ CREATE PROCEDURE spUpdateEmployee
 @id VARCHAR(30),
 @name VARCHAR(30),
 @surname VARCHAR(30),
-@password VARCHAR(30),
 @vat VARCHAR(10),
 @email VARCHAR(50),
 @number VARCHAR(12),
@@ -222,7 +245,6 @@ BEGIN
 			UPDATE tblAuthentication
 			SET
 			UserName = @email,
-			UserPassword = @password,
 			UserType = @type
 			WHERE AuthenticationID = @id
 
@@ -241,6 +263,32 @@ BEGIN
 	BEGIN CATCH
 		ROLLBACK
 		PRINT 'spUpdateEmployee Transaction UNSUCCESSFUL'
+	END CATCH
+END
+
+GO
+
+CREATE PROCEDURE spUpdateEmployeePassword
+(
+@id VARCHAR(30),
+@password VARCHAR(30)
+)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+			UPDATE tblAuthentication
+			SET
+			UserPassword = @password
+			WHERE AuthenticationID = @id
+
+		COMMIT
+		PRINT 'spUpdateEmployeePassword Transaction Successful'
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+		PRINT 'spUpdateEmployeePassword Transaction UNSUCCESSFUL'
 	END CATCH
 END
 
@@ -422,7 +470,8 @@ BEGIN
 
 			UPDATE tblJob 
 			SET 
-			EmpID = @employeeID
+			EmpID = @employeeID,
+			JobStatus = 'Assigned'
 			WHERE JobID = @id
 
 		COMMIT

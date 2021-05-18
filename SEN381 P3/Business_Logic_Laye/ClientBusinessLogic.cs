@@ -111,6 +111,19 @@ namespace Business_Logic_Layer
             }
         }
 
+        public void updateClientPassword(Client client, string password)
+        {
+            try
+            {
+                db.UpdateClientPassword(client: client, password: password);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ClientBusinessLogic : updateClientPassword ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public void createClient(Client client, string password)
         {
             try

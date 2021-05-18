@@ -17,7 +17,7 @@ namespace Business_Logic_Layer
 
     public enum jobType
     {
-        instalation,
+        installation,
         repair,
         callCentre
     }
@@ -159,8 +159,8 @@ namespace Business_Logic_Layer
                 List<Job> jobs = new List<Job>();
                 switch (type)
                 {
-                    case jobType.instalation:
-                        jobData = db.ListJobsByType("Instalation");
+                    case jobType.installation:
+                        jobData = db.ListJobsByType("Installation");
                         break;
                     case jobType.repair:
                         jobData = db.ListJobsByType("Repair");
@@ -209,11 +209,11 @@ namespace Business_Logic_Layer
                 }
                 switch (type)
                 {
-                    case jobType.instalation:
+                    case jobType.installation:
                         jobs = jobs.Except(listJobByType(jobType.repair)).ToList();
                         break;
                     case jobType.repair:
-                        jobs = jobs.Except(listJobByType(jobType.instalation)).ToList();
+                        jobs = jobs.Except(listJobByType(jobType.installation)).ToList();
                         break;
                     default:
                         break;

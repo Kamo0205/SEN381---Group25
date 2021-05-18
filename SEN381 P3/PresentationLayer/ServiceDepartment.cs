@@ -26,7 +26,7 @@ namespace Presentation_Layer
 
         private void populateJobType()
         {
-            cmbJobType.Items.Add(new ComboBoxItem(name: "Instalation", id: 0));
+            cmbJobType.Items.Add(new ComboBoxItem(name: "Installation", id: 0));
             cmbJobType.Items.Add(new ComboBoxItem(name: "Repair", id: 1));
             cmbJobType.DisplayMember = "Name";
             cmbJobType.ValueMember = "Id";

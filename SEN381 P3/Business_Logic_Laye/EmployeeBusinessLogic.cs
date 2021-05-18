@@ -50,15 +50,28 @@ namespace Business_Logic_Layer
             }
         }
 
-        public void updateEmployee(Employee employee, string password, employeeType type)
+        public void updateEmployee(Employee employee, employeeType type)
         {
             try
             {
-                db.UpdateEmployee(employee:employee, password: password, type: type.ToString());
+                db.UpdateEmployee(employee:employee, type: type.ToString());
             }
             catch (Exception e)
             {
                 MessageBox.Show("EmployeeBusinessLogic : updateEmployee ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public void updateEmployeePassword(Employee employee, string password)
+        {
+            try
+            {
+                db.UpdateEmployeePassword(employee: employee, password: password);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : updateEmployeePassword ERROR:" + e.Message);
                 throw;
             }
         }
@@ -97,7 +110,7 @@ namespace Business_Logic_Layer
                 switch (type)
                 {
                     case employeeSkillsTypes.installation:
-                        newSkill.Type = "Instalation";
+                        newSkill.Type = "Installation";
                         break;
                     case employeeSkillsTypes.repair:
                         newSkill.Type = "Repair";
@@ -136,7 +149,7 @@ namespace Business_Logic_Layer
                 switch (type)
                 {
                     case employeeSkillsTypes.installation:
-                        newSkill.Type = "Instalation";
+                        newSkill.Type = "Installation";
                         break;
                     case employeeSkillsTypes.repair:
                         newSkill.Type = "Repair";
@@ -177,7 +190,7 @@ namespace Business_Logic_Layer
                 switch (type)
                 {
                     case employeeSkillsTypes.installation:
-                        tp = "Instalation";
+                        tp = "Installation";
                         break;
                     case employeeSkillsTypes.repair:
                         tp = "Repair";
@@ -277,7 +290,20 @@ namespace Business_Logic_Layer
                 DataTable employeeData = db.ListEmployees();
                 for (int i = 0; i < employeeData.Rows.Count; i++)
                 {
-                    allEmployees.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("",600)));   
+                    switch (type)
+                    {
+                        case employeeType.admin:
+                            break;
+                        case employeeType.callCenter:
+                            allEmployees.Add(new CallCenterStaff(i: i, data: employeeData, new Pay("", 600)));
+                            break;
+                        case employeeType.technician:
+                            allEmployees.Add(new TechnicalStaff(i: i, data: employeeData, new Pay("", 600)));
+                            break;
+                        default:
+                            break;
+                    }
+                       
                 }
                 for (int i = 0; i < employeeTypesData.Rows.Count; i++)
                 {
@@ -290,9 +316,15 @@ namespace Business_Logic_Layer
                             {
                                 for (int j = 0; j < jobData.Rows.Count; j++)
                                 {
-                                    if (employeeTypesData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
+                                    if (employeeTypesData.Rows[i]["AuthenticationID"].ToString() == jobData.Rows[j]["EmpID"].ToString())
                                     {
-                                        assignedEmployees.Add(new CallCenterStaff(i: j, data: employeeTypesData, new Pay("Technician", 600)));
+                                        foreach (Employee employee in allEmployees)
+                                        {
+                                            if (jobData.Rows[j]["EmpID"].ToString() == employee.Id)
+                                            {
+                                                assignedEmployees.Add(employee);
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -302,9 +334,15 @@ namespace Business_Logic_Layer
                             {
                                 for (int j = 0; j < jobData.Rows.Count; j++)
                                 {
-                                    if (employeeTypesData.Rows[i]["EmpID"] == jobData.Rows[j]["EmpID"])
+                                    if (employeeTypesData.Rows[i]["AuthenticationID"].ToString() == jobData.Rows[j]["EmpID"].ToString())
                                     {
-                                        assignedEmployees.Add(new TechnicalStaff(i: j, data: employeeTypesData, new Pay("Technician", 600)));
+                                        foreach (Employee employee in allEmployees)
+                                        {
+                                            if (jobData.Rows[j]["EmpID"].ToString() == employee.Id)
+                                            {
+                                                assignedEmployees.Add(employee);
+                                            }
+                                        }
                                     }
                                 }
                                 

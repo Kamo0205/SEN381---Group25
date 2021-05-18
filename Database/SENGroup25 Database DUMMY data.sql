@@ -18,11 +18,11 @@ EXEC spInsertEmployee @id = 'kamoTechnicianID', @name = 'Kamo', @surname = 'Unkn
 
 GO
 
-EXEC spInsertSkill @id = 'instalationSkillID', @description = 'Can install software and tech equipment', @category = 'Hardware', @type = 'Instalation';
+EXEC spInsertSkill @id = 'installationSkillID', @description = 'Can install software and tech equipment', @category = 'Hardware', @type = 'Installation';
 
 GO
 
-EXEC spInsertEmployeeSkill @empID = 'kamoTechnicianID', @skillID = 'instalationSkillID';
+EXEC spInsertEmployeeSkill @empID = 'kamoTechnicianID', @skillID = 'installationSkillID';
 
 GO
 
@@ -34,11 +34,11 @@ EXEC spInsertContract @id = 'premiumID', @clientID = 'hanoClientID', @serviceLev
 
 GO
 
-EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @category = 'Hardware', @type = 'Instalation', @status = 'unassigned';
+EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @category = 'Hardware', @type = 'Installation', @status = 'unassigned';
 
 GO
 
-EXEC spInsertEquipment @id = 'pcEquipmentID', @description = 'PC instalation equipment';
+EXEC spInsertEquipment @id = 'pcEquipmentID', @description = 'PC installation equipment';
 
 GO 
 

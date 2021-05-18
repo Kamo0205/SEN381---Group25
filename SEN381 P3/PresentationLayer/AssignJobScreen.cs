@@ -15,6 +15,12 @@ namespace Presentation_Layer
     public partial class AssignJobScreen : Form
     {
         private Job selectedJob;
+        private Employee selectedEmployee;
+        private JobBusinessLogic jobLogic = new JobBusinessLogic();
+        private EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
+
+        private employeeSkillsTypes employeeSkills;
+        private employeeSkillCategories skillCategories;
 
         public AssignJobScreen(Job job)
         {
@@ -24,17 +30,12 @@ namespace Presentation_Layer
 
         private void AssignJobScreen_Load(object sender, EventArgs e)
         {
-            EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
-
-            employeeSkillsTypes employeeSkills;
-            employeeSkillCategories skillCategories;
-
             switch (selectedJob.JobCategory)
             {
-                case "software":
+                case "Software":
                     skillCategories = employeeSkillCategories.software;
                     break;
-                case "hardware":
+                case "Hardware":
                     skillCategories = employeeSkillCategories.hardware;
                     break;
                 default:
@@ -44,10 +45,10 @@ namespace Presentation_Layer
 
             switch (selectedJob.JobType)
             {
-                case "installation":
+                case "Installation":
                     employeeSkills = employeeSkillsTypes.installation;
                     break;
-                case "repair":
+                case "Repair":
                     employeeSkills = employeeSkillsTypes.repair;
                     break;
                 default:
@@ -56,11 +57,29 @@ namespace Presentation_Layer
             }
 
             List<Employee> assignableUsers = employeeBusinessLogic.listEmployeesBySkillCategoryAndType(skillCategories, employeeSkills, true);
+            lstTechnicians.DataSource = assignableUsers;
+        }
+
+        private void lstTechnicians_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedEmployee = (Employee)lstTechnicians.SelectedItem;
+
+            txtEmployeeName.Text = selectedEmployee.FirstName + " " + selectedEmployee.LastName;
+            txtSkill.Text = selectedJob.JobCategory + " : " + selectedJob.JobType;
         }
 
         private void btnAssignJob_Click(object sender, EventArgs e)
         {
-
+            if(lstTechnicians.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a technician to assign the job to");
+            }
+            else
+            {
+                jobLogic.assignJob(selectedJob.Id, selectedEmployee.Id);
+                MessageBox.Show(string.Format("Job assigned to {0} {1}", selectedEmployee.FirstName, selectedEmployee.LastName));
+                this.Close();
+            }
         }
     }
 }

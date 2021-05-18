@@ -48,10 +48,7 @@ namespace Data_Access_Layer
 
         public Job(DataTable data, int i)
         {
-            if (id == null)
-                this.id = this.GetHashCode().ToString();
-            else
-                this.id = data.Rows[i]["JobID"].ToString();
+            this.id = data.Rows[i]["JobID"].ToString();
             this.contractID = data.Rows[i]["ContractID"] == null ? null : data.Rows[i]["ContractID"].ToString();
             this.employeeID = data.Rows[i]["EmpID"] == null ? null : data.Rows[i]["EmpID"].ToString();
             this.jobStatus = data.Rows[i]["JobStatus"].ToString();

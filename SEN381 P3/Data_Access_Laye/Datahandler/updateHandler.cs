@@ -42,6 +42,31 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
+        public void UpdateClientPassword(Client client, string password)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spUpdateClientPassword", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", client.Id);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("UpdateHandler : UpdateClientPassword ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         public void UpdateContract(Contract contract)
         {
             try
@@ -68,7 +93,7 @@ namespace Data_Access_Layer.Datahandler
             }
         }
 
-        public void UpdateEmployee(Employee employee, string password, string type)
+        public void UpdateEmployee(Employee employee, string type)
         {
             try
             {
@@ -78,7 +103,6 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@id", employee.Id);
                 cmd.Parameters.AddWithValue("@name", employee.FirstName);
                 cmd.Parameters.AddWithValue("@surname", employee.LastName);
-                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@email", employee.Email);
                 cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
                 cmd.Parameters.AddWithValue("@type", type);
@@ -87,6 +111,30 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("UpdateHandler : UpdateEmployee ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public void UpdateEmployeePassword(Employee employee, string password)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spUpdateEmployeePassword", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", employee.Id);
+                cmd.Parameters.AddWithValue("@password", password);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("UpdateHandler : UpdateEmployeePassword ERROR:" + e.Message);
                 throw;
             }
             finally

@@ -18,7 +18,7 @@ namespace Data_Access_Layer
 
         public DBAccess()
         {
-            connection.DataSource = @"MSI"; //the data source of the connection
+            connection.DataSource = @"DESKTOP-CU14BKP"; //the data source of the connection
             connection.InitialCatalog = @"SENGroup25DB"; //the inital catalog of the connection
             connection.IntegratedSecurity = true; //the integrated security of the connection
 
@@ -228,14 +228,24 @@ namespace Data_Access_Layer
             updateDataHandler.UpdateClient(client);
         }
 
+        public void UpdateClientPassword(Client client , string password)
+        {
+            updateDataHandler.UpdateClientPassword(client, password);
+        }
+
         public void UpdateContract(Contract contract)
         {
             updateDataHandler.UpdateContract(contract);
         }
 
-        public void UpdateEmployee(Employee employee, string password, string type)
+        public void UpdateEmployee(Employee employee, string type)
         {
-            updateDataHandler.UpdateEmployee(employee, password, type);
+            updateDataHandler.UpdateEmployee(employee, type);
+        }
+
+        public void UpdateEmployeePassword(Employee employee, string password)
+        {
+            updateDataHandler.UpdateEmployeePassword(employee, password);
         }
 
         public void UpdateEquipment(Equipment equipment)
