@@ -16,6 +16,7 @@ namespace Business_Logic_Layer
 
     public enum clientSearchParameter
     {
+        id,
         email,
         address,
         phone
@@ -57,6 +58,9 @@ namespace Business_Logic_Layer
                         break;
                     case clientSearchParameter.phone:
                         clientData = db.GetClientByContactNumber(number: query);
+                        break;
+                    case clientSearchParameter.id:
+                        clientData = db.GetClientByID(id: query);
                         break;
                     default:
                         break;
