@@ -85,7 +85,7 @@ namespace Presentation_Layer
                 txtClientPhoneNumber.Text = client.PhoneNumber;
                 txtClientEmail.Text = client.Email;
 
-                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.id,query: client.Id);
+                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.clientID,query: client.Id);
 
                 contractBind.DataSource = selectedClientContracts;
             }

@@ -9,10 +9,10 @@ namespace Business_Logic_Layer
 {
     public enum clientSearchParameter
     {
-        id,
         email,
         address,
-        phone
+        phone,
+        id
     }
 
     public class ClientBusinessLogic
@@ -65,7 +65,7 @@ namespace Business_Logic_Layer
                     for (int i = 0; i < clientData.Rows.Count; i++)
                     {
                         contractData = db.ListContractsByClientID(clientData.Rows[i]["ClientID"].ToString());
-                        string serviceLevel = clientData.Rows[i]["ServiceLevel"].ToString();
+                        string serviceLevel = contractData.Rows[i]["ServiceLevel"].ToString();
 
                         for (int j = 0; j < contractData.Rows.Count; j++)
                         {

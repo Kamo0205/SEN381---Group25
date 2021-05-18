@@ -63,6 +63,19 @@ namespace Business_Logic_Layer
             }
         }
 
+        public void addEmplpoyee(Employee employee, string password, string type)
+        {
+            try
+            {
+                db.CreateEmployee(employee, password, type);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : addEmplpoyee ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public void addEmployeeSkill(string employeeID, string skillDescription,employeeSkillCategories category, employeeSkillsTypes type)
         {
             try

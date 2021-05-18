@@ -45,6 +45,8 @@
             this.btnClientScreen = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.t1 = new System.Windows.Forms.Timer(this.components);
+            this.btnAddEmployee = new System.Windows.Forms.Button();
+            this.btnEditDetails = new System.Windows.Forms.Button();
             this.pnlCaller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -202,6 +204,28 @@
             this.btnSignOut.TabIndex = 11;
             this.btnSignOut.Text = "Sign Out";
             this.btnSignOut.UseVisualStyleBackColor = true;
+            this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
+            // 
+            // btnAddEmployee
+            // 
+            this.btnAddEmployee.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.btnAddEmployee.Location = new System.Drawing.Point(186, 373);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(138, 33);
+            this.btnAddEmployee.TabIndex = 13;
+            this.btnAddEmployee.Text = "Add Employee";
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            // 
+            // btnEditDetails
+            // 
+            this.btnEditDetails.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.btnEditDetails.Location = new System.Drawing.Point(371, 373);
+            this.btnEditDetails.Name = "btnEditDetails";
+            this.btnEditDetails.Size = new System.Drawing.Size(138, 33);
+            this.btnEditDetails.TabIndex = 14;
+            this.btnEditDetails.Text = "Update Details";
+            this.btnEditDetails.UseVisualStyleBackColor = true;
             // 
             // FrmCallCenter
             // 
@@ -209,6 +233,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 436);
+            this.Controls.Add(this.btnAddEmployee);
+            this.Controls.Add(this.btnEditDetails);
             this.Controls.Add(this.btnSignOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlCaller);
@@ -218,6 +244,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CallCenter";
+            this.Load += new System.EventHandler(this.FrmCallCenter_Load);
             this.pnlCaller.ResumeLayout(false);
             this.pnlCaller.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -244,5 +271,7 @@
         private System.Windows.Forms.Button btnSignOut;
         private System.Windows.Forms.Timer t1;
         private System.Windows.Forms.Button btnClientScreen;
+        private System.Windows.Forms.Button btnAddEmployee;
+        private System.Windows.Forms.Button btnEditDetails;
     }
 }

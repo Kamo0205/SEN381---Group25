@@ -335,7 +335,7 @@ FROM tblEquipment
 WHERE (SELECT EquipmentID FROM tblJobEquipment WHERE JobID = @jobID) = EquipmentID
 END
 
-/*GO
+GO
 
 /* Contract */
 
@@ -346,7 +346,7 @@ BEGIN
 SELECT *
 FROM tblContract
 WHERE ContractID = @id
-END*/
+END
 
 GO
 

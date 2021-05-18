@@ -63,22 +63,6 @@ namespace Data_Access_Layer
 
         public Job() { }
 
-        private int CharToInt(string word)
-        {
-            int value = 0;
-            foreach (char letter in word)
-                value += (int)letter;
-            return value;
-        } 
-
-        public override int GetHashCode()
-        {
-            int hash = 1;
-            foreach (string word in new string[] { jobStatus, contractID, employeeID })
-                hash *= CharToInt(word);
-            return hash;
-        }
-
         public override bool Equals(object obj)
         {
             return Id.Equals(((Job)obj).Id);

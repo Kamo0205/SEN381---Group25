@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEmployeeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployeeScreen.Designer.cs">
+      <DependentUpon>AddEmployeeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssignJobScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     <Compile Include="WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEmployeeScreen.resx">
+      <DependentUpon>AddEmployeeScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssignJobScreen.resx">
       <DependentUpon>AssignJobScreen.cs</DependentUpon>
     </EmbeddedResource>

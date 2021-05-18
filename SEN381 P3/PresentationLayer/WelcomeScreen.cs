@@ -28,9 +28,9 @@ namespace Presentation_Layer
 
         private void btnCallCenter_Click(object sender, EventArgs e)
         {
-            FrmCallCenter callCenter = new FrmCallCenter();
+            //FrmCallCenter callCenter = new FrmCallCenter();
             this.Hide();
-            callCenter.ShowDialog();
+            //callCenter.ShowDialog();
             this.Close();
         }
 

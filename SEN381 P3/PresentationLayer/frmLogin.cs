@@ -8,44 +8,24 @@ namespace Presentation_Layer
 {
     public partial class frmLogin : Form
     {
+        AuthenticationBusinessLogic authenticationLogic = new AuthenticationBusinessLogic();
+
         public frmLogin()
         {
             InitializeComponent();
-        }
-
-        public static char cipher(char ch, int key)
-        {
-            if (!char.IsLetter(ch))
-            {
-
-                return ch;
-            }
-
-            char d = char.IsUpper(ch) ? 'A' : 'a';
-            return (char)((((ch + key) - d) % 26) + d);
-        }
-
-        public static string Encipher(string input, int key)
-        {
-            string output = string.Empty;
-
-            foreach (char ch in input)
-                output += cipher(ch, key);
-
-            return output;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if(txt_UserName.Text=="" || txt_Password.Text=="")
             {
-                MessageBox.Show("Please provide UserName and Password");
+                MessageBox.Show("Please provide User Name and Password");
                 return;
             }
             try
             {
                 AuthenticationBusinessLogic authLogic = new AuthenticationBusinessLogic();
-                Dictionary<string, string> userAuthDetails = authLogic.Authenticate(txt_UserName.Text, Encipher(txt_Password.Text, 12));
+                Dictionary<string, string> userAuthDetails = authLogic.Authenticate(txt_UserName.Text, authenticationLogic.Encipher(txt_Password.Text, 12));
 
                 if(userAuthDetails != null)
                 {
@@ -55,7 +35,7 @@ namespace Presentation_Layer
                         case "CallCentre":
                             List<Employee> callCentreDetails = employeeBusinessLogic.searchEmployeesByParamater(employeeSearchParamaters.id, employeeType.callCenter, userAuthDetails["id"]);
                             this.Hide();
-                            FrmCallCenter frmCallCenter = new FrmCallCenter();
+                            FrmCallCenter frmCallCenter = new FrmCallCenter(callCentreDetails[0]);
                             frmCallCenter.Show();
                             break;
                         case "Technician":
