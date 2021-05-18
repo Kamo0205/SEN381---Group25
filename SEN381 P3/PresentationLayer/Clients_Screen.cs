@@ -34,8 +34,14 @@ namespace Presentation_Layer
                 btnContractAdd.Hide();
                 btnContractUpdate.Hide();
                 btnContractDelete.Hide();
-                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.id, query: client.Id);
+                txtClientFirstName.Text = client.FirstName;
+                txtClientLastName.Text = client.LastName;
+                txtClientEmail.Text = client.Email;
+                txtClientLocation.Text = client.Address;
+                txtClientPhoneNumber.Text = client.PhoneNumber;
+                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.clientID, query: client.Id);
                 contractBind.DataSource = selectedClientContracts;
+                lstData.DataSource = contractBind;
                 this.isClient = true;
             }
         }
