@@ -15,31 +15,21 @@ namespace Business_Logic_Layer
 
         public Dictionary<string, string> Authenticate(string userName, string password)
         {
-            DataTable dataTable = db.Authenticate(userName, password);
-
-            Dictionary<string, string> userAuthDetails = new Dictionary<string, string>();
-            userAuthDetails["id"] = "Please enter id here";
-            userAuthDetails["userType"] = "Please enter userType here";
-
-            return userAuthDetails;
-        }//Remove bottom one and change code to work with auth instead
-
-        public List<string> getUserTypeAndID(string email, string password)
-        {
             try
             {
-                List<string> IdAndType = new List<string>();
-                DataTable authenticationData = db.Authenticate(email,password);
-                if(authenticationData.Rows.Count > 1)
+                DataTable authenticationData = db.Authenticate(userName, password);
+
+                Dictionary<string, string> userAuthDetails = new Dictionary<string, string>();
+                if (authenticationData.Rows.Count > 1)
                 {
                     MessageBox.Show("Authentication error two or more users have the same email!");
                     return null;
                 }
                 else
                 {
-                    IdAndType.Add(authenticationData.Rows[0]["AuthenticationID"].ToString());
-                    IdAndType.Add(authenticationData.Rows[0]["UserType"].ToString());
-                    return IdAndType;
+                    userAuthDetails["id"] = authenticationData.Rows[0]["AuthenticationID"].ToString();
+                    userAuthDetails["userType"] = authenticationData.Rows[0]["UserType"].ToString();
+                    return userAuthDetails;
                 }
             }
             catch (Exception e)
@@ -47,6 +37,7 @@ namespace Business_Logic_Layer
                 MessageBox.Show("AuthenticationBusinessLogic : getUserTypeAndID ERROR:" + e.Message);
                 throw;
             }
+            
         }
     }
 }
