@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class FrmEditCompanyData : Form
     {
@@ -140,8 +140,7 @@ namespace PresentationLayer
         {
             FrmWelcomeScreen home = new FrmWelcomeScreen();
             this.Hide();
-            home.ShowDialog();
-            this.Close();
+            home.Show();
         }
 
         private void cmbChoice_SelectedIndexChanged(object sender, EventArgs e)
@@ -295,6 +294,11 @@ namespace PresentationLayer
                 "Conformation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (dResult == DialogResult.OK)
             SetContext();
+        }
+
+        private void FrmEditCompanyData_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

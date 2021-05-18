@@ -16,5 +16,10 @@ namespace Presentation_Layer
         {
             InitializeComponent();
         }
+
+        private void JobScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

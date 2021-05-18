@@ -5,7 +5,7 @@ using Business_Logic_Layer;
 using Data_Access_Layer;
 using Presentation_Layer;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class FrmServiceDepartment : Form
     {

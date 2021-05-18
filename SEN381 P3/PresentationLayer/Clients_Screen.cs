@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class Clients_Screen : Form
     {
@@ -177,15 +177,13 @@ namespace PresentationLayer
                 {
                     FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(contractData.listContractsBySearchParamater(contractSearchParamaters.id, txtContractId.Text)[0]);
                     this.Hide();
-                    serviceDepartment.ShowDialog();
-                    this.Close();
+                    serviceDepartment.Show();
                 }
                 else
                 {
                     JobStatusScreen jobStatusScreen = new JobStatusScreen();
                     this.Hide();
-                    jobStatusScreen.ShowDialog();
-                    this.Close();
+                    jobStatusScreen.Show();
                 }
                 
             }

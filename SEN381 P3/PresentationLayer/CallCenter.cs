@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class FrmCallCenter : Form
     {
@@ -27,8 +27,7 @@ namespace PresentationLayer
         {
             Clients_Screen clientsScreen = new Clients_Screen();
             this.Hide();
-            clientsScreen.ShowDialog();
-            this.Close();
+            clientsScreen.Show();
         }
     }
 }

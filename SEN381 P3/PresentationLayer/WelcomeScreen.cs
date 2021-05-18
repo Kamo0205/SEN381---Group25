@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class FrmWelcomeScreen : Form
     {
@@ -43,7 +44,7 @@ namespace PresentationLayer
 
         private void btnClientSatisfaction_Click(object sender, EventArgs e)
         {
-            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction();
+            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(new Bronze("", "", "", "", "", ""));//TOdo this bad
             this.Hide();
             clientSatisfaction.ShowDialog();
             this.Close();

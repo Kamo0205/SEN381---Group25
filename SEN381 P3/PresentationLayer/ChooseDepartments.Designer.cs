@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer
+﻿namespace Presentation_Layer
 {
     partial class FrmChooseDepartments
     {

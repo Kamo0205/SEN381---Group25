@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Business_Logic_Layer;
 using System.Collections.Generic;
 using Data_Access_Layer;
+using Presentation_Layer;
 
 namespace LoginApplication
 {
@@ -32,13 +33,35 @@ namespace LoginApplication
                     switch (userAuthDetails["userType"]) {
                         case "CallCentre":
                             List<Employee> callCentreDetails = employeeBusinessLogic.searchEmployeesByParamater(employeeSearchParamaters.id, employeeType.callCenter, userAuthDetails["id"]);
+                            this.Hide();
+                            FrmCallCenter frmCallCenter = new FrmCallCenter();
+                            frmCallCenter.Show();
                             break;
                         case "Technician":
                             List<Employee> technicianDetails = employeeBusinessLogic.searchEmployeesByParamater(employeeSearchParamaters.id, employeeType.technician, userAuthDetails["id"]);
+
+                            List<Employee> stanbyEmployees = employeeBusinessLogic.employeesOnStandBy(employeeType.technician);
+
+                            if (stanbyEmployees.Contains(technicianDetails[0]))
+                            {
+                                AvailableJobsScreen availableJobsScreen = new AvailableJobsScreen();
+                                this.Hide();
+                                availableJobsScreen.Show();
+                            }
+                            else
+                            {
+                                JobScreen jobScreen = new JobScreen();
+                                this.Hide();
+                                jobScreen.Show();
+                            }
                             break;
                         case "Client":
                             ClientBusinessLogic clientBusinessLogic = new ClientBusinessLogic();
-                            clientBusinessLogic.searchClientByParameter(clientSearchParameter.id, userAuthDetails["id"]);
+                            List<Client> clientDetails = clientBusinessLogic.searchClientByParameter(clientSearchParameter.id, userAuthDetails["id"]);
+
+                            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(clientDetails[0]);
+                            this.Hide();
+                            clientSatisfaction.Show();
                             break;
                         default:
                             break;

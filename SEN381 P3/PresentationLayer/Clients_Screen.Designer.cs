@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     partial class Clients_Screen
     {

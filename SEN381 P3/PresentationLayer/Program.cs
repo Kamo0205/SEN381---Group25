@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LoginApplication;
+using System;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     static class Program
     {
@@ -16,7 +14,7 @@ namespace PresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmWelcomeScreen());
+            Application.Run(new frmLogin());
         }
     }
 }

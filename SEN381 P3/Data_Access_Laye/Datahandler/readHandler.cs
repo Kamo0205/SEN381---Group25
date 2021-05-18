@@ -337,7 +337,7 @@ namespace Data_Access_Layer.Datahandler
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("spGetEmpByEmail", conn);
+                SqlCommand cmd = new SqlCommand("spGetEmpByID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 sda.SelectCommand = cmd;

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace Presentation_Layer
 {
     public partial class FrmClientSatisfaction : Form
     {
@@ -38,8 +38,7 @@ namespace PresentationLayer
         {
             FrmWelcomeScreen welcomeScreen = new FrmWelcomeScreen();
             this.Hide();
-            welcomeScreen.ShowDialog();
-            this.Close();
+            welcomeScreen.Show();
         }
 
         private void rdTwoStar_CheckedChanged(object sender, EventArgs e)
@@ -127,8 +126,7 @@ namespace PresentationLayer
         {
             ClientPage clientPage = new ClientPage();
             this.Hide();
-            clientPage.ShowDialog();
-            this.Close();
+            clientPage.Show();
         }
 
         private void btnContractScreen_Click(object sender, EventArgs e)
