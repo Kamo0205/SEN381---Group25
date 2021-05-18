@@ -9,9 +9,20 @@ using Data_Access_Layer;
 
 namespace Business_Logic_Layer
 {
-    class AuthenticationBusinessLogic
+    public class AuthenticationBusinessLogic
     {
         private DBAccess db = new DBAccess();
+
+        public Dictionary<string, string> Authenticate(string userName, string password)
+        {
+            DataTable dataTable = db.Authenticate(userName, password);
+
+            Dictionary<string, string> userAuthDetails = new Dictionary<string, string>();
+            userAuthDetails["id"] = "Please enter id here";
+            userAuthDetails["userType"] = "Please enter userType here";
+
+            return userAuthDetails;
+        }//Remove bottom one and change code to work with auth instead
 
         public List<string> getUserTypeAndID(string email, string password)
         {
