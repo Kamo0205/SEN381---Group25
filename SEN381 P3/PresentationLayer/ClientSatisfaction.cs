@@ -131,7 +131,10 @@ namespace Presentation_Layer
 
         private void btnContractScreen_Click(object sender, EventArgs e)
         {
-            Clients_Screen clientsScreen = new Clients_Screen();
+            this.Hide();
+            Clients_Screen clientsScreen = new Clients_Screen(loggedInClient);
+            clientsScreen.Show();
+            this.Close();
         }
     }
 }
