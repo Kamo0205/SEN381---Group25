@@ -14,6 +14,7 @@ namespace Data_Access_Layer
         private string contractID;
         private string jobStatus;
         private string jobDescription;
+        private int clientSatisfaction;
         private string jobCategory;
         private string jobType;
         private Pay pay;
@@ -23,12 +24,13 @@ namespace Data_Access_Layer
         public string ContractID { get => contractID; set => contractID = value; }
         public string JobStatus { get => jobStatus; set => jobStatus = value; }
         public string JobDescription { get => jobDescription; set => jobDescription = value; }
+        public int ClientSatisfaction { get => clientSatisfaction; set => clientSatisfaction = value; }
         public string JobCategory { get => jobCategory; set => jobCategory = value; }
         public string JobType { get => jobType; set => jobType = value; }
         
         public Pay Pay { get => pay; set => pay = value; }
 
-        public Job(string id, string contractID, string employeeID,string jobStatus, string jobDescription, string jobCategory, string jobType, Pay pay)
+        public Job(string id, string contractID, string employeeID,string jobStatus, string jobDescription, int clientSatisfaction, string jobCategory, string jobType, Pay pay)
         {
             if (id == null)
                 this.id = this.GetHashCode().ToString();
@@ -38,6 +40,7 @@ namespace Data_Access_Layer
             this.employeeID = employeeID;
             this.jobStatus = jobStatus;
             this.jobDescription = jobDescription;
+            this.clientSatisfaction = clientSatisfaction;
             this.jobCategory = jobCategory;
             this.jobType = jobType;
             this.pay = pay;
@@ -53,6 +56,7 @@ namespace Data_Access_Layer
             this.employeeID = data.Rows[i]["EmpID"] == null ? null : data.Rows[i]["EmpID"].ToString();
             this.jobStatus = data.Rows[i]["JobStatus"].ToString();
             this.jobDescription = data.Rows[i]["JobDescription"].ToString();
+            this.clientSatisfaction = (int)data.Rows[i]["ClientSatisfaction"];
             this.jobCategory = data.Rows[i]["JobCategory"].ToString();
             this.jobType = data.Rows[i]["JobType"].ToString();
         }

@@ -6,17 +6,34 @@ using System.Windows.Forms;
 
 namespace Business_Logic_Layer
 {
+    public enum contractSearchParamaters
+    {
+        id,
+        clientID
+    }
+
     public class ContractBusinessLogic
     {
         private DBAccess db = new DBAccess();
 
-        public List<Contract> searchContractsByClientID(String id)
+        public List<Contract> listContractsBySearchParamater(contractSearchParamaters parameter,string query)
         {
             List<Contract> contracts = new List<Contract>();
             try
             {
-                DataTable contractData = db.ListContractsByClientID(id);
-
+                DataTable contractData = new DataTable();
+                switch (parameter)
+                {
+                    case contractSearchParamaters.id:
+                        contractData = db.GetContractByID(query);
+                        break;
+                    case contractSearchParamaters.clientID:
+                        contractData = db.ListContractsByClientID(query);
+                        break;
+                    default:
+                        break;
+                }
+                
                 if (contractData.Rows.Count != 0)
                 {
                     for (int i = 0; i < contractData.Rows.Count; i++)

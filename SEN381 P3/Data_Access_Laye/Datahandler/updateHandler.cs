@@ -135,6 +135,8 @@ namespace Data_Access_Layer.Datahandler
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
                 cmd.Parameters.AddWithValue("@description", job.JobDescription);
+                cmd.Parameters.AddWithValue("@clientSatisfaction", job.ClientSatisfaction);
+                cmd.Parameters.AddWithValue("@category", job.JobCategory);
                 cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.ExecuteNonQuery();
             }

@@ -20,7 +20,14 @@ namespace Business_Logic_Layer
         repair
     }
 
-    class JobBusinessLogic
+    public enum jobSearchParamaters
+    {
+        id,
+        contractID,
+        status
+    }
+
+    public class JobBusinessLogic
     {
         DBAccess db = new DBAccess();
 
@@ -63,13 +70,28 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Job> getJobById(string id)
+        public List<Job> getJobsBySearchParamater(jobSearchParamaters paramater,string query)
         {
             try
             {
-                DataTable jobData = db.GetJobByID(id);
+                DataTable jobData = new DataTable(); 
+                switch (paramater)
+                {
+                    case jobSearchParamaters.id:
+                        jobData = db.GetJobByID(query);
+                        break;
+                    case jobSearchParamaters.contractID:
+                        jobData = db.ListJobsByContractID(query);
+                        break;
+                    case jobSearchParamaters.status:
+                        jobData = db.ListJobsByStatus(query);
+                        break;
+                    default:
+                        break;
+                }
+                
                 List<Job> jobs = new List<Job>();
-                if (jobData != null && jobData.IsInitialized)
+                if (jobData.Rows.Count > 0)
                 {
                     for (int i = 0; i < jobData.Rows.Count; i++)
                     {
@@ -83,12 +105,12 @@ namespace Business_Logic_Layer
             }
             catch (Exception e)
             {
-                MessageBox.Show("JobBusinessLogic : getJobById ERROR:" + e.Message);
+                MessageBox.Show("JobBusinessLogic : getJobsBySearchParamater ERROR:" + e.Message);
                 throw;
             }
         }
 
-        public List<Job> getJobByCategory(jobCategory category)
+        public List<Job> listJobByCategory(jobCategory category)
         {
             try
             {
@@ -124,7 +146,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Job> getJobByType(jobType type)
+        public List<Job> listJobByType(jobType type)
         {
             try
             {
@@ -160,7 +182,7 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Job> getJobsByCategoryAndType(jobCategory category, jobType type)
+        public List<Job> listJobsByCategoryAndType(jobCategory category, jobType type)
         {
             try
             {
@@ -169,10 +191,10 @@ namespace Business_Logic_Layer
                 switch (category)
                 {
                     case jobCategory.hardware:
-                        jobs = getJobByCategory(jobCategory.hardware);
+                        jobs = listJobByCategory(jobCategory.hardware);
                         break;
                     case jobCategory.software:
-                        jobs = getJobByCategory(jobCategory.software);
+                        jobs = listJobByCategory(jobCategory.software);
                         break;
                     default:
                         break;
@@ -180,10 +202,10 @@ namespace Business_Logic_Layer
                 switch (type)
                 {
                     case jobType.instalation:
-                        jobs = jobs.Except(getJobByType(jobType.repair)).ToList();
+                        jobs = jobs.Except(listJobByType(jobType.repair)).ToList();
                         break;
                     case jobType.repair:
-                        jobs = jobs.Except(getJobByType(jobType.instalation)).ToList();
+                        jobs = jobs.Except(listJobByType(jobType.instalation)).ToList();
                         break;
                     default:
                         break;
@@ -201,13 +223,13 @@ namespace Business_Logic_Layer
             }
         }
 
-        public List<Job> getUnassignedJobByCategoryAndType(jobCategory category, jobType type)
+        public List<Job> listUnassignedJobByCategoryAndType(jobCategory category, jobType type)
         {
             try
             {
                 List<Job> jobs = new List<Job>();
                 List<Job> unassignedJobs = new List<Job>();
-                jobs = getJobsByCategoryAndType(category, type);
+                jobs = listJobsByCategoryAndType(category, type);
 
                 foreach (Job job in jobs)
                 {

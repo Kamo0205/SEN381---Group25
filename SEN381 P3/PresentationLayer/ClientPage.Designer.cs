@@ -29,62 +29,45 @@
         private void InitializeComponent()
         {
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtContact = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
-            this.lblpass = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
             this.lblsurname = new System.Windows.Forms.Label();
             this.lbladdress = new System.Windows.Forms.Label();
-            this.lblcontact = new System.Windows.Forms.Label();
             this.lbltitle = new System.Windows.Forms.Label();
-            this.chEdit = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnEXIT = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(37, 152);
+            this.txtName.Location = new System.Drawing.Point(23, 73);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 0;
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(205, 152);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 1;
-            // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(386, 152);
+            this.txtEmail.Location = new System.Drawing.Point(149, 73);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 2;
             // 
-            // txtContact
-            // 
-            this.txtContact.Location = new System.Drawing.Point(386, 239);
-            this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(100, 20);
-            this.txtContact.TabIndex = 5;
-            // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(205, 239);
+            this.txtAddress.Location = new System.Drawing.Point(149, 114);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 20);
             this.txtAddress.TabIndex = 4;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(37, 239);
+            this.txtSurname.Location = new System.Drawing.Point(23, 114);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(100, 20);
             this.txtSurname.TabIndex = 3;
@@ -92,25 +75,16 @@
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(37, 117);
+            this.lblname.Location = new System.Drawing.Point(23, 57);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(35, 13);
             this.lblname.TabIndex = 6;
             this.lblname.Text = "Name";
             // 
-            // lblpass
-            // 
-            this.lblpass.AutoSize = true;
-            this.lblpass.Location = new System.Drawing.Point(202, 117);
-            this.lblpass.Name = "lblpass";
-            this.lblpass.Size = new System.Drawing.Size(53, 13);
-            this.lblpass.TabIndex = 7;
-            this.lblpass.Text = "Password";
-            // 
             // lblemail
             // 
             this.lblemail.AutoSize = true;
-            this.lblemail.Location = new System.Drawing.Point(383, 117);
+            this.lblemail.Location = new System.Drawing.Point(146, 57);
             this.lblemail.Name = "lblemail";
             this.lblemail.Size = new System.Drawing.Size(32, 13);
             this.lblemail.TabIndex = 8;
@@ -119,7 +93,7 @@
             // lblsurname
             // 
             this.lblsurname.AutoSize = true;
-            this.lblsurname.Location = new System.Drawing.Point(37, 208);
+            this.lblsurname.Location = new System.Drawing.Point(23, 98);
             this.lblsurname.Name = "lblsurname";
             this.lblsurname.Size = new System.Drawing.Size(49, 13);
             this.lblsurname.TabIndex = 9;
@@ -128,20 +102,11 @@
             // lbladdress
             // 
             this.lbladdress.AutoSize = true;
-            this.lbladdress.Location = new System.Drawing.Point(202, 208);
+            this.lbladdress.Location = new System.Drawing.Point(146, 98);
             this.lbladdress.Name = "lbladdress";
             this.lbladdress.Size = new System.Drawing.Size(45, 13);
             this.lbladdress.TabIndex = 10;
             this.lbladdress.Text = "Address";
-            // 
-            // lblcontact
-            // 
-            this.lblcontact.AutoSize = true;
-            this.lblcontact.Location = new System.Drawing.Point(383, 208);
-            this.lblcontact.Name = "lblcontact";
-            this.lblcontact.Size = new System.Drawing.Size(44, 13);
-            this.lblcontact.TabIndex = 11;
-            this.lblcontact.Text = "Contact";
             // 
             // lbltitle
             // 
@@ -153,20 +118,9 @@
             this.lbltitle.TabIndex = 12;
             this.lbltitle.Text = "Client page";
             // 
-            // chEdit
-            // 
-            this.chEdit.AutoSize = true;
-            this.chEdit.Location = new System.Drawing.Point(37, 289);
-            this.chEdit.Name = "chEdit";
-            this.chEdit.Size = new System.Drawing.Size(44, 17);
-            this.chEdit.TabIndex = 13;
-            this.chEdit.Text = "Edit";
-            this.chEdit.UseVisualStyleBackColor = true;
-            this.chEdit.CheckedChanged += new System.EventHandler(this.chEdit_CheckedChanged);
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(205, 285);
+            this.btnSave.Location = new System.Drawing.Point(23, 154);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 14;
@@ -175,7 +129,7 @@
             // 
             // btnEXIT
             // 
-            this.btnEXIT.Location = new System.Drawing.Point(386, 285);
+            this.btnEXIT.Location = new System.Drawing.Point(23, 199);
             this.btnEXIT.Name = "btnEXIT";
             this.btnEXIT.Size = new System.Drawing.Size(100, 23);
             this.btnEXIT.TabIndex = 15;
@@ -184,36 +138,43 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnChangePassword);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.txtSurname);
+            this.panel1.Controls.Add(this.lblsurname);
+            this.panel1.Controls.Add(this.lbladdress);
+            this.panel1.Controls.Add(this.lblname);
+            this.panel1.Controls.Add(this.btnEXIT);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.lblemail);
+            this.panel1.Controls.Add(this.txtAddress);
+            this.panel1.Location = new System.Drawing.Point(13, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 340);
+            this.panel1.Size = new System.Drawing.Size(271, 252);
             this.panel1.TabIndex = 16;
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(149, 154);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(100, 68);
+            this.btnChangePassword.TabIndex = 16;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
             // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 368);
-            this.Controls.Add(this.btnEXIT);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.chEdit);
+            this.ClientSize = new System.Drawing.Size(300, 280);
             this.Controls.Add(this.lbltitle);
-            this.Controls.Add(this.lblcontact);
-            this.Controls.Add(this.lbladdress);
-            this.Controls.Add(this.lblsurname);
-            this.Controls.Add(this.lblemail);
-            this.Controls.Add(this.lblpass);
-            this.Controls.Add(this.lblname);
-            this.Controls.Add(this.txtContact);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtSurname);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.panel1);
             this.Name = "ClientPage";
             this.Text = "ClientPage";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,21 +183,17 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label lblname;
-        private System.Windows.Forms.Label lblpass;
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.Label lblsurname;
         private System.Windows.Forms.Label lbladdress;
-        private System.Windows.Forms.Label lblcontact;
         private System.Windows.Forms.Label lbltitle;
-        private System.Windows.Forms.CheckBox chEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEXIT;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }

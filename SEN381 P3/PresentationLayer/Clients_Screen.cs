@@ -9,14 +9,13 @@ namespace PresentationLayer
 {
     public partial class Clients_Screen : Form
     {
-        BindingSource contractBind = new BindingSource();
-        BindingSource comboBoxBind = new BindingSource();
-        ContractBusinessLogic contractData = new ContractBusinessLogic();
-        ClientBusinessLogic clientData = new ClientBusinessLogic();
+        private BindingSource contractBind = new BindingSource();
+        private ContractBusinessLogic contractData = new ContractBusinessLogic();
+        private ClientBusinessLogic clientData = new ClientBusinessLogic();
 
-        List<Client> searchResults = new List<Client>();
-        Prompt prompt = new Prompt();
-        DateTime dDate;
+        private List<Client> searchResults = new List<Client>();
+        private Prompt prompt = new Prompt();
+        private DateTime dDate;
 
         public Clients_Screen()
         {
@@ -69,7 +68,7 @@ namespace PresentationLayer
                 txtClientPhoneNumber.Text = client.PhoneNumber;
                 txtClientEmail.Text = client.Email;
 
-                List<Contract> selectedClientContracts = contractData.searchContractsByClientID(id: client.Id);
+                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.id,query: client.Id);
 
                 contractBind.DataSource = selectedClientContracts;
             }
@@ -157,7 +156,7 @@ namespace PresentationLayer
             }
             else
             {
-                FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(txtContractId.Text);
+                FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(contractData.listContractsBySearchParamater(contractSearchParamaters.id,txtContractId.Text)[0]);
                 this.Hide();
                 serviceDepartment.ShowDialog();
                 this.Close();

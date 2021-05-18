@@ -56,17 +56,35 @@
     <Compile Include="AssignJobScreen.Designer.cs">
       <DependentUpon>AssignJobScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="AvailableJobsScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvailableJobsScreen.Designer.cs">
+      <DependentUpon>AvailableJobsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="CallCenter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CallCenter.Designer.cs">
       <DependentUpon>CallCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePasswordScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordScreen.Designer.cs">
+      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseDepartments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChooseDepartments.Designer.cs">
       <DependentUpon>ChooseDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientPage.designer.cs">
+      <DependentUpon>ClientPage.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientSatisfaction.cs">
       <SubType>Form</SubType>
@@ -86,6 +104,30 @@
     </Compile>
     <Compile Include="EditCompanyData.Designer.cs">
       <DependentUpon>EditCompanyData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeePage.Designer.cs">
+      <DependentUpon>EmployeePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobScreen.Designer.cs">
+      <DependentUpon>JobScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobStatusScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobStatusScreen.Designer.cs">
+      <DependentUpon>JobStatusScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordPrompt.Designer.cs">
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Prompt.cs" />
@@ -111,11 +153,20 @@
     <EmbeddedResource Include="AssignJobScreen.resx">
       <DependentUpon>AssignJobScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AvailableJobsScreen.resx">
+      <DependentUpon>AvailableJobsScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CallCenter.resx">
       <DependentUpon>CallCenter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordScreen.resx">
+      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseDepartments.resx">
       <DependentUpon>ChooseDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientPage.resx">
+      <DependentUpon>ClientPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientSatisfaction.resx">
       <DependentUpon>ClientSatisfaction.cs</DependentUpon>
@@ -125,6 +176,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCompanyData.resx">
       <DependentUpon>EditCompanyData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeePage.resx">
+      <DependentUpon>EmployeePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobScreen.resx">
+      <DependentUpon>JobScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordPrompt.resx">
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer
 {
-    public partial class EmployeePage : Form
+    public partial class PasswordPrompt : Form
     {
-        public EmployeePage()
+        public PasswordPrompt()
         {
             InitializeComponent();
         }

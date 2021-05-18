@@ -30,20 +30,20 @@
         {
             this.lblCreateJib = new System.Windows.Forms.Label();
             this.pnlJobs = new System.Windows.Forms.Panel();
+            this.lstJobs = new System.Windows.Forms.ListBox();
+            this.btnAssignJob = new System.Windows.Forms.Button();
+            this.btnDeleteJob = new System.Windows.Forms.Button();
+            this.lblContractJobs = new System.Windows.Forms.Label();
+            this.btnUpdateJob = new System.Windows.Forms.Button();
             this.lblExperationDate = new System.Windows.Forms.Label();
             this.lblServiceLevel = new System.Windows.Forms.Label();
             this.btnCreateJob = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbJobType = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
-            this.cmbService = new System.Windows.Forms.ComboBox();
-            this.btnUpdateJob = new System.Windows.Forms.Button();
-            this.lblContractJobs = new System.Windows.Forms.Label();
-            this.btnDeleteJob = new System.Windows.Forms.Button();
-            this.btnAssignJob = new System.Windows.Forms.Button();
-            this.lstJobs = new System.Windows.Forms.ListBox();
+            this.cmbJobCategory = new System.Windows.Forms.ComboBox();
             this.pnlJobs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,17 +68,73 @@
             this.pnlJobs.Controls.Add(this.lblExperationDate);
             this.pnlJobs.Controls.Add(this.lblServiceLevel);
             this.pnlJobs.Controls.Add(this.btnCreateJob);
-            this.pnlJobs.Controls.Add(this.textBox1);
+            this.pnlJobs.Controls.Add(this.txtDescription);
             this.pnlJobs.Controls.Add(this.lblDescription);
-            this.pnlJobs.Controls.Add(this.comboBox1);
+            this.pnlJobs.Controls.Add(this.cmbJobType);
             this.pnlJobs.Controls.Add(this.lblType);
             this.pnlJobs.Controls.Add(this.lblCategory);
-            this.pnlJobs.Controls.Add(this.cmbService);
+            this.pnlJobs.Controls.Add(this.cmbJobCategory);
             this.pnlJobs.Controls.Add(this.lblCreateJib);
             this.pnlJobs.Location = new System.Drawing.Point(3, 4);
             this.pnlJobs.Name = "pnlJobs";
             this.pnlJobs.Size = new System.Drawing.Size(845, 514);
             this.pnlJobs.TabIndex = 11;
+            // 
+            // lstJobs
+            // 
+            this.lstJobs.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lstJobs.FormattingEnabled = true;
+            this.lstJobs.ItemHeight = 19;
+            this.lstJobs.Location = new System.Drawing.Point(20, 286);
+            this.lstJobs.Name = "lstJobs";
+            this.lstJobs.Size = new System.Drawing.Size(796, 213);
+            this.lstJobs.TabIndex = 26;
+            this.lstJobs.SelectedIndexChanged += new System.EventHandler(this.lstJobs_SelectedIndexChanged);
+            // 
+            // btnAssignJob
+            // 
+            this.btnAssignJob.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnAssignJob.Location = new System.Drawing.Point(675, 220);
+            this.btnAssignJob.Name = "btnAssignJob";
+            this.btnAssignJob.Size = new System.Drawing.Size(141, 36);
+            this.btnAssignJob.TabIndex = 25;
+            this.btnAssignJob.Text = "Assign Job";
+            this.btnAssignJob.UseVisualStyleBackColor = true;
+            this.btnAssignJob.Click += new System.EventHandler(this.btnAssignJob_Click);
+            // 
+            // btnDeleteJob
+            // 
+            this.btnDeleteJob.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnDeleteJob.ForeColor = System.Drawing.Color.Red;
+            this.btnDeleteJob.Location = new System.Drawing.Point(312, 220);
+            this.btnDeleteJob.Name = "btnDeleteJob";
+            this.btnDeleteJob.Size = new System.Drawing.Size(141, 36);
+            this.btnDeleteJob.TabIndex = 24;
+            this.btnDeleteJob.Text = "Delete Job";
+            this.btnDeleteJob.UseVisualStyleBackColor = true;
+            this.btnDeleteJob.Click += new System.EventHandler(this.btnDeleteJob_Click);
+            // 
+            // lblContractJobs
+            // 
+            this.lblContractJobs.AutoSize = true;
+            this.lblContractJobs.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lblContractJobs.Location = new System.Drawing.Point(16, 264);
+            this.lblContractJobs.Name = "lblContractJobs";
+            this.lblContractJobs.Size = new System.Drawing.Size(97, 19);
+            this.lblContractJobs.TabIndex = 23;
+            this.lblContractJobs.Text = "Contract Jobs:";
+            // 
+            // btnUpdateJob
+            // 
+            this.btnUpdateJob.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnUpdateJob.ForeColor = System.Drawing.Color.Magenta;
+            this.btnUpdateJob.Location = new System.Drawing.Point(165, 220);
+            this.btnUpdateJob.Name = "btnUpdateJob";
+            this.btnUpdateJob.Size = new System.Drawing.Size(141, 36);
+            this.btnUpdateJob.TabIndex = 22;
+            this.btnUpdateJob.Text = "Update Job";
+            this.btnUpdateJob.UseVisualStyleBackColor = true;
+            this.btnUpdateJob.Click += new System.EventHandler(this.btnUpdateJob_Click);
             // 
             // lblExperationDate
             // 
@@ -110,14 +166,15 @@
             this.btnCreateJob.TabIndex = 14;
             this.btnCreateJob.Text = "Create Job";
             this.btnCreateJob.UseVisualStyleBackColor = true;
+            this.btnCreateJob.Click += new System.EventHandler(this.btnCreateJob_Click);
             // 
-            // textBox1
+            // txtDescription
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox1.Location = new System.Drawing.Point(104, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(712, 26);
-            this.textBox1.TabIndex = 8;
+            this.txtDescription.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtDescription.Location = new System.Drawing.Point(104, 115);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(712, 26);
+            this.txtDescription.TabIndex = 8;
             // 
             // lblDescription
             // 
@@ -129,13 +186,13 @@
             this.lblDescription.TabIndex = 18;
             this.lblDescription.Text = "Description:";
             // 
-            // comboBox1
+            // cmbJobType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 183);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(109, 21);
-            this.comboBox1.TabIndex = 17;
+            this.cmbJobType.FormattingEnabled = true;
+            this.cmbJobType.Location = new System.Drawing.Point(104, 183);
+            this.cmbJobType.Name = "cmbJobType";
+            this.cmbJobType.Size = new System.Drawing.Size(109, 21);
+            this.cmbJobType.TabIndex = 17;
             // 
             // lblType
             // 
@@ -157,65 +214,13 @@
             this.lblCategory.TabIndex = 15;
             this.lblCategory.Text = "Category:";
             // 
-            // cmbService
+            // cmbJobCategory
             // 
-            this.cmbService.FormattingEnabled = true;
-            this.cmbService.Location = new System.Drawing.Point(104, 151);
-            this.cmbService.Name = "cmbService";
-            this.cmbService.Size = new System.Drawing.Size(109, 21);
-            this.cmbService.TabIndex = 14;
-            // 
-            // btnUpdateJob
-            // 
-            this.btnUpdateJob.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnUpdateJob.ForeColor = System.Drawing.Color.Magenta;
-            this.btnUpdateJob.Location = new System.Drawing.Point(165, 220);
-            this.btnUpdateJob.Name = "btnUpdateJob";
-            this.btnUpdateJob.Size = new System.Drawing.Size(141, 36);
-            this.btnUpdateJob.TabIndex = 22;
-            this.btnUpdateJob.Text = "Update Job";
-            this.btnUpdateJob.UseVisualStyleBackColor = true;
-            // 
-            // lblContractJobs
-            // 
-            this.lblContractJobs.AutoSize = true;
-            this.lblContractJobs.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.lblContractJobs.Location = new System.Drawing.Point(16, 264);
-            this.lblContractJobs.Name = "lblContractJobs";
-            this.lblContractJobs.Size = new System.Drawing.Size(97, 19);
-            this.lblContractJobs.TabIndex = 23;
-            this.lblContractJobs.Text = "Contract Jobs:";
-            // 
-            // btnDeleteJob
-            // 
-            this.btnDeleteJob.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnDeleteJob.ForeColor = System.Drawing.Color.Red;
-            this.btnDeleteJob.Location = new System.Drawing.Point(312, 220);
-            this.btnDeleteJob.Name = "btnDeleteJob";
-            this.btnDeleteJob.Size = new System.Drawing.Size(141, 36);
-            this.btnDeleteJob.TabIndex = 24;
-            this.btnDeleteJob.Text = "Delete Job";
-            this.btnDeleteJob.UseVisualStyleBackColor = true;
-            // 
-            // btnAssignJob
-            // 
-            this.btnAssignJob.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnAssignJob.Location = new System.Drawing.Point(675, 220);
-            this.btnAssignJob.Name = "btnAssignJob";
-            this.btnAssignJob.Size = new System.Drawing.Size(141, 36);
-            this.btnAssignJob.TabIndex = 25;
-            this.btnAssignJob.Text = "Assign Job";
-            this.btnAssignJob.UseVisualStyleBackColor = true;
-            // 
-            // lstJobs
-            // 
-            this.lstJobs.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.lstJobs.FormattingEnabled = true;
-            this.lstJobs.ItemHeight = 19;
-            this.lstJobs.Location = new System.Drawing.Point(20, 286);
-            this.lstJobs.Name = "lstJobs";
-            this.lstJobs.Size = new System.Drawing.Size(796, 213);
-            this.lstJobs.TabIndex = 26;
+            this.cmbJobCategory.FormattingEnabled = true;
+            this.cmbJobCategory.Location = new System.Drawing.Point(104, 151);
+            this.cmbJobCategory.Name = "cmbJobCategory";
+            this.cmbJobCategory.Size = new System.Drawing.Size(109, 21);
+            this.cmbJobCategory.TabIndex = 14;
             // 
             // FrmServiceDepartment
             // 
@@ -238,13 +243,13 @@
         #endregion
         private System.Windows.Forms.Label lblCreateJib;
         private System.Windows.Forms.Panel pnlJobs;
-        private System.Windows.Forms.ComboBox cmbService;
+        private System.Windows.Forms.ComboBox cmbJobCategory;
         private System.Windows.Forms.Label lblExperationDate;
         private System.Windows.Forms.Label lblServiceLevel;
         private System.Windows.Forms.Button btnCreateJob;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbJobType;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Button btnUpdateJob;
