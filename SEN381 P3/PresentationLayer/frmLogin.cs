@@ -38,7 +38,7 @@ namespace LoginApplication
                             break;
                         case "Client":
                             ClientBusinessLogic clientBusinessLogic = new ClientBusinessLogic();
-                            clientBusinessLogic.searchClientByParameter(clientSearchParameter.id, userAuthDetails["id"], serviceLevel.bronze);//TODO this should change
+                            clientBusinessLogic.searchClientByParameter(clientSearchParameter.id, userAuthDetails["id"]);
                             break;
                         default:
                             break;
