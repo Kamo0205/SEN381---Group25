@@ -194,7 +194,7 @@ namespace Business_Logic_Layer
                 {
                     if (onlyActiveUsers)
                     {
-                        if (activeEmployees.Contains(new TechnicalStaff(i, employeeData, new Pay("Technician", 600))))
+                        if (activeEmployees.FindIndex(employee => employee.Id == new TechnicalStaff(i, employeeData, new Pay("Technician", 600)).Id) >= 0)
                         {
                             employees.Add(new TechnicalStaff(i, employeeData, new Pay("Technician", 600)));
                         }

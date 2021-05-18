@@ -43,7 +43,7 @@ namespace Presentation_Layer
 
                             List<Employee> stanbyEmployees = employeeBusinessLogic.employeesOnStandBy(employeeType.technician);
 
-                            if (stanbyEmployees.Contains(technicianDetails[0]))
+                            if (stanbyEmployees.FindIndex(employee => employee.Id == technicianDetails[0].Id) >=0)
                             {
                                 AvailableJobsScreen availableJobsScreen = new AvailableJobsScreen();
                                 this.Hide();
