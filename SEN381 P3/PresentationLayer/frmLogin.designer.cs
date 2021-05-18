@@ -33,6 +33,7 @@
             this.txt_UserName = new System.Windows.Forms.TextBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.btn_Submit = new System.Windows.Forms.Button();
+            this.lblRegister = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +62,7 @@
             // 
             this.txt_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_UserName.Location = new System.Drawing.Point(188, 62);
-            this.txt_UserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_UserName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_UserName.Name = "txt_UserName";
             this.txt_UserName.Size = new System.Drawing.Size(251, 30);
             this.txt_UserName.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.txt_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Password.Location = new System.Drawing.Point(188, 114);
-            this.txt_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Password.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(251, 30);
             this.txt_Password.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             this.btn_Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Submit.Location = new System.Drawing.Point(188, 174);
-            this.btn_Submit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(112, 39);
             this.btn_Submit.TabIndex = 4;
@@ -88,17 +89,28 @@
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblRegister
+            // 
+            this.lblRegister.AutoSize = true;
+            this.lblRegister.Location = new System.Drawing.Point(151, 229);
+            this.lblRegister.Name = "lblRegister";
+            this.lblRegister.Size = new System.Drawing.Size(215, 17);
+            this.lblRegister.TabIndex = 5;
+            this.lblRegister.Text = "Don\'t have an account? Register";
+            this.lblRegister.Click += new System.EventHandler(this.label3_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 266);
+            this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.txt_UserName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -116,6 +128,7 @@
         private System.Windows.Forms.TextBox txt_UserName;
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.Button btn_Submit;
+        private System.Windows.Forms.Label lblRegister;
     }
 }
 

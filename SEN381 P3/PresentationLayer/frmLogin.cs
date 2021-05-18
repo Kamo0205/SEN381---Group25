@@ -100,5 +100,12 @@ namespace LoginApplication
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            RegisterScreen registerScreen = new RegisterScreen();
+            this.Hide();
+            registerScreen.Show();
+        }
     }
 }
