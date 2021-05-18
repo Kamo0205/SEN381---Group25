@@ -23,7 +23,7 @@ namespace Presentation_Layer
             {
                 MessageBox.Show("Please enter a valid email address");
             }
-            if (!validator.IsPhoneNumber(txtContactNumber.Text))
+            if (txtContactNumber.TextLength < 10)
             {
                 MessageBox.Show("Please enter a valid phone number");
             }
@@ -43,9 +43,10 @@ namespace Presentation_Layer
             {
                 MessageBox.Show("Password do not match");
             }
-            if(validator.IsValidEmail(txtEmail.Text) && validator.IsPhoneNumber(txtContactNumber.Text) && txtAddress.Text.Length > 10 && txtSurname.Text.Length > 3 && txtName.Text.Length > 3 && txtPassword.Text == txtConfirmPassword.Text)
+            if(validator.IsValidEmail(txtEmail.Text) && txtContactNumber.TextLength > 10 && txtAddress.Text.Length > 10 && txtSurname.Text.Length > 3 && txtName.Text.Length > 3 && txtPassword.Text == txtConfirmPassword.Text)
             {
                 clientLogic.createClient(new Bronze(id: null, firstName: txtName.Text, lastName: txtSurname.Text,phoneNumber: txtContactNumber.Text, address: txtAddress.Text, email: txtEmail.Text), authenticationLogic.Encipher(txtPassword.Text, 12));
+                MessageBox.Show("Successfully Registered!");
             }
         }
 

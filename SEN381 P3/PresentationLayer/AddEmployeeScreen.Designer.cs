@@ -46,6 +46,8 @@ namespace Presentation_Layer
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbEmployeeType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtConfirmPassword
@@ -102,6 +104,7 @@ namespace Presentation_Layer
             this.btnBack.TabIndex = 28;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // txtVATID
             // 
@@ -198,11 +201,31 @@ namespace Presentation_Layer
             this.label1.TabIndex = 17;
             this.label1.Text = "Add Employee Details:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(366, 218);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 20);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Employee Type:";
+            // 
+            // cmbEmployeeType
+            // 
+            this.cmbEmployeeType.FormattingEnabled = true;
+            this.cmbEmployeeType.Location = new System.Drawing.Point(369, 240);
+            this.cmbEmployeeType.Name = "cmbEmployeeType";
+            this.cmbEmployeeType.Size = new System.Drawing.Size(194, 21);
+            this.cmbEmployeeType.TabIndex = 35;
+            // 
             // AddEmployeeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbEmployeeType);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPassword);
@@ -222,6 +245,7 @@ namespace Presentation_Layer
             this.Controls.Add(this.label1);
             this.Name = "AddEmployeeScreen";
             this.Text = "AddEmployeeScreen";
+            this.Load += new System.EventHandler(this.AddEmployeeScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +270,7 @@ namespace Presentation_Layer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbEmployeeType;
     }
 }

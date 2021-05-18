@@ -33,7 +33,7 @@
             this.pnlCaller = new System.Windows.Forms.Panel();
             this.lblCallLoad = new System.Windows.Forms.Label();
             this.btnLeaveCall = new System.Windows.Forms.Button();
-            this.btnMakeCall = new System.Windows.Forms.Button();
+            this.btnAnswerCall = new System.Windows.Forms.Button();
             this.lblCallerName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEmployeeName = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.pnlCaller.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCaller.Controls.Add(this.lblCallLoad);
             this.pnlCaller.Controls.Add(this.btnLeaveCall);
-            this.pnlCaller.Controls.Add(this.btnMakeCall);
+            this.pnlCaller.Controls.Add(this.btnAnswerCall);
             this.pnlCaller.Controls.Add(this.lblCallerName);
             this.pnlCaller.Controls.Add(this.pictureBox1);
             this.pnlCaller.Location = new System.Drawing.Point(537, 4);
@@ -90,18 +90,18 @@
             this.btnLeaveCall.UseVisualStyleBackColor = false;
             this.btnLeaveCall.Click += new System.EventHandler(this.btnLeaveCall_Click);
             // 
-            // btnMakeCall
+            // btnAnswerCall
             // 
-            this.btnMakeCall.BackColor = System.Drawing.Color.LawnGreen;
-            this.btnMakeCall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMakeCall.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMakeCall.Location = new System.Drawing.Point(39, 308);
-            this.btnMakeCall.Name = "btnMakeCall";
-            this.btnMakeCall.Size = new System.Drawing.Size(178, 45);
-            this.btnMakeCall.TabIndex = 3;
-            this.btnMakeCall.Text = "Make Call";
-            this.btnMakeCall.UseVisualStyleBackColor = false;
-            this.btnMakeCall.Click += new System.EventHandler(this.btnMakeCall_Click);
+            this.btnAnswerCall.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnAnswerCall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnswerCall.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnswerCall.Location = new System.Drawing.Point(39, 308);
+            this.btnAnswerCall.Name = "btnAnswerCall";
+            this.btnAnswerCall.Size = new System.Drawing.Size(178, 45);
+            this.btnAnswerCall.TabIndex = 3;
+            this.btnAnswerCall.Text = "Answer Call";
+            this.btnAnswerCall.UseVisualStyleBackColor = false;
+            this.btnAnswerCall.Click += new System.EventHandler(this.btnMakeCall_Click);
             // 
             // lblCallerName
             // 
@@ -226,6 +226,7 @@
             this.btnEditDetails.TabIndex = 14;
             this.btnEditDetails.Text = "Update Details";
             this.btnEditDetails.UseVisualStyleBackColor = true;
+            this.btnEditDetails.Click += new System.EventHandler(this.btnEditDetails_Click);
             // 
             // FrmCallCenter
             // 
@@ -261,7 +262,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCallLoad;
         private System.Windows.Forms.Button btnLeaveCall;
-        private System.Windows.Forms.Button btnMakeCall;
+        private System.Windows.Forms.Button btnAnswerCall;
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dtStartDate;

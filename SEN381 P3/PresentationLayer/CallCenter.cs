@@ -28,7 +28,6 @@ namespace Presentation_Layer
         private void btnClientScreen_Click(object sender, EventArgs e)
         {
             Clients_Screen clientsScreen = new Clients_Screen();
-            this.Hide();
             clientsScreen.Show();
         }
 
@@ -42,11 +41,19 @@ namespace Presentation_Layer
             this.Hide();
             frmLogin login = new frmLogin();
             login.Show();
+            this.Close();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            AddEmployeeScreen employeeScreen = new AddEmployeeScreen();
+            employeeScreen.Show();
+        }
+
+        private void btnEditDetails_Click(object sender, EventArgs e)
+        {
+            EmployeePage employeePage = new EmployeePage();
+            employeePage.Show();
         }
     }
 }
