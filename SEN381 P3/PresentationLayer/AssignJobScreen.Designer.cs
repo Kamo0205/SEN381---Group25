@@ -37,7 +37,6 @@ namespace Presentation_Layer
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.lblSkill = new System.Windows.Forms.Label();
             this.txtSkill = new System.Windows.Forms.TextBox();
-            this.btnHome = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +60,7 @@ namespace Presentation_Layer
             // 
             this.btnAssignJob.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.btnAssignJob.Location = new System.Drawing.Point(661, 186);
-            this.btnAssignJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssignJob.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssignJob.Name = "btnAssignJob";
             this.btnAssignJob.Size = new System.Drawing.Size(155, 36);
             this.btnAssignJob.TabIndex = 20;
@@ -126,16 +125,6 @@ namespace Presentation_Layer
             this.txtSkill.Size = new System.Drawing.Size(155, 26);
             this.txtSkill.TabIndex = 5;
             // 
-            // btnHome
-            // 
-            this.btnHome.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnHome.Location = new System.Drawing.Point(719, 293);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(109, 36);
-            this.btnHome.TabIndex = 22;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -145,6 +134,7 @@ namespace Presentation_Layer
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // AssignJobScreen
             // 
@@ -152,7 +142,6 @@ namespace Presentation_Layer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 341);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.panel1);
             this.Name = "AssignJobScreen";
             this.Text = "AssignJobScreen";
@@ -173,7 +162,6 @@ namespace Presentation_Layer
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label lblSkill;
         private System.Windows.Forms.TextBox txtSkill;
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnBack;
     }
 }

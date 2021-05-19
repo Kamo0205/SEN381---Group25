@@ -19,6 +19,7 @@ namespace Presentation_Layer
         private bool isClient = false;
         private Client selectedClient;
         private Contract selectedContract;
+        private List<Contract> selectedClientContracts;
 
         public Clients_Screen(Client client = null)
         {
@@ -27,9 +28,7 @@ namespace Presentation_Layer
             {
                 lblSearchCLients.Hide();
                 lblSearchBy.Hide();
-                lblService.Hide();
                 cmbSearchBy.Hide();
-                cmbService.Hide();
                 cmbServiceChange.AllowDrop = false;
                 txtSearchParamater.Hide();
                 txtContractExperationDate.ReadOnly = true;
@@ -63,11 +62,8 @@ namespace Presentation_Layer
             List<ComboBoxItem> items = new List<ComboBoxItem>{new ComboBoxItem(name: "Bronze", id: 0), new ComboBoxItem(name: "Silver", id: 1), new ComboBoxItem(name: "Premium", id: 2)};
             foreach (ComboBoxItem item in items)
             {
-                cmbService.Items.Add(item);
                 cmbServiceChange.Items.Add(item);
             };
-            cmbService.DisplayMember = "Name";
-            cmbService.ValueMember = "Id";
             cmbServiceChange.DisplayMember = "Name";
             cmbServiceChange.ValueMember = "Id";
         }
@@ -94,10 +90,16 @@ namespace Presentation_Layer
                 txtClientPhoneNumber.Text = client.PhoneNumber;
                 txtClientEmail.Text = client.Email;
 
-                List<Contract> selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.clientID,query: client.Id);
+                selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.clientID,query: client.Id);
 
                 contractBind.DataSource = selectedClientContracts;
             }
+        }
+
+        private void RefreshScreen()
+        {
+            selectedClientContracts = contractData.listContractsBySearchParamater(parameter: contractSearchParamaters.clientID, query: searchResults[0].Id);
+            contractBind.DataSource = selectedClientContracts;
         }
 
         private void lstData_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,6 +130,7 @@ namespace Presentation_Layer
             else
             {
                 prompt.ShowDialog(message: "Are you sure you want to delete this Contract?", caption: "Delete Contract?", method: () => contractData.deleteContract(id: txtContractId.Text));
+                RefreshScreen();
             }
             
         }
@@ -144,6 +147,7 @@ namespace Presentation_Layer
                 {
                     contractData.updateContract(new Contract(id: txtContractId.Text, clientID: searchResults[0].Id,serviceLevel: cmbServiceChange.Text, experationDate: txtContractExperationDate.Text));
                     MessageBox.Show("Contract Updated!");
+                    RefreshScreen();
                 }
                 else
                 {
@@ -166,6 +170,7 @@ namespace Presentation_Layer
                     Contract newContract = new Contract(id: null, clientID: searchResults[0].Id, serviceLevel: cmbServiceChange.Text, experationDate: txtContractExperationDate.Text);
                     contractData.createContract(newContract);
                     MessageBox.Show(string.Format("Created contract for {0} {1}!", txtClientFirstName.Text, txtClientLastName.Text));
+                    RefreshScreen();
                 }
                 else
                 {
@@ -199,8 +204,6 @@ namespace Presentation_Layer
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(selectedClient);
-            clientSatisfaction.Show();
             this.Close();
         }
     }

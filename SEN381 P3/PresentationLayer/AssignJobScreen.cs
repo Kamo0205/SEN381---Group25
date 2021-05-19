@@ -81,5 +81,10 @@ namespace Presentation_Layer
                 this.Close();
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

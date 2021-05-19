@@ -125,16 +125,13 @@ namespace Presentation_Layer
         private void btnPersonalDetails_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage(loggedInClient);
-            this.Hide();
             clientPage.Show();
         }
 
         private void btnContractScreen_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Clients_Screen clientsScreen = new Clients_Screen(loggedInClient);
             clientsScreen.Show();
-            this.Close();
         }
     }
 }
