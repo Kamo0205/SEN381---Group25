@@ -16,13 +16,19 @@ namespace Presentation_Layer
     {
         private Job assignedJob;
         private Employee loggedEmployee;
+        private Client jobClient;
+        private Contract jobContract;
         private JobBusinessLogic jobLogic = new JobBusinessLogic();
+        private ContractBusinessLogic contractlogic = new ContractBusinessLogic();
+        private ClientBusinessLogic clientLogic = new ClientBusinessLogic();
         private Prompt prompt = new Prompt();
         public JobScreen(Job job, Employee employee)
         {
             InitializeComponent();
             this.assignedJob = job;
             this.loggedEmployee = employee;
+            jobContract = contractlogic.listContractsBySearchParamater(contractSearchParamaters.id,this.assignedJob.ContractID)[0];
+            jobClient = clientLogic.searchClientByParameter(clientSearchParameter.id, jobContract.ClientID)[0];
         }
 
         private void JobScreen_Load(object sender, EventArgs e)
@@ -31,6 +37,11 @@ namespace Presentation_Layer
             lblJobCategory.Text = assignedJob.JobCategory;
             lblJobType.Text = assignedJob.JobType;
             lblStatus.Text = assignedJob.JobStatus;
+            lblClientAddress.Text = jobClient.Address;
+            lblClientContactNumber.Text = jobClient.PhoneNumber;
+            lblClientEmail.Text = jobClient.Email;
+            lblClientName.Text = jobClient.FirstName + " " + jobClient.LastName;
+            lblSatisfaction.Text = this.assignedJob.ClientSatisfaction;
         }
 
         private void btnSignOut_Click(object sender, EventArgs e)
@@ -58,5 +69,6 @@ namespace Presentation_Layer
             availableJobsScreen.Show();
             this.Close();
         }
+
     }
 }

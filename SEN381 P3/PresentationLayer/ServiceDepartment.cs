@@ -99,6 +99,9 @@ namespace Presentation_Layer
             if (lstJobs.SelectedItems.Count < 0)
             {
                 MessageBox.Show("Please select a job to assign to a technician");
+            }else if (selectedJob.JobStatus == "Assigned" || selectedJob.JobStatus == "Completed")
+            {
+                MessageBox.Show("Job selected is either already assigned or completed");
             }
             else
             {
