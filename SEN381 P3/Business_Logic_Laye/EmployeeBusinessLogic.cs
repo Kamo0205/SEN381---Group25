@@ -100,7 +100,7 @@ namespace Business_Logic_Layer
                 {
                     skills.Add(new Skill(data: skillData, i: i));
                 }
-                if (skills.Count > 0)
+                if (skills.Count >= 0)
                 {
                     return skills;
                 }
