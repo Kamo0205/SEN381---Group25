@@ -11,6 +11,14 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
+			IF EXISTS(SELECT * FROM tblJob WHERE ContractID = @id)
+			BEGIN
+			DELETE FROM tblJobEquipment
+			WHERE (SELECT JobID FROM tblJob WHERE ContractID = @id) = JobID
+			DELETE FROM tblJob
+			WHERE ContractID = @id 
+			END
+
 			IF EXISTS(SELECT * FROM tblContract WHERE ClientID = @id)
 			BEGIN
 			DELETE FROM tblContract
@@ -177,6 +185,8 @@ BEGIN
 
 			IF EXISTS(SELECT * FROM tblJob WHERE ContractID = @id)
 			BEGIN
+			DELETE FROM tblJobEquipment
+			WHERE (SELECT JobID FROM tblJob WHERE ContractID = @id) = JobID
 			DELETE FROM tblJob
 			WHERE ContractID = @id 
 			END

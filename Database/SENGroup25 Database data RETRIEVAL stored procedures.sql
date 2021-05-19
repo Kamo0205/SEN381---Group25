@@ -21,7 +21,7 @@ AS
 BEGIN
 SELECT *
 FROM tblEmployee
-WHERE Email = @email
+WHERE Email LIKE '%' + @email + '%' 
 END
 
 GO
@@ -32,7 +32,7 @@ AS
 BEGIN
 SELECT *
 FROM tblEmployee
-WHERE VatIDNumber = @vat
+WHERE VatIDNumber LIKE '%' + @vat + '%' 
 END
 
 GO
@@ -43,7 +43,7 @@ AS
 BEGIN
 SELECT *
 FROM tblEmployee
-WHERE ContactNumber = @number
+WHERE ContactNumber LIKE '%' + @number + '%' 
 END
 
 GO
@@ -68,7 +68,7 @@ AS
 BEGIN
 SELECT EmpID
 FROM tblEmployee
-WHERE EmpName = @name
+WHERE EmpName LIKE '%' + @name + '%' 
 END
 
 GO 
@@ -79,7 +79,7 @@ AS
 BEGIN
 SELECT EmpID
 FROM tblEmployee
-WHERE EmpSurname = @surname
+WHERE EmpSurname LIKE '%' + @surname + '%' 
 END
 
 GO 
@@ -103,21 +103,21 @@ AS
 BEGIN
 SELECT *
 FROM tblClient
-WHERE Email = @email
+WHERE Email LIKE '%' + @email + '%'
 END
 
 GO
 
-/*CREATE PROCEDURE spGetClientByAddress
+CREATE PROCEDURE spGetClientByAddress
 @address VARCHAR(100)
 AS
 BEGIN
 SELECT *
 FROM tblClient
-WHERE ClientAddress = @address
+WHERE ClientAddress LIKE '%' + @address + '%' 
 END
 
-GO*/
+GO
 
 CREATE PROCEDURE spGetClientByContactNumber
 @number VARCHAR(12)
@@ -125,7 +125,7 @@ AS
 BEGIN
 SELECT *
 FROM tblClient
-WHERE ContactNumber = @number
+WHERE ContactNumber LIKE '%' + @number + '%' 
 END
 
 GO
@@ -150,7 +150,7 @@ AS
 BEGIN
 SELECT ClientID
 FROM tblClient
-WHERE ClientName = @name
+WHERE ClientName LIKE '%' + @name + '%'
 END
 
 GO 
@@ -161,7 +161,7 @@ AS
 BEGIN
 SELECT ClientID
 FROM tblClient
-WHERE ClientSurname = @surname
+WHERE ClientSurname LIKE '%' + @surname + '%' 
 END
 
 GO 

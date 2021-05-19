@@ -65,7 +65,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobLogic.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: null, jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobLogic.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: "", jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Name, jobType: cmbJobType.Name, pay: new Pay("", 600)));
                 MessageBox.Show("Job added to contract!");
             }
         }
