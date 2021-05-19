@@ -18,6 +18,7 @@ namespace Presentation_Layer
         private DateTime dDate;
         private bool isClient = false;
         private Client selectedClient;
+        private Contract selectedContract;
 
         public Clients_Screen(Client client = null)
         {
@@ -101,7 +102,7 @@ namespace Presentation_Layer
 
         private void lstData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Contract selectedContract = (Contract)lstData.SelectedItem;
+            selectedContract = (Contract)lstData.SelectedItem;
 
             txtContractId.Text = selectedContract.Id;
             txtContractExperationDate.Text = selectedContract.ExperationDate;
@@ -184,13 +185,11 @@ namespace Presentation_Layer
                 if (!this.isClient)
                 {
                     FrmServiceDepartment serviceDepartment = new FrmServiceDepartment(contractData.listContractsBySearchParamater(contractSearchParamaters.id, txtContractId.Text)[0]);
-                    this.Hide();
                     serviceDepartment.Show();
                 }
                 else
                 {
-                    JobStatusScreen jobStatusScreen = new JobStatusScreen();
-                    this.Hide();
+                    JobStatusScreen jobStatusScreen = new JobStatusScreen(selectedContract);
                     jobStatusScreen.Show();
                 }
                 
@@ -202,6 +201,7 @@ namespace Presentation_Layer
             this.Hide();
             FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(selectedClient);
             clientSatisfaction.Show();
+            this.Close();
         }
     }
 }

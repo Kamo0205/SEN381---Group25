@@ -10,8 +10,8 @@ namespace Presentation_Layer
 {
     public partial class FrmServiceDepartment : Form
     {
-        private JobBusinessLogic jobInformation = new JobBusinessLogic();
-        private Job selectedJob = new Job();
+        private JobBusinessLogic jobLogic = new JobBusinessLogic();
+        private Job selectedJob;
         private Contract selectedContract;
         private Prompt prompt = new Prompt();
         private BindingSource contractBind = new BindingSource();
@@ -42,7 +42,7 @@ namespace Presentation_Layer
         {
             populateJobCategory();
             populateJobType();
-            List<Job> jobs = jobInformation.getJobsBySearchParamater(jobSearchParamaters.contractID, this.selectedContract.Id);
+            List<Job> jobs = jobLogic.getJobsBySearchParamater(jobSearchParamaters.contractID, this.selectedContract.Id);
             contractBind.DataSource = jobs;
             lstJobs.DataSource = contractBind;
             lblServiceLevel.Text = selectedContract.ServiceLevel;
@@ -65,7 +65,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobInformation.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: null, jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobLogic.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: null, jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
                 MessageBox.Show("Job added to contract!");
             }
         }
@@ -78,7 +78,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobInformation.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobLogic.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
             }
         }
 
@@ -90,7 +90,7 @@ namespace Presentation_Layer
             }
             else
             {
-                prompt.ShowDialog(message: "Are you sure you want to delete this Job?", caption: "Delete Job?", method: () => jobInformation.deleteJob(selectedJob.Id));
+                prompt.ShowDialog(message: "Are you sure you want to delete this Job?", caption: "Delete Job?", method: () => jobLogic.deleteJob(selectedJob.Id));
             }
         }
 

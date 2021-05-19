@@ -201,6 +201,9 @@
     <EmbeddedResource Include="JobScreen.resx">
       <DependentUpon>JobScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JobStatusScreen.resx">
+      <DependentUpon>JobStatusScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PasswordPrompt.resx">
       <DependentUpon>PasswordPrompt.cs</DependentUpon>
     </EmbeddedResource>
