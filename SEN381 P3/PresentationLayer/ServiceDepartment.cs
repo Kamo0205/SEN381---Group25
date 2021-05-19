@@ -65,7 +65,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobLogic.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: "", jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Name, jobType: cmbJobType.Name, pay: new Pay("", 600)));
+                jobLogic.createJob(new Job(id: null, contractID: selectedContract.Id, employeeID: "kamoTechnicianID", jobStatus: "Unassigned", jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
                 MessageBox.Show("Job added to contract!");
             }
         }
@@ -78,7 +78,7 @@ namespace Presentation_Layer
             }
             else
             {
-                jobLogic.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
+                jobLogic.updateJob(new Job(id: selectedJob.Id, contractID: selectedContract.Id, employeeID: selectedJob.EmployeeID == "" ? "kamoTechnicianID" : selectedJob.EmployeeID, jobStatus: selectedJob.JobStatus, jobDescription: txtDescription.Text, clientSatisfaction: 0.ToString(), jobCategory: cmbJobCategory.Text, jobType: cmbJobType.Text, pay: new Pay("", 600)));
             }
         }
 
@@ -106,6 +106,30 @@ namespace Presentation_Layer
                 this.Hide();
                 assignJobScreen.ShowDialog();
                 this.Close();
+            }
+        }
+
+        private void cmbJobCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbJobCategory.SelectedIndex == 0)
+            {
+                cmbJobCategory.Text = "Hardware";
+            }
+            else
+            {
+                cmbJobCategory.Text = "Software";
+            }
+        }
+
+        private void cmbJobType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbJobType.SelectedIndex == 0)
+            {
+                cmbJobType.Text = "Installation";
+            }
+            else
+            {
+                cmbJobType.Text = "Repair";
             }
         }
     }

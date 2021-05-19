@@ -40,106 +40,119 @@
             this.txtNum = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnAddSkill = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(18, 182);
+            this.btnExit.Location = new System.Drawing.Point(189, 216);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(100, 23);
+            this.btnExit.Size = new System.Drawing.Size(133, 28);
             this.btnExit.TabIndex = 31;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(18, 140);
+            this.btnSave.Location = new System.Drawing.Point(24, 216);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSave.Size = new System.Drawing.Size(133, 28);
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblemptitle
             // 
             this.lblemptitle.AutoSize = true;
             this.lblemptitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblemptitle.Location = new System.Drawing.Point(25, 18);
+            this.lblemptitle.Location = new System.Drawing.Point(33, 22);
+            this.lblemptitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblemptitle.Name = "lblemptitle";
-            this.lblemptitle.Size = new System.Drawing.Size(181, 25);
+            this.lblemptitle.Size = new System.Drawing.Size(223, 31);
             this.lblemptitle.TabIndex = 28;
             this.lblemptitle.Text = "Employee page.";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(139, 88);
+            this.lblEmail.Location = new System.Drawing.Point(185, 108);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.Size = new System.Drawing.Size(42, 17);
             this.lblEmail.TabIndex = 27;
             this.lblEmail.Text = "Email";
             // 
             // lblempLastname
             // 
             this.lblempLastname.AutoSize = true;
-            this.lblempLastname.Location = new System.Drawing.Point(15, 88);
+            this.lblempLastname.Location = new System.Drawing.Point(20, 108);
+            this.lblempLastname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblempLastname.Name = "lblempLastname";
-            this.lblempLastname.Size = new System.Drawing.Size(49, 13);
+            this.lblempLastname.Size = new System.Drawing.Size(65, 17);
             this.lblempLastname.TabIndex = 25;
             this.lblempLastname.Text = "Surname";
             // 
             // lblContact
             // 
             this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(139, 49);
+            this.lblContact.Location = new System.Drawing.Point(185, 60);
+            this.lblContact.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(82, 13);
+            this.lblContact.Size = new System.Drawing.Size(108, 17);
             this.lblContact.TabIndex = 24;
             this.lblContact.Text = "Contact number";
             // 
             // lvlempFname
             // 
             this.lvlempFname.AutoSize = true;
-            this.lvlempFname.Location = new System.Drawing.Point(15, 49);
+            this.lvlempFname.Location = new System.Drawing.Point(20, 60);
+            this.lvlempFname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlempFname.Name = "lvlempFname";
-            this.lvlempFname.Size = new System.Drawing.Size(35, 13);
+            this.lvlempFname.Size = new System.Drawing.Size(45, 17);
             this.lvlempFname.TabIndex = 22;
             this.lvlempFname.Text = "Name";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(142, 104);
+            this.txtEmail.Location = new System.Drawing.Point(189, 128);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 21;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(18, 104);
+            this.txtSurname.Location = new System.Drawing.Point(24, 128);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(100, 20);
+            this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 19;
             // 
             // txtNum
             // 
-            this.txtNum.Location = new System.Drawing.Point(142, 65);
+            this.txtNum.Location = new System.Drawing.Point(189, 80);
+            this.txtNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(100, 20);
+            this.txtNum.Size = new System.Drawing.Size(132, 22);
             this.txtNum.TabIndex = 18;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(18, 65);
+            this.txtName.Location = new System.Drawing.Point(24, 80);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 16;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnChangePassword);
+            this.panel1.Controls.Add(this.btnAddSkill);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblempLastname);
@@ -150,27 +163,31 @@
             this.panel1.Controls.Add(this.lblContact);
             this.panel1.Controls.Add(this.txtNum);
             this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(264, 226);
+            this.panel1.Size = new System.Drawing.Size(352, 278);
             this.panel1.TabIndex = 32;
             // 
-            // btnChangePassword
+            // btnAddSkill
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(142, 140);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(100, 65);
-            this.btnChangePassword.TabIndex = 32;
-            this.btnChangePassword.Text = "Change Password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnAddSkill.Location = new System.Drawing.Point(24, 180);
+            this.btnAddSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddSkill.Name = "btnAddSkill";
+            this.btnAddSkill.Size = new System.Drawing.Size(298, 28);
+            this.btnAddSkill.TabIndex = 32;
+            this.btnAddSkill.Text = "Add a skill";
+            this.btnAddSkill.UseVisualStyleBackColor = true;
+            this.btnAddSkill.Click += new System.EventHandler(this.button1_Click);
             // 
             // EmployeePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 260);
+            this.ClientSize = new System.Drawing.Size(385, 320);
             this.Controls.Add(this.lblemptitle);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EmployeePage";
             this.Text = "EmployeePage";
             this.panel1.ResumeLayout(false);
@@ -194,6 +211,6 @@
         private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnAddSkill;
     }
 }

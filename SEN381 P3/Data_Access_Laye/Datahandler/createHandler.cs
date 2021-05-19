@@ -166,6 +166,7 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@description", job.JobDescription);
                 cmd.Parameters.AddWithValue("@type", job.JobType);
                 cmd.Parameters.AddWithValue("@status", job.JobStatus);
+                cmd.Parameters.AddWithValue("@category", job.JobCategory);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)

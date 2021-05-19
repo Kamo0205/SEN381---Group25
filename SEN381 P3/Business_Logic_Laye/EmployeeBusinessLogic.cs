@@ -152,6 +152,19 @@ namespace Business_Logic_Layer
             }
         }
 
+        public void addSkillForEmployee(string employeeID, string skillID)
+        {
+            try
+            {
+                db.CreateEmployeeSkill(employeeID, skillID);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : addSkillForEmployee ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public void updateEmployeeSkill(string skillID, string skillDescription, employeeSkillCategories category, employeeSkillsTypes type) 
         {
             try
@@ -380,6 +393,36 @@ namespace Business_Logic_Layer
                 employeesOnStandBy = allEmployees.Except(assignedEmployees).ToList();
 
                 return employeesOnStandBy;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : employeesOnStandBy ERROR:" + e.Message);
+                throw;
+            }
+        }
+
+        public List<String> listAllSkills(List<String> currentSkills)
+        {
+            List<String> skillIds = new List<String>();
+
+            try
+            {
+                DataTable skillData = db.ListSkills();
+                List<Skill> skils = new List<Skill>();
+
+                for (int i = 0; i < skillData.Rows.Count; i++)
+                {
+                    skils.Add(new Skill(data:skillData,i:i));
+                }
+                foreach (Skill skill in skils)
+                {
+                    if (!currentSkills.Contains(skill.ID))
+                    {
+                        skillIds.Add(skill.ID);
+                    }
+                }
+
+                return skillIds;
             }
             catch (Exception e)
             {

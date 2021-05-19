@@ -103,6 +103,7 @@ namespace Data_Access_Layer.Datahandler
                 cmd.Parameters.AddWithValue("@id", employee.Id);
                 cmd.Parameters.AddWithValue("@name", employee.FirstName);
                 cmd.Parameters.AddWithValue("@surname", employee.LastName);
+                cmd.Parameters.AddWithValue("@vat", employee.VatID);
                 cmd.Parameters.AddWithValue("@email", employee.Email);
                 cmd.Parameters.AddWithValue("@number", employee.PhoneNumber);
                 cmd.Parameters.AddWithValue("@type", type);

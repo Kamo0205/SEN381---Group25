@@ -12,6 +12,7 @@ using Business_Logic_Layer;
 
 namespace Presentation_Layer
 {
+
     public partial class JobStatusScreen : Form
     {
         private Contract selectedContract;
@@ -21,6 +22,13 @@ namespace Presentation_Layer
         {
             InitializeComponent();
             this.selectedContract = contract;
+
+
+            rdOneStar.Checked = false;
+            rdTwoStar.Checked = false;
+            rdThreeStar.Checked = false;
+            rdFourStar.Checked = false;
+            rdFiveStar.Checked = false;
         }
 
         private void JobStatusScreen_Load(object sender, EventArgs e)
@@ -47,12 +55,93 @@ namespace Presentation_Layer
                 trvJobStatus.Nodes.Add("Assigned");
                 trvJobStatus.Nodes.Add("Completed");
             }
+
+            switch (selectedJob.ClientSatisfaction != null ? selectedJob.ClientSatisfaction : "")
+            {
+                case "1":
+                    rdOneStar.Checked = true;
+                    break;
+                case "2":
+                    rdTwoStar.Checked = true;
+                    break;
+                case "3":
+                    rdThreeStar.Checked = true;
+                    break;
+                case "4":
+                    rdFourStar.Checked = true;
+                    break;
+                case "5":
+                    rdFiveStar.Checked = true;
+                    break;
+                default:
+                    rdOneStar.Checked = true;
+                    break;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
+        }
+
+        private void rdOneStar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdOneStar.Checked) {
+                JobBusinessLogic jobBusiness = new JobBusinessLogic();
+
+                selectedJob.ClientSatisfaction = "1";
+
+                jobBusiness.updateJob(selectedJob);
+            }
+        }
+
+        private void rdTwoStar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdTwoStar.Checked)
+            {
+                JobBusinessLogic jobBusiness = new JobBusinessLogic();
+
+                selectedJob.ClientSatisfaction = "2";
+
+                jobBusiness.updateJob(selectedJob);
+            }
+        }
+
+        private void rdThreeStar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdThreeStar.Checked){
+                JobBusinessLogic jobBusiness = new JobBusinessLogic();
+
+                selectedJob.ClientSatisfaction = "3";
+
+                jobBusiness.updateJob(selectedJob);
+        }
+        }
+
+        private void rdFourStar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdFourStar.Checked)
+            {
+
+                JobBusinessLogic jobBusiness = new JobBusinessLogic();
+
+                selectedJob.ClientSatisfaction = "4";
+
+                jobBusiness.updateJob(selectedJob);
+            }
+        }
+
+        private void rdFiveStar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdFiveStar.Checked)
+            {
+                JobBusinessLogic jobBusiness = new JobBusinessLogic();
+
+                selectedJob.ClientSatisfaction = "5";
+
+                jobBusiness.updateJob(selectedJob);
+            }
         }
     }
 }

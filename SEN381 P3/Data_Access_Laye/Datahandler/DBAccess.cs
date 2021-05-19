@@ -18,7 +18,7 @@ namespace Data_Access_Layer
 
         public DBAccess()
         {
-            connection.DataSource = @"DESKTOP-CU14BKP"; //the data source of the connection
+            connection.DataSource = @"MSI"; //the data source of the connection
             connection.InitialCatalog = @"SENGroup25DB"; //the inital catalog of the connection
             connection.IntegratedSecurity = true; //the integrated security of the connection
 
@@ -146,6 +146,11 @@ namespace Data_Access_Layer
         public DataTable ListEmployees()
         {
             return readDataHandler.ListEmployees();
+        }
+
+        public DataTable ListSkills()
+        {
+            return readDataHandler.ListSkills();
         }
 
         public DataTable ListEmployeesForJob(string category, string type)

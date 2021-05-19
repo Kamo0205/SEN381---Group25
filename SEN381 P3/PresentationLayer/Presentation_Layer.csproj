@@ -74,12 +74,6 @@
     <Compile Include="CallCenter.Designer.cs">
       <DependentUpon>CallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangePasswordScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangePasswordScreen.Designer.cs">
-      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChooseDepartments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CallCenter.resx">
       <DependentUpon>CallCenter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChangePasswordScreen.resx">
-      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseDepartments.resx">
       <DependentUpon>ChooseDepartments.cs</DependentUpon>

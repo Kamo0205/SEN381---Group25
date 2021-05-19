@@ -206,5 +206,26 @@ namespace Presentation_Layer
             this.Hide();
             this.Close();
         }
+
+        private void cmbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbServiceChange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbServiceChange.SelectedIndex == 0)
+            {
+                cmbServiceChange.Text = "Bronze";
+            }
+            if (cmbServiceChange.SelectedIndex == 1)
+            {
+                cmbServiceChange.Text = "Silver";
+            }
+            if (cmbServiceChange.SelectedIndex == 2)
+            {
+                cmbServiceChange.Text = "Premium";
+            }
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace Presentation_Layer
 
         private void btnEditDetails_Click(object sender, EventArgs e)
         {
-            EmployeePage employeePage = new EmployeePage();
+            EmployeePage employeePage = new EmployeePage(loggedEmployee);
             employeePage.Show();
         }
     }

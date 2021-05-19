@@ -98,5 +98,11 @@ namespace Presentation_Layer
                 this.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EmployeePage employeePage = new EmployeePage(loggedEmployee);
+            employeePage.Show();
+        }
     }
 }

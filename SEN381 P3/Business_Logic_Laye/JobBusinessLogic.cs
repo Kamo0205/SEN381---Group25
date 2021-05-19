@@ -51,6 +51,11 @@ namespace Business_Logic_Layer
         {
             try
             {
+                if(job.EmployeeID == null || job.EmployeeID == "")
+                {
+                    job.EmployeeID = "kamoTechnicianID";
+                }
+
                 db.UpdateJob(job);
             }
             catch (Exception e)
@@ -145,7 +150,7 @@ namespace Business_Logic_Layer
                     return jobs;
                 }
 
-                return null;
+                return new List<Job>();
 
             }
             catch (Exception e)
@@ -184,7 +189,7 @@ namespace Business_Logic_Layer
                     return jobs;
                 }
 
-                return null;
+                return new List<Job>();
 
             }
             catch (Exception e)
@@ -226,7 +231,7 @@ namespace Business_Logic_Layer
                 {
                     return jobs;
                 }
-                return null;
+                return new List<Job>();
             }
             catch (Exception e)
             {
@@ -256,7 +261,7 @@ namespace Business_Logic_Layer
                     return unassignedJobs;
                 }
 
-                return null;
+                return new List<Job>();
 
             }
             catch (Exception e)

@@ -736,5 +736,33 @@ namespace Data_Access_Layer.Datahandler
             }
             return output;
         }
+
+        public DataTable ListSkills()
+        {
+            DataTable output = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM tblSkill", conn);
+                cmd.CommandType = CommandType.Text;
+                sda.SelectCommand = cmd;
+                sda.FillSchema(output, SchemaType.Source);
+                sda.Fill(output);
+            }
+            catch (SqlException e)
+            {
+                System.Console.WriteLine("ReadHandler : ListSkills ERROR:" + e.Message);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return output;
+        }
     }
 }
