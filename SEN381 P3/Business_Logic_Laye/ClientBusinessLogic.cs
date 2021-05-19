@@ -115,7 +115,9 @@ namespace Business_Logic_Layer
         {
             try
             {
-                db.UpdateClientPassword(client: client, password: password);
+                AuthenticationBusinessLogic authLogic = new AuthenticationBusinessLogic();
+
+                db.UpdateClientPassword(client: client, password: authLogic.Encipher(password, 12));
             }
             catch (Exception e)
             {

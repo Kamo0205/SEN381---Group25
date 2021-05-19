@@ -47,7 +47,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(31, 90);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 0;
@@ -55,7 +55,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(199, 90);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 2;
@@ -63,7 +63,7 @@
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(199, 140);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(132, 22);
             this.txtAddress.TabIndex = 4;
@@ -71,7 +71,7 @@
             // txtSurname
             // 
             this.txtSurname.Location = new System.Drawing.Point(31, 140);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 3;
@@ -130,7 +130,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(31, 190);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(133, 28);
             this.btnSave.TabIndex = 14;
@@ -141,7 +141,7 @@
             // btnEXIT
             // 
             this.btnEXIT.Location = new System.Drawing.Point(31, 245);
-            this.btnEXIT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEXIT.Margin = new System.Windows.Forms.Padding(4);
             this.btnEXIT.Name = "btnEXIT";
             this.btnEXIT.Size = new System.Drawing.Size(133, 28);
             this.btnEXIT.TabIndex = 15;
@@ -164,7 +164,7 @@
             this.panel1.Controls.Add(this.lblemail);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Location = new System.Drawing.Point(17, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 310);
             this.panel1.TabIndex = 16;
@@ -172,12 +172,13 @@
             // btnChangePassword
             // 
             this.btnChangePassword.Location = new System.Drawing.Point(199, 190);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(133, 84);
             this.btnChangePassword.TabIndex = 16;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // ClientPage
             // 
@@ -186,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(400, 345);
             this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientPage";
             this.Text = "ClientPage";
             this.panel1.ResumeLayout(false);

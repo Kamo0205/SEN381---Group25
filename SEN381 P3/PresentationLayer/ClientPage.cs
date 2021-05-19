@@ -27,11 +27,31 @@ namespace Presentation_Layer
             txtAddress.Text = client.Address;
         }
 
+        private string ShowPasswordDialog()
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Please enter your new password",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            Label lblPassword = new Label() { Left = 50, Top = 20, Text = "New Password" };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(lblPassword);
+            prompt.AcceptButton = confirmation;
+
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+        }
+
         private void btnEXIT_Click(object sender, EventArgs e)
         {
-            FrmClientSatisfaction clientSatisfaction = new FrmClientSatisfaction(selectedClient);
             this.Hide();
-            clientSatisfaction.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -48,6 +68,13 @@ namespace Presentation_Layer
                 ClientBusinessLogic clientBusiness = new ClientBusinessLogic();
                 clientBusiness.updateClient(selectedClient);
             }
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            string newPassword = ShowPasswordDialog();
+            ClientBusinessLogic clientBusiness = new ClientBusinessLogic();
+            clientBusiness.updateClientPassword(selectedClient, newPassword);
         }
     }
 }
