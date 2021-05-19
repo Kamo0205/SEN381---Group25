@@ -429,10 +429,13 @@ GO*/
 CREATE PROCEDURE spUpdateJob
 (
 @id VARCHAR(30),
+@contractID VARCHAR(30),
+@empID VARCHAR(30),
+@clientSatisfaction VARCHAR(5),
 @description VARCHAR(100),
-@clientSatisfaction INT,
 @category VARCHAR(15),
-@type VARCHAR(15)
+@type VARCHAR(15),
+@status VARCHAR(15)
 )
 AS
 BEGIN
@@ -441,10 +444,13 @@ BEGIN
 
 			UPDATE tblJob 
 			SET 
-			JobDescription = @description,
+			ContractID = @contractID,
+			EmpID = @empID,
 			ClientSatisfaction = @clientSatisfaction,
+			JobDescription = @description,
 			JobCategory = @category,
-			JobType = @type
+			JobType = @type,
+			JobStatus = @status
 			WHERE JobID = @id
 
 		COMMIT
@@ -480,32 +486,6 @@ BEGIN
 	BEGIN CATCH
 		ROLLBACK
 		PRINT 'spReassignJob Transaction UNSUCCESSFUL'
-	END CATCH
-END
-
-GO
-
-CREATE PROCEDURE spUpdateJobStatus
-(
-@id VARCHAR(30),
-@status VARCHAR(15)
-)
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRANSACTION
-
-			UPDATE tblJob 
-			SET 
-			JobStatus = @status
-			WHERE JobID = @id
-
-		COMMIT
-		PRINT 'spUpdateJobStatus Transaction Successful'
-	END TRY
-	BEGIN CATCH
-		ROLLBACK
-		PRINT 'spUpdateJobStatus Transaction UNSUCCESSFUL'
 	END CATCH
 END
 

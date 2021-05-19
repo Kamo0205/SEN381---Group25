@@ -179,10 +179,13 @@ namespace Data_Access_Layer.Datahandler
                 SqlCommand cmd = new SqlCommand("spUpdateJob", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@description", job.JobDescription);
+                cmd.Parameters.AddWithValue("@contractID", job.ContractID);
+                cmd.Parameters.AddWithValue("@empID", job.EmployeeID);
                 cmd.Parameters.AddWithValue("@clientSatisfaction", job.ClientSatisfaction);
+                cmd.Parameters.AddWithValue("@description", job.JobDescription);
                 cmd.Parameters.AddWithValue("@category", job.JobCategory);
                 cmd.Parameters.AddWithValue("@type", job.JobType);
+                cmd.Parameters.AddWithValue("@status", job.JobStatus);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -213,31 +216,6 @@ namespace Data_Access_Layer.Datahandler
             catch (SqlException e)
             {
                 System.Console.WriteLine("UpdateHandler : ReassignJob ERROR:" + e.Message);
-                throw;
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        public void UpdateJobStatus(Job job)
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("spUpdateJobStatus", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", job.Id);
-                cmd.Parameters.AddWithValue("@status", job.JobStatus);
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                System.Console.WriteLine("UpdateHandler : UpdateJobStatus ERROR:" + e.Message);
                 throw;
             }
             finally

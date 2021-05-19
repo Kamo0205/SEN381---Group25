@@ -89,6 +89,30 @@ namespace Business_Logic_Layer
             }
         }
 
+        public List<Skill> getEmployeeSkills(Employee employee)
+        {
+            try
+            {
+                DataTable skillData = db.ListSkillsByEmployeeID(employee.Id);
+                List<Skill> skills = new List<Skill>();
+
+                for (int i = 0; i < skillData.Rows.Count; i++)
+                {
+                    skills.Add(new Skill(data: skillData, i: i));
+                }
+                if (skills.Count > 0)
+                {
+                    return skills;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("EmployeeBusinessLogic : getEmployeeSkills ERROR:" + e.Message);
+                throw;
+            }
+        }
+
         public void addEmployeeSkill(string employeeID, string skillDescription,employeeSkillCategories category, employeeSkillsTypes type)
         {
             try

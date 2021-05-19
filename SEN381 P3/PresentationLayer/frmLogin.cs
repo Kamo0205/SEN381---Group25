@@ -3,12 +3,14 @@ using System.Windows.Forms;
 using Business_Logic_Layer;
 using System.Collections.Generic;
 using Data_Access_Layer;
+using System.Linq;
 
 namespace Presentation_Layer
 {
     public partial class frmLogin : Form
     {
-        AuthenticationBusinessLogic authenticationLogic = new AuthenticationBusinessLogic();
+        private AuthenticationBusinessLogic authenticationLogic = new AuthenticationBusinessLogic();
+        private JobBusinessLogic jobLogic = new JobBusinessLogic();
 
         public frmLogin()
         {
@@ -45,13 +47,14 @@ namespace Presentation_Layer
 
                             if (stanbyEmployees.FindIndex(employee => employee.Id == technicianDetails[0].Id) >=0)
                             {
-                                AvailableJobsScreen availableJobsScreen = new AvailableJobsScreen();
+                                AvailableJobsScreen availableJobsScreen = new AvailableJobsScreen(technicianDetails[0]);
                                 this.Hide();
                                 availableJobsScreen.Show();
                             }
                             else
                             {
-                                JobScreen jobScreen = new JobScreen();
+                                Job currentJob = jobLogic.getJobsBySearchParamater(jobSearchParamaters.employeeID, technicianDetails[0].Id).Except(jobLogic.getJobsBySearchParamater(jobSearchParamaters.status, "Completed")).ToList()[0];
+                                JobScreen jobScreen = new JobScreen(job: currentJob, employee: technicianDetails[0]);
                                 this.Hide();
                                 jobScreen.Show();
                             }

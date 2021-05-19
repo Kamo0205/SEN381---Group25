@@ -34,7 +34,7 @@ EXEC spInsertContract @id = 'premiumID', @clientID = 'hanoClientID', @serviceLev
 
 GO
 
-EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @category = 'Hardware', @type = 'Installation', @status = 'unassigned';
+EXEC spInsertJob @id = 'hanoJobID', @contractID = 'premiumID', @empID = null, @description = 'Buy and install new laptop', @category = 'Hardware', @type = 'Installation', @status = 'Unassigned';
 
 GO
 

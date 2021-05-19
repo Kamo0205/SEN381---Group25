@@ -59,7 +59,7 @@ CREATE Table tblJob
 JobID VARCHAR(30) PRIMARY KEY NOT NULL,
 ContractID VARCHAR(30) FOREIGN KEY REFERENCES tblContract(ContractID),
 EmpID VARCHAR(30) FOREIGN KEY REFERENCES tblEmployee(EmpID),
-ClientSatisfaction INT,
+ClientSatisfaction VARCHAR(5),
 JobDescription VARCHAR(100) NOT NULL,
 JobCategory VARCHAR(15) NOT NULL,
 JobType VARCHAR(15) NOT NULL,

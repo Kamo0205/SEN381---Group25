@@ -9,15 +9,10 @@ namespace Data_Access_Layer
 {
     public class Skill
     {
-        private string[] availableSkills = new string[] { "Hardware", "Software", "Devices"};
         private string id;
         private string description;
         private string category;
         private string type;
-
-        public string[] AvailableSkills { get => availableSkills; set => availableSkills = value; }
-
-        
 
         public string ID { get => id; set => id = value; }
         public string Description { get => description; set => description = value; }

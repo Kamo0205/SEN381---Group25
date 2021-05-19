@@ -263,11 +263,6 @@ namespace Data_Access_Layer
             updateDataHandler.ReassignJob(jobId, employeeId);
         }
 
-        public void UpdateJobStatus(Job job)
-        {
-            updateDataHandler.UpdateJobStatus(job);
-        }
-
         public void UpdateSkill(Skill skill)
         {
             updateDataHandler.UpdateSkill(skill);

@@ -26,7 +26,8 @@ namespace Business_Logic_Layer
     {
         id,
         contractID,
-        status
+        status,
+        employeeID
     }
 
     public class JobBusinessLogic
@@ -76,7 +77,7 @@ namespace Business_Logic_Layer
         {
             try
             {
-                DataTable jobData = new DataTable(); 
+                DataTable jobData = new DataTable();
                 switch (paramater)
                 {
                     case jobSearchParamaters.id:
@@ -88,10 +89,13 @@ namespace Business_Logic_Layer
                     case jobSearchParamaters.status:
                         jobData = db.ListJobsByStatus(query);
                         break;
+                    case jobSearchParamaters.employeeID:
+                        jobData = db.ListJobsByEmployeeID(query);
+                        break;
                     default:
                         break;
                 }
-                
+
                 List<Job> jobs = new List<Job>();
                 if (jobData.Rows.Count > 0)
                 {
@@ -102,7 +106,7 @@ namespace Business_Logic_Layer
                     return jobs;
                 }
 
-                return null;
+                return new List<Job>();
 
             }
             catch (Exception e)
@@ -210,10 +214,10 @@ namespace Business_Logic_Layer
                 switch (type)
                 {
                     case jobType.installation:
-                        jobs = jobs.Except(listJobByType(jobType.repair)).ToList();
+                        jobs = jobs.Except(listJobByType(jobType.installation)).ToList();
                         break;
                     case jobType.repair:
-                        jobs = jobs.Except(listJobByType(jobType.installation)).ToList();
+                        jobs = jobs.Except(listJobByType(jobType.repair)).ToList();
                         break;
                     default:
                         break;
@@ -241,7 +245,7 @@ namespace Business_Logic_Layer
 
                 foreach (Job job in jobs)
                 {
-                    if (job.JobStatus == "Unassigned" && job.EmployeeID == null)
+                    if (job.JobStatus == "Unassigned")
                     {
                         unassignedJobs.Add(job);
                     }
